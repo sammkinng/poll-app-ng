@@ -135,6 +135,7 @@ a {
 }
 
 
+
 .filters-card-body {
   padding: 18px 0 0 0;
 }
@@ -10781,6 +10782,20 @@ form.user .form-control-user {
   padding: 1.5rem 1rem;
 }
 
+#countrySelect{
+  padding: 0rem 1rem;
+  height: calc(1.5em + 1.75rem + 2px);
+  border: 1px solid #d1d3e2;
+  width: 100%;
+  color: #6e707e;
+  background-color: #fff;
+}
+
+#countrySelect:focus{
+  /* border: 1px solid #d1d3e2; */
+  outline: none;
+}
+
 form.user .btn-user {
   padding: 0.75rem 1rem;
 }
@@ -10788,6 +10803,17 @@ form.user .btn-user {
 .btn-google {
   color: #fff;
   background-color: #ea4335;
+  border-color: #fff;
+}
+
+.btn-microsoft {
+  color: #fff;
+  background-color: #444791;
+  border-color: #fff;
+}
+.btn-twitter {
+  color: #fff;
+  background-color: #000;
   border-color: #fff;
 }
 
@@ -10800,6 +10826,25 @@ form.user .btn-user {
 .btn-google:focus, .btn-google.focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
+
+.btn-microsoft:hover {
+  color: #fff;
+  background-color: #444761;
+  border-color: #e6e6e6;
+}
+
+.btn-microsoft:focus, .btn-twitter:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+
+.btn-twitter:hover {
+  color: #fff;
+  background-color: #222;
+  border-color: #e6e6e6;
+}
+
+
+
 
 .btn-google.disabled, .btn-google:disabled {
   color: #fff;
