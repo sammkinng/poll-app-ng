@@ -10782,8 +10782,8 @@ form.user .form-control-user {
   padding: 1.5rem 1rem;
 }
 
-#countrySelect{
-  padding: 0rem 1rem;
+.cool-sel{
+  padding: 0rem 0.8rem;
   height: calc(1.5em + 1.75rem + 2px);
   border: 1px solid #d1d3e2;
   width: 100%;
@@ -10791,7 +10791,7 @@ form.user .form-control-user {
   background-color: #fff;
 }
 
-#countrySelect:focus{
+.cool-sel:focus{
   /* border: 1px solid #d1d3e2; */
   outline: none;
 }

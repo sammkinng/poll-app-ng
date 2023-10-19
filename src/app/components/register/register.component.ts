@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { CountryService } from 'src/app/services/country.service';
 
 interface Country {
@@ -13,7 +14,7 @@ interface Country {
 })
 export class RegisterComponent {
   countries: Country[] = [];
-  selectedCountry: string = 'IN'; 
+  selectedCountry: string = ''; 
 
   constructor(private countryService: CountryService) {
     this.countries = countryService.getCountries();
