@@ -7,13 +7,17 @@ import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
+import { ForgotPwComponent } from './components/forgot-pw/forgot-pw.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotPwComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
