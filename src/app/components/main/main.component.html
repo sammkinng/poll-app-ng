@@ -173,7 +173,7 @@
                            </a>
                            <a class="dropdown-item d-flex align-items-center" href="#">
                               <div class="dropdown-list-image mr-3">
-                                 <img class="rounded-circle w-60" src="/assets/img/s1.png" alt="">
+                                 <img class="rounded-circle w-60" src="/assets/img/o1.png" alt="">
                                  <div class="status-indicator bg-success"></div>
                               </div>
                               <div>
@@ -183,7 +183,7 @@
                            </a>
                            <a class="dropdown-item d-flex align-items-center" href="#">
                               <div class="dropdown-list-image mr-3">
-                                 <img class="rounded-circle w-60" src="/assets/img/s2.png" alt="">
+                                 <img class="rounded-circle w-60" src="/assets/img/o1.png" alt="">
                                  <div class="status-indicator"></div>
                               </div>
                               <div>
@@ -193,7 +193,7 @@
                            </a>
                            <a class="dropdown-item d-flex align-items-center" href="#">
                               <div class="dropdown-list-image mr-3">
-                                 <img class="rounded-circle w-60" src="/assets/img/s3.png" alt="">
+                                 <img class="rounded-circle w-60" src="/assets/img/o1.png" alt="">
                                  <div class="status-indicator bg-warning"></div>
                               </div>
                               <div>
@@ -230,7 +230,7 @@
                      <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Askbootstrap</span>
-                        <img class="img-profile rounded-circle" src="/assets/img/s4.png">
+                        <img class="img-profile rounded-circle" src="/assets/img/o1.png">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -264,7 +264,7 @@
                <div class="container-fluid">
                   <!-- Page Heading -->
                   <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-3">
-                     <h1 class="h5 mb-0 text-gray-900">Sports</h1>
+                     <h1 class="h5 mb-0 text-gray-900"></h1>
                      <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Reset Filters <i class="fas fa-times fa-sm text-white-50"></i></a>
                   </div>
                   <!-- Content Row -->
@@ -416,45 +416,14 @@
                                           <form class="filters-search mb-3">
                                              <div class="form-group">
                                                 <i class="fas fa-search"></i>                                 
-                                                <input type="text" class="form-control" placeholder="Start typing to search...">
+                                                <input type="text" class="form-control" placeholder="Start typing to search..." [(ngModel)]="ip" (ngModelChange)="filterCategories()" name="cool">
                                              </div>
                                           </form>
-                                          <div class="custom-control custom-checkbox">
-                                             <input type="checkbox" class="custom-control-input" id="osahan11q">
-                                             <label class="custom-control-label" for="osahan11q">Action <small class="text-black-50">156</small></label>
+                                          <div *ngFor="let category of filteredCategories;let i=index" class="custom-control custom-checkbox" >
+                                             <input type="checkbox" class="custom-control-input" [id]="'osahan11w'+i">
+                                             <label class="custom-control-label" [for]="'osahan11w'+i">{{category.name}} <small class="text-black-50">{{category.value}}</small></label>
                                           </div>
-                                          <div class="custom-control custom-checkbox">
-                                             <input type="checkbox" class="custom-control-input" id="osahan11w">
-                                             <label class="custom-control-label" for="osahan11w">Adventure <small class="text-black-50">120</small></label>
-                                          </div>
-                                          <div class="custom-control custom-checkbox">
-                                             <input type="checkbox" class="custom-control-input" id="osahan11e">
-                                             <label class="custom-control-label" for="osahan11e">Animation <small class="text-black-50">130</small></label>
-                                          </div>
-                                          <div class="custom-control custom-checkbox">
-                                             <input type="checkbox" class="custom-control-input" id="osahan11r">
-                                             <label class="custom-control-label" for="osahan11r">Comedy <small class="text-black-50">120</small></label>
-                                          </div>
-                                          <div class="custom-control custom-checkbox">
-                                             <input type="checkbox" class="custom-control-input" id="osahan11y">
-                                             <label class="custom-control-label" for="osahan11y"> Crime <small class="text-black-50">111</small></label>
-                                          </div>
-                                          <div class="custom-control custom-checkbox">
-                                             <input type="checkbox" class="custom-control-input" id="osahan11u">
-                                             <label class="custom-control-label" for="osahan11u"> Drama <small class="text-black-50">95</small></label>
-                                          </div>
-                                          <div class="custom-control custom-checkbox">
-                                             <input type="checkbox" class="custom-control-input" id="osahan11i">
-                                             <label class="custom-control-label" for="osahan11i"> Fantasy <small class="text-black-50">50</small></label>
-                                          </div>
-                                          <div class="custom-control custom-checkbox">
-                                             <input type="checkbox" class="custom-control-input" id="osahan11p">
-                                             <label class="custom-control-label" for="osahan11p"> Historical <small class="text-black-50">32</small></label>
-                                          </div>
-                                          <div class="custom-control custom-checkbox">
-                                             <input type="checkbox" class="custom-control-input" id="osahan11po">
-                                             <label class="custom-control-label" for="osahan11po"> Romantic <small class="text-black-50">156</small></label>
-                                          </div>
+                                          
                                           <div class="mt-2"><a href="#" class="link">See all</a></div>
                                        </div>
                                     </div>
@@ -527,213 +496,33 @@
                      </div>
                      <div class="col-xl-9 col-lg-8">
                         <div class="row">
-                           <div class="col-xl-4 col-md-6 mb-4">
+                           <div class="col-xl-4 col-md-6 mb-4" *ngFor="let poll of pollList;" >
                               <div class="card e-card shadow border-0">
                                  <a href="sports-detail.html">
-                                    <div class="m-card-cover">
-                                       <img src="/assets/img/s1.jpg" class="card-img-top" alt="...">
+                                    <div class="m-card-cover square">
+                                       <img src="/assets/img/o1.jpg" class="card-img-top" alt="...">
                                     </div>
                                     <div class="card-body p-0">
                                        <div class="row no-gutters align-items-center">
                                           <div class="col-2 auto py-3 pl-3">
                                              <div class="bg-white rounded text-center">
-                                                <h6 class="text-danger mb-0 font-weight-bold">25</h6>
-                                                <small class="text-muted">OCT</small>
+                                                <h6 class="text-danger mb-0 font-weight-bold">{{poll.date.split(' ')[0]}}</h6>
+                                                <small class="text-muted">{{poll.date.split(' ')[1] | uppercase}}</small>
                                              </div>
                                           </div>
-                                          <div class="col-10 p-3">
-                                             <p class="card-text text-gray-900 mb-1">The FIFA World Cup</p>
-                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> Glasgow, Scotland</small></p>
+                                          <div class="col-8 p-3">
+                                             <p class="card-text text-gray-900 mb-1">{{poll.name}}</p>
+                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> {{poll.location}}</small></p>
+                                          </div>
+                                          <div class="col-2 p-3" *ngIf="!poll.active" >
+                                                <i class="fas fa-circle red-circle"></i>
                                           </div>
                                        </div>
                                     </div>
                                  </a>
                               </div>
                            </div>
-                           <div class="col-xl-4 col-md-6 mb-4">
-                              <div class="card e-card shadow border-0">
-                                 <a href="sports-detail.html">
-                                    <div class="m-card-cover">
-                                       <img src="/assets/img/s2.jpg" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="card-body p-0">
-                                       <div class="row no-gutters align-items-center">
-                                          <div class="col-2 auto py-3 pl-3">
-                                             <div class="bg-white rounded text-center">
-                                                <h6 class="text-danger mb-0 font-weight-bold">28</h6>
-                                                <small class="text-muted">OCT</small>
-                                             </div>
-                                          </div>
-                                          <div class="col-10 p-3">
-                                             <p class="card-text text-gray-900 mb-1">The Olympic Games</p>
-                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> United States</small></p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="col-xl-4 col-md-6 mb-4">
-                              <div class="card e-card shadow border-0">
-                                 <a href="sports-detail.html">
-                                    <div class="m-card-cover">
-                                       <img src="/assets/img/s3.jpg" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="card-body p-0">
-                                       <div class="row no-gutters align-items-center">
-                                          <div class="col-2 auto py-3 pl-3">
-                                             <div class="bg-white rounded text-center">
-                                                <h6 class="text-danger mb-0 font-weight-bold">12</h6>
-                                                <small class="text-muted">NOV</small>
-                                             </div>
-                                          </div>
-                                          <div class="col-10 p-3">
-                                             <p class="card-text text-gray-900 mb-1">The 24 Hours of Le Mans</p>
-                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> France</small></p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="col-xl-4 col-md-6 mb-4">
-                              <div class="card e-card shadow border-0">
-                                 <a href="sports-detail.html">
-                                    <div class="m-card-cover">
-                                       <img src="/assets/img/s4.jpg" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="card-body p-0">
-                                       <div class="row no-gutters align-items-center">
-                                          <div class="col-2 auto py-3 pl-3">
-                                             <div class="bg-white rounded text-center">
-                                                <h6 class="text-danger mb-0 font-weight-bold">21</h6>
-                                                <small class="text-muted">NOV</small>
-                                             </div>
-                                          </div>
-                                          <div class="col-10 p-3">
-                                             <p class="card-text text-gray-900 mb-1">The Super Bowl</p>
-                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> United States</small></p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="col-xl-4 col-md-6 mb-4">
-                              <div class="card e-card shadow border-0">
-                                 <a href="sports-detail.html">
-                                    <div class="m-card-cover">
-                                       <img src="/assets/img/s1.jpg" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="card-body p-0">
-                                       <div class="row no-gutters align-items-center">
-                                          <div class="col-2 auto py-3 pl-3">
-                                             <div class="bg-white rounded text-center">
-                                                <h6 class="text-danger mb-0 font-weight-bold">25</h6>
-                                                <small class="text-muted">OCT</small>
-                                             </div>
-                                          </div>
-                                          <div class="col-10 p-3">
-                                             <p class="card-text text-gray-900 mb-1">The FIFA World Cup</p>
-                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> Glasgow, Scotland</small></p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="col-xl-4 col-md-6 mb-4">
-                              <div class="card e-card shadow border-0">
-                                 <a href="sports-detail.html">
-                                    <div class="m-card-cover">
-                                       <img src="/assets/img/s2.jpg" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="card-body p-0">
-                                       <div class="row no-gutters align-items-center">
-                                          <div class="col-2 auto py-3 pl-3">
-                                             <div class="bg-white rounded text-center">
-                                                <h6 class="text-danger mb-0 font-weight-bold">28</h6>
-                                                <small class="text-muted">OCT</small>
-                                             </div>
-                                          </div>
-                                          <div class="col-10 p-3">
-                                             <p class="card-text text-gray-900 mb-1">The Olympic Games</p>
-                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> United States</small></p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="col-xl-4 col-md-6 mb-4">
-                              <div class="card e-card shadow border-0">
-                                 <a href="sports-detail.html">
-                                    <div class="m-card-cover">
-                                       <img src="/assets/img/s3.jpg" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="card-body p-0">
-                                       <div class="row no-gutters align-items-center">
-                                          <div class="col-2 auto py-3 pl-3">
-                                             <div class="bg-white rounded text-center">
-                                                <h6 class="text-danger mb-0 font-weight-bold">12</h6>
-                                                <small class="text-muted">NOV</small>
-                                             </div>
-                                          </div>
-                                          <div class="col-10 p-3">
-                                             <p class="card-text text-gray-900 mb-1">The 24 Hours of Le Mans</p>
-                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> France</small></p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="col-xl-4 col-md-6 mb-4">
-                              <div class="card e-card shadow border-0">
-                                 <a href="sports-detail.html">
-                                    <div class="m-card-cover">
-                                       <img src="/assets/img/s4.jpg" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="card-body p-0">
-                                       <div class="row no-gutters align-items-center">
-                                          <div class="col-2 auto py-3 pl-3">
-                                             <div class="bg-white rounded text-center">
-                                                <h6 class="text-danger mb-0 font-weight-bold">21</h6>
-                                                <small class="text-muted">NOV</small>
-                                             </div>
-                                          </div>
-                                          <div class="col-10 p-3">
-                                             <p class="card-text text-gray-900 mb-1">The Super Bowl</p>
-                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> United States</small></p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
-                           <div class="col-xl-4 col-md-6 mb-4">
-                              <div class="card e-card shadow border-0">
-                                 <a href="sports-detail.html">
-                                    <div class="m-card-cover">
-                                       <img src="/assets/img/s1.jpg" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="card-body p-0">
-                                       <div class="row no-gutters align-items-center">
-                                          <div class="col-2 auto py-3 pl-3">
-                                             <div class="bg-white rounded text-center">
-                                                <h6 class="text-danger mb-0 font-weight-bold">25</h6>
-                                                <small class="text-muted">OCT</small>
-                                             </div>
-                                          </div>
-                                          <div class="col-10 p-3">
-                                             <p class="card-text text-gray-900 mb-1">The FIFA World Cup</p>
-                                             <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> Glasgow, Scotland</small></p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </a>
-                              </div>
-                           </div>
+                           
                         </div>
                         <div class="text-center mt-1 mb-4 col-12">
                            <div class="spinner-border" role="status">
