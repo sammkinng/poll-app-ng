@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
-    title: 'Home page'
+    title: 'Landing page'
   },
   {
     path: 'login',
