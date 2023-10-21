@@ -5,6 +5,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ForgotPwComponent } from './components/forgot-pw/forgot-pw.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AddInfoComponent } from './components/add-info/add-info.component';
+import { PollComponent } from './components/poll/poll.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 const routes: Routes = [
   {
@@ -26,6 +29,21 @@ const routes: Routes = [
     path: 'forgot-password',
     component:ForgotPwComponent,
     title:'Forgot Password'
+  },
+  {
+    path:'add-info',
+    component:AddInfoComponent,
+    title:'Add Personal Details'
+  },
+  {
+    path:'poll/:id',
+    component:PollComponent,
+    title:'Poll'
+  },
+  {
+    path:'blog/:id',
+    component:BlogComponent,
+    title:'Blog'
   },
   {
     path:'**',

@@ -22,7 +22,7 @@
          <!-- Sidebar -->
          <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" [routerLink]="['/']">
                <div class="sidebar-brand-icon">
                   <img src="/assets/img/logo-icon.png" alt="">
                </div>
@@ -30,22 +30,22 @@
             </a>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-               <a class="nav-link" href="movies.html">
+               <a class="nav-link" [routerLink]="['/blog/1']">
                <i class="fas fa-fw fa-film"></i>
                <span>Movies</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="events.html">
+               <a class="nav-link" [routerLink]="['/blog/1']">
                <i class="fas fa-fw fa-glass-cheers"></i>
                <span>Events</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="people.html">
+               <a class="nav-link" [routerLink]="['/blog/1']">
                <i class="fas fa-fw fa-users"></i>
                <span>People</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="sports.html">
+               <a class="nav-link" [routerLink]="['/blog/1']">
                <i class="fas fa-fw fa-futbol"></i>
                <span>Sports</span></a>
             </li>
@@ -55,44 +55,37 @@
             <div class="sidebar-heading">Extra</div>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+               <a class="nav-link collapsed" [routerLink]="['/']" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                <i class="fas fa-fw fa-pager"></i>
                <span>Pages</span>
                </a>
                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
                      <h6 class="collapse-header">All Pages</h6>
-                     <a class="collapse-item" href="movies.html">Movies</a>
-                     <a class="collapse-item" href="movies-detail.html">Movie Detail</a>
-                     <a class="collapse-item" href="events.html">Events</a>
-                     <a class="collapse-item" href="events-detail.html">Event Detail</a>
-                     <a class="collapse-item" href="people.html">People</a>
-                     <a class="collapse-item" href="people-detail.html">People Detail</a>
-                     <a class="collapse-item" href="sports.html">Sports</a>
-                     <a class="collapse-item" href="sports-detail.html">Sport Detail</a>
+                     <a class="collapse-item" [routerLink]="['/blog/1']">Movies</a>
+                     <a class="collapse-item" [routerLink]="['/blog/1']">Movie Detail</a>
+                     <a class="collapse-item" [routerLink]="['/blog/1']">Events</a>
+                     <a class="collapse-item" [routerLink]="['/blog/1']">Event Detail</a>
+                     <a class="collapse-item" [routerLink]="['/blog/1']">People</a>
+                     <a class="collapse-item" [routerLink]="['/blog/1']">People Detail</a>
+                     <a class="collapse-item" [routerLink]="['/blog/1']">Sports</a>
+                     <a class="collapse-item" [routerLink]="['/blog/1']">Sport Detail</a>
                   </div>
                </div>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="offers.html">
+               <a class="nav-link" [routerLink]="['/blog/1']">
                <i class="fas fa-fw fa-fire"></i>
                <span>Offers</span></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+               <a class="nav-link collapsed" [routerLink]="['/']" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                <i class="fas fa-fw fa-clone"></i>
                <span>Extra Pages</span>
                </a>
                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                     <h6 class="collapse-header">Login Screens:</h6>
-                     <a class="collapse-item" href="login.html">Login</a>
-                     <a class="collapse-item" href="register.html">Register</a>
-                     <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                     <div class="collapse-divider"></div>
-                     <h6 class="collapse-header">Other Pages:</h6>
-                     <a class="collapse-item" href="404.html">404 Page</a>
-                     <a class="collapse-item" href="blank.html">Blank Page</a>
+                     
                   </div>
                </div>
             </li>
@@ -123,7 +116,7 @@
                   <ul class="navbar-nav ml-auto">
                      <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                      <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" [routerLink]="['/']" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-search fa-fw"></i>
                         </a>
                         <!-- Dropdown - Messages -->
@@ -142,14 +135,14 @@
                      </li>
                      <!-- Nav Item - Alerts -->
                      <li class="nav-item no-arrow mx-1">
-                        <a class="nav-link" href="offers.html">
+                        <a class="nav-link" [routerLink]="['/blog/1']">
                            <i class="fas fa-fire fa-fw"></i>
                            <!-- Counter - Alerts -->
                            <span class="badge badge-danger bg-gradient-danger">NEW</span>
                         </a>
                      </li>
                      <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" [routerLink]="['/']" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <i class="fas fa-bell fa-fw"></i>
                            <!-- Counter - Alerts -->
                            <span class="badge badge-danger badge-counter">8+</span>
@@ -159,7 +152,7 @@
                            <h6 class="dropdown-header">
                               Alerts
                            </h6>
-                           <a class="dropdown-item d-flex align-items-center" href="#">
+                           <a class="dropdown-item d-flex align-items-center" [routerLink]="['/']">
                               <div class="mr-3">
                                  <div class="icon-circle bg-primary text-white">
                                     KN
@@ -171,7 +164,7 @@
                                  </span>
                               </div>
                            </a>
-                           <a class="dropdown-item d-flex align-items-center" href="#">
+                           <a class="dropdown-item d-flex align-items-center" [routerLink]="['/']">
                               <div class="dropdown-list-image mr-3">
                                  <img class="rounded-circle w-60" src="/assets/img/o1.png" alt="">
                                  <div class="status-indicator bg-success"></div>
@@ -181,7 +174,7 @@
                                  <div class="small text-gray-500">Gurdeep Osahan · 58m</div>
                               </div>
                            </a>
-                           <a class="dropdown-item d-flex align-items-center" href="#">
+                           <a class="dropdown-item d-flex align-items-center" [routerLink]="['/']">
                               <div class="dropdown-list-image mr-3">
                                  <img class="rounded-circle w-60" src="/assets/img/o1.png" alt="">
                                  <div class="status-indicator"></div>
@@ -191,7 +184,7 @@
                                  <div class="small text-gray-500">Jae Chun · 1d</div>
                               </div>
                            </a>
-                           <a class="dropdown-item d-flex align-items-center" href="#">
+                           <a class="dropdown-item d-flex align-items-center" [routerLink]="['/']">
                               <div class="dropdown-list-image mr-3">
                                  <img class="rounded-circle w-60" src="/assets/img/o1.png" alt="">
                                  <div class="status-indicator bg-warning"></div>
@@ -201,7 +194,7 @@
                                  <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                               </div>
                            </a>
-                           <a class="dropdown-item d-flex align-items-center" href="#">
+                           <a class="dropdown-item d-flex align-items-center" [routerLink]="['/']">
                               <div class="mr-3">
                                  <div class="icon-circle bg-success">
                                     <i class="fas fa-donate text-white"></i>
@@ -212,7 +205,7 @@
                                  Sed aliquet nibh nec odio congue, in condimentum massa dapibus.
                               </div>
                            </a>
-                           <a class="dropdown-item d-flex align-items-center" href="#">
+                           <a class="dropdown-item d-flex align-items-center" [routerLink]="['/']">
                               <div class="mr-3">
                                  <div class="icon-circle bg-warning">
                                     <i class="fas fa-exclamation-triangle text-white"></i>
@@ -223,35 +216,35 @@
                                  Pellentesque sit amet nunc consectetur, porta sapien a, bibendum dolor.
                               </div>
                            </a>
-                           <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                           <a class="dropdown-item text-center small text-gray-500" [routerLink]="['/']">Show All Alerts</a>
                         </div>
                      </li>
                      <!-- Nav Item - User Information -->
                      <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" [routerLink]="['/']" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Askbootstrap</span>
                         <img class="img-profile rounded-circle" src="/assets/img/o1.png">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                           <a class="dropdown-item" href="profile.html">
+                           <a class="dropdown-item" [routerLink]="['/blog/1']">
                            <i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>
                            Profile
                            </a>
-                           <a class="dropdown-item" href="profile.html">
+                           <a class="dropdown-item" [routerLink]="['/blog/1']">
                            <i class="fas fa-heart fa-sm fa-fw mr-2 text-gray-400"></i>
                            Watchlist
                            </a>
-                           <a class="dropdown-item" href="profile.html">
+                           <a class="dropdown-item" [routerLink]="['/blog/1']">
                            <i class="fas fa-list-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                            Your Lists
                            </a>
-                           <a class="dropdown-item" href="profile.html">
+                           <a class="dropdown-item" [routerLink]="['/blog/1']">
                            <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
                            Account Settings
                            </a>
                            <div class="dropdown-divider"></div>
-                           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                           <a class="dropdown-item" [routerLink]="['/']" data-toggle="modal" data-target="#logoutModal">
                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                            Logout
                            </a>
@@ -265,7 +258,7 @@
                   <!-- Page Heading -->
                   <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-3">
                      <h1 class="h5 mb-0 text-gray-900"></h1>
-                     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Reset Filters <i class="fas fa-times fa-sm text-white-50"></i></a>
+                     <a [routerLink]="['/']" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Reset Filters <i class="fas fa-times fa-sm text-white-50"></i></a>
                   </div>
                   <!-- Content Row -->
                   <div class="row">
@@ -279,7 +272,7 @@
                                  <div class="filters-card border-bottom p-3">
                                     <div class="filters-card-header" id="headingOffer">
                                        <h6 class="mb-0">
-                                          <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseSort" aria-expanded="true" aria-controls="collapseSort">
+                                          <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseSort" aria-expanded="true" aria-controls="collapseSort">
                                           Sort by Products <i class="fas fa-angle-down float-right"></i>
                                           </a>
                                        </h6>
@@ -316,7 +309,7 @@
                                  <div class="filters-card border-bottom p-3">
                                     <div class="filters-card-header" id="headingTwo">
                                        <h6 class="mb-0">
-                                          <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
+                                          <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
                                           Genre
                                           <i class="fas fa-angle-down float-right"></i>
                                           </a>
@@ -342,14 +335,14 @@
                                              <input type="checkbox" class="custom-control-input" id="osahan118">
                                              <label class="custom-control-label" for="osahan118">Animation <small class="text-black-50">130</small></label>
                                           </div>
-                                          <div class="mt-2"><a href="#" class="link">See all</a></div>
+                                          <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="filters-card border-bottom p-3">
                                     <div class="filters-card-header" id="headingOne">
                                        <h6 class="mb-0">
-                                          <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                          <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                           Select Language <i class="fas fa-angle-down float-right"></i>
                                           </a>
                                        </h6>
@@ -366,14 +359,14 @@
                                              <label class="custom-control-label" for="osahan1166">English <small class="text-black-50">95</small>
                                              </label>
                                           </div>
-                                          <div class="mt-2"><a href="#" class="link">See all</a></div>
+                                          <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="filters-card border-bottom p-3">
                                     <div class="filters-card-header" id="headingOffer">
                                        <h6 class="mb-0">
-                                          <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
+                                          <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
                                           Format <i class="fas fa-angle-down float-right"></i>
                                           </a>
                                        </h6>
@@ -389,7 +382,7 @@
                                              <label class="custom-control-label" for="osahan11111"> 3D
                                              </label>
                                           </div>
-                                          <div class="mt-2"><a href="#" class="link">See all</a></div>
+                                          <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
                                        </div>
                                     </div>
                                  </div>
@@ -405,7 +398,7 @@
                                  <div class="filters-card border-bottom p-3">
                                     <div class="filters-card-header" id="headingTwo">
                                        <h6 class="mb-0">
-                                          <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
+                                          <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
                                           Genre
                                           <i class="fas fa-angle-down float-right"></i>
                                           </a>
@@ -424,14 +417,14 @@
                                              <label class="custom-control-label" [for]="'osahan11w'+i">{{category.name}} <small class="text-black-50">{{category.value}}</small></label>
                                           </div>
                                           
-                                          <div class="mt-2"><a href="#" class="link">See all</a></div>
+                                          <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="filters-card border-bottom p-3">
                                     <div class="filters-card-header" id="headingOne">
                                        <h6 class="mb-0">
-                                          <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                          <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                           Select Language <i class="fas fa-angle-down float-right"></i>
                                           </a>
                                        </h6>
@@ -458,14 +451,14 @@
                                              <label class="custom-control-label" for="osahan11x">Telugu <small class="text-black-50">46</small>
                                              </label>
                                           </div>
-                                          <div class="mt-2"><a href="#" class="link">See all</a></div>
+                                          <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="filters-card border-bottom p-3">
                                     <div class="filters-card-header" id="headingOffer">
                                        <h6 class="mb-0">
-                                          <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
+                                          <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
                                           Format <i class="fas fa-angle-down float-right"></i>
                                           </a>
                                        </h6>
@@ -486,7 +479,7 @@
                                              <label class="custom-control-label" for="osahan11v"> 5D
                                              </label>
                                           </div>
-                                          <div class="mt-2"><a href="#" class="link">See all</a></div>
+                                          <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
                                        </div>
                                     </div>
                                  </div>
@@ -498,7 +491,7 @@
                         <div class="row">
                            <div class="col-xl-4 col-md-6 mb-4" *ngFor="let poll of pollList;" >
                               <div class="card e-card shadow border-0">
-                                 <a href="sports-detail.html">
+                                 <a [routerLink]="['/poll',poll.id]">
                                     <div class="m-card-cover square">
                                        <img src="/assets/img/o1.jpg" class="card-img-top" alt="...">
                                     </div>
@@ -539,7 +532,7 @@
             <footer class="sticky-footer bg-white">
                <div class="container my-auto">
                   <div class="copyright text-center my-auto">
-                     <span>Copyright &copy; Bookishow 2019 | Made with <i class="fas fa-heart fa-fw text-danger"></i> by <a target="_blank" href="#">Askbootstrap</a></span>
+                     <span>Copyright &copy; Bookishow 2019 | Made with <i class="fas fa-heart fa-fw text-danger"></i> by <a target="_blank" [routerLink]="['/']">Askbootstrap</a></span>
                   </div>
                </div>
             </footer>
@@ -565,7 +558,7 @@
                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Logout</a>
+                  <a class="btn btn-primary" [routerLink]="['/login']">Logout</a>
                </div>
             </div>
          </div>

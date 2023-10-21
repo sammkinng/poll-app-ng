@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { ForgotPwComponent } from './components/forgot-pw/forgot-pw.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AddInfoComponent } from './components/add-info/add-info.component';
+import { PollComponent } from './components/poll/poll.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { FrameComponent } from './components/frame/frame.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { AddInfoComponent } from './components/add-info/add-info.component';
     RegisterComponent,
     ForgotPwComponent,
     NotFoundComponent,
-    AddInfoComponent
+    AddInfoComponent,
+    PollComponent,
+    BlogComponent,
+    FrameComponent
   ],
   imports: [
     BrowserModule,
