@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotPwComponent } from './components/forgot-pw/forgot-pw.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AddInfoComponent } from './components/add-info/add-info.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     LoginComponent,
     RegisterComponent,
     ForgotPwComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AddInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -10817,6 +10817,12 @@ form.user .btn-user {
   border-color: #fff;
 }
 
+.btn-phone {
+  color: #fff;
+  background-color: #008045;
+  border-color: #fff;
+}
+
 .btn-google:hover {
   color: #fff;
   background-color: #e12717;
@@ -10833,7 +10839,7 @@ form.user .btn-user {
   border-color: #e6e6e6;
 }
 
-.btn-microsoft:focus, .btn-twitter:focus {
+.btn-microsoft:focus, .btn-twitter:focus, .btn-phone:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
@@ -10843,7 +10849,11 @@ form.user .btn-user {
   border-color: #e6e6e6;
 }
 
-
+.btn-phone:hover{
+  color: #fff;
+  background-color: #444761;
+  border-color: #e6e6e6;
+}
 
 
 .btn-google.disabled, .btn-google:disabled {
