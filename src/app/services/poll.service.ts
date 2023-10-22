@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Poll } from '../components/main/main.component';
 
 @Injectable({
   providedIn: 'root'
@@ -75,6 +76,8 @@ export class PollService {
   constructor() { }
 
   getPolls(){
-    return this.pollList
+    return new Promise<Poll[]>((resolve,reject)=>{
+      setTimeout(()=>resolve(this.pollList),1000)
+    })
   }
 }

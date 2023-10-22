@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Category } from '../components/main/main.component';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,8 @@ export class CategoryService {
   constructor() { }
 
   getCategories(){
-    return this.categoriesList;
+    return new Promise<Category[]>((res,rej)=>{
+      setTimeout(()=>res(this.categoriesList),1000)
+    })
   }
 }

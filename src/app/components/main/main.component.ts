@@ -3,22 +3,22 @@ import { AudienceService } from 'src/app/services/audience.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { PollService } from 'src/app/services/poll.service';
 
-interface Category {
+export interface Category {
   name: string,
   value: number
 }
 
-interface Audience{
-  country:string,
-  value:number
+export interface Audience {
+  country: string,
+  value: number
 }
 
-interface Poll {
+export interface Poll {
   name: string,
   active: boolean,
   id: number,
-  date:string,
-  location:string
+  date: string,
+  location: string
 }
 
 @Component({
@@ -29,16 +29,16 @@ interface Poll {
 
 
 export class MainComponent {
-  loading=false;
-  mobileFilters=false;
+  loading = true;
+  mobileFilters = false;
   categories: Category[] = [];
-  audience:Audience[]=[];
+  audience: Audience[] = [];
   filteredAudience: Audience[] = [];
   ip = ""
   pollList: Poll[] = []
 
-  activePolls:Poll[]=[]
-  inactivePolls:Poll[]=[]
+  activePolls: Poll[] = []
+  inactivePolls: Poll[] = []
 
 
   constructor(
@@ -46,11 +46,35 @@ export class MainComponent {
     private pollService: PollService,
     private audienceService: AudienceService
   ) {
-    this.categories = categoryService.getCategories();
-    this.audience=audienceService.getAudience();
-    this.filteredAudience = this.audience;
-    this.pollList = pollService.getPolls()
-    this.countActive()
+    categoryService.getCategories()
+      .then(res => {
+        this.categories = res
+      })
+      .catch(() => {
+
+      })
+    audienceService.getAudience()
+      .then(res => {
+        this.audience = res
+        this.filteredAudience = this.audience;
+      })
+      .catch(() => {
+
+      })
+
+
+    pollService.getPolls()
+      .then(res => {
+        this.pollList = res
+        this.countActive()
+        this.loading = false
+      })
+      .catch(() => {
+        console.log("error while fetching polls")
+        this.loading = false
+      })
+
+    
   }
 
   filterAudience() {
@@ -62,19 +86,19 @@ export class MainComponent {
     )
   }
 
-  private countActive(){
-    let l1:Poll[]=[]
-    let l2:Poll[]=[]
-    this.pollList.forEach(poll=>{
-      if(poll.active){
+  private countActive() {
+    let l1: Poll[] = []
+    let l2: Poll[] = []
+    this.pollList.forEach(poll => {
+      if (poll.active) {
         l1.push(poll)
       }
-      else{
+      else {
         l2.push(poll)
       }
     })
-    this.activePolls=l1;
-    this.inactivePolls=l2;
+    this.activePolls = l1;
+    this.inactivePolls = l2;
   }
 
 }
