@@ -12,8 +12,8 @@
                <a class="h6 font-weight-bold text-dark d-block m-0 p-3" data-toggle="collapse" href="#mobile-filters" role="button" aria-expanded="false" aria-controls="mobile-filters">Filter By <i class="fas fa-angle-down float-right mt-1"></i></a>
             </div>
             <div id="mobile-filters" class="filters-body collapse multi-collapse">
-               <div id="accordion">
-                  <div class="filters-card border-bottom p-3">
+               <div id="accordion" >
+                  <div  *ngIf="mobileFilters" class="filters-card border-bottom p-3">
                      <div class="filters-card-header" id="headingOffer">
                         <h6 class="mb-0">
                            <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseSort" aria-expanded="true" aria-controls="collapseSort">
@@ -54,7 +54,7 @@
                      <div class="filters-card-header" id="headingTwo">
                         <h6 class="mb-0">
                            <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
-                           Genre
+                           Select Audience
                            <i class="fas fa-angle-down float-right"></i>
                            </a>
                         </h6>
@@ -64,21 +64,14 @@
                            <form class="filters-search mb-3">
                               <div class="form-group">
                                  <i class="fas fa-search"></i>                                 
-                                 <input type="text" class="form-control" placeholder="Start typing to search...">
+                                 <input type="text" class="form-control" placeholder="Start typing to search..." [(ngModel)]="ip" (ngModelChange)="filterAudience()" name="cool1">
                               </div>
                            </form>
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan116">
-                              <label class="custom-control-label" for="osahan116">Action <small class="text-black-50">156</small></label>
+                           <div class="custom-control custom-checkbox" *ngFor="let aud of filteredAudience;let i=index">
+                              <input type="checkbox" class="custom-control-input" [id]="'osahan116'+i" >
+                              <label class="custom-control-label" [for]="'osahan116'+i">{{aud.country}} <small class="text-black-50">{{aud.value}}</small></label>
                            </div>
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan117">
-                              <label class="custom-control-label" for="osahan117">Adventure <small class="text-black-50">120</small></label>
-                           </div>
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan118">
-                              <label class="custom-control-label" for="osahan118">Animation <small class="text-black-50">130</small></label>
-                           </div>
+                          
                            <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
                         </div>
                      </div>
@@ -87,7 +80,7 @@
                      <div class="filters-card-header" id="headingOne">
                         <h6 class="mb-0">
                            <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                           Select Language <i class="fas fa-angle-down float-right"></i>
+                           Poll Status <i class="fas fa-angle-down float-right"></i>
                            </a>
                         </h6>
                      </div>
@@ -95,15 +88,15 @@
                         <div class="filters-card-body card-shop-filters">
                            <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="osahan1155">
-                              <label class="custom-control-label" for="osahan1155">Punjabi <small class="text-black-50">230</small>
+                              <label class="custom-control-label" for="osahan1155">Active <small class="text-black-50">{{activePolls.length}}</small>
                               </label>
                            </div>
                            <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="osahan1166">
-                              <label class="custom-control-label" for="osahan1166">English <small class="text-black-50">95</small>
+                              <label class="custom-control-label" for="osahan1166">Inactive <small class="text-black-50">{{inactivePolls.length}}</small>
                               </label>
                            </div>
-                           <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
+                           
                         </div>
                      </div>
                   </div>
@@ -111,19 +104,15 @@
                      <div class="filters-card-header" id="headingOffer">
                         <h6 class="mb-0">
                            <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
-                           Format <i class="fas fa-angle-down float-right"></i>
+                           Genre <i class="fas fa-angle-down float-right"></i>
                            </a>
                         </h6>
                      </div>
                      <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                         <div class="filters-card-body card-shop-filters">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan1100">
-                              <label class="custom-control-label" for="osahan1100"> 2D </label>
-                           </div>
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan11111">
-                              <label class="custom-control-label" for="osahan11111"> 3D
+                           <div class="custom-control custom-checkbox" *ngFor="let category of categories;let i=index">
+                              <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i">
+                              <label class="custom-control-label" [for]="'osahan1155'+i">{{category.name}} <small class="text-black-50">{{category.value}}</small>
                               </label>
                            </div>
                            <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
@@ -143,7 +132,7 @@
                      <div class="filters-card-header" id="headingTwo">
                         <h6 class="mb-0">
                            <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
-                           Genre
+                           Select Country
                            <i class="fas fa-angle-down float-right"></i>
                            </a>
                         </h6>
@@ -153,12 +142,12 @@
                            <form class="filters-search mb-3">
                               <div class="form-group">
                                  <i class="fas fa-search"></i>                                 
-                                 <input type="text" class="form-control" placeholder="Start typing to search..." [(ngModel)]="ip" (ngModelChange)="filterCategories()" name="cool">
+                                 <input type="text" class="form-control" placeholder="Start typing to search..." [(ngModel)]="ip" (ngModelChange)="filterAudience()" name="cool">
                               </div>
                            </form>
-                           <div *ngFor="let category of filteredCategories;let i=index" class="custom-control custom-checkbox" >
+                           <div *ngFor="let aud of filteredAudience;let i=index" class="custom-control custom-checkbox" >
                               <input type="checkbox" class="custom-control-input" [id]="'osahan11w'+i">
-                              <label class="custom-control-label" [for]="'osahan11w'+i">{{category.name}} <small class="text-black-50">{{category.value}}</small></label>
+                              <label class="custom-control-label" [for]="'osahan11w'+i">{{aud.country}} <small class="text-black-50">{{aud.value}}</small></label>
                            </div>
                            
                            <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
@@ -169,7 +158,7 @@
                      <div class="filters-card-header" id="headingOne">
                         <h6 class="mb-0">
                            <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                           Select Language <i class="fas fa-angle-down float-right"></i>
+                           Poll Status <i class="fas fa-angle-down float-right"></i>
                            </a>
                         </h6>
                      </div>
@@ -177,50 +166,30 @@
                         <div class="filters-card-body card-shop-filters">
                            <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="osahan11z">
-                              <label class="custom-control-label" for="osahan11z"> Punjabi <small class="text-black-50">230</small>
+                              <label class="custom-control-label" for="osahan11z"> Active <small class="text-black-50">{{activePolls.length}}</small>
                               </label>
                            </div>
                            <div class="custom-control custom-checkbox">
                               <input type="checkbox" class="custom-control-input" id="osahan11zz">
-                              <label class="custom-control-label" for="osahan11zz"> English <small class="text-black-50">95</small>
+                              <label class="custom-control-label" for="osahan11zz"> Inactive <small class="text-black-50">{{inactivePolls.length}}</small>
                               </label>
                            </div>
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan11zzz">
-                              <label class="custom-control-label" for="osahan11zzz"> Hindi <small class="text-black-50">35</small>
-                              </label>
                            </div>
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan11x">
-                              <label class="custom-control-label" for="osahan11x">Telugu <small class="text-black-50">46</small>
-                              </label>
-                           </div>
-                           <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
-                        </div>
                      </div>
                   </div>
                   <div class="filters-card border-bottom p-3">
                      <div class="filters-card-header" id="headingOffer">
                         <h6 class="mb-0">
                            <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
-                           Format <i class="fas fa-angle-down float-right"></i>
+                           Genre <i class="fas fa-angle-down float-right"></i>
                            </a>
                         </h6>
                      </div>
                      <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                         <div class="filters-card-body card-shop-filters">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan11cc">
-                              <label class="custom-control-label" for="osahan11cc"> 3D </label>
-                           </div>
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan11c">
-                              <label class="custom-control-label" for="osahan11c"> 2D
-                              </label>
-                           </div>
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="osahan11v">
-                              <label class="custom-control-label" for="osahan11v"> 5D
+                           <div class="custom-control custom-checkbox" *ngFor="let category of categories;let i =index">
+                              <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i">
+                              <label class="custom-control-label" [for]="'osahan11z'+i"> {{category.name}} <small class="text-black-50">{{category.value}}</small>
                               </label>
                            </div>
                            <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
@@ -261,7 +230,7 @@
             </div>
             
          </div>
-         <div class="text-center mt-1 mb-4 col-12">
+         <div class="text-center mt-1 mb-4 col-12" *ngIf="loading">
             <div class="spinner-border" role="status">
                <span class="sr-only">Loading...</span>
             </div>
