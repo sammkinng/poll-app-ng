@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en" >
-
-<body class="bg-gradient-primary" >
+<body class="bg-gradient-primary">
    <div class="container">
       <!-- Outer Row -->
-      <div class="row justify-content-center align-items-center d-flex vh-100">
+      <div class="row justify-content-center align-items-center d-flex vh-100 ofa">
          <div class="col-xl-10 col-lg-12 col-md-9">
-            <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card o-hidden border-0 shadow-lg my-md-5 my-sm-3">
                <div class="card-body p-0">
                   <!-- Nested Row within Card Body -->
                   <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                     <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                      <div class="col-lg-7">
                         <div class="p-5">
                            <div class="text-center">
@@ -27,22 +24,9 @@
                                        placeholder="Last Name">
                                  </div>
                               </div>
-                              <div class="form-group">
-                                 <input type="email" class="form-control " id="exampleInputEmail"
-                                    placeholder="Email Address">
-                              </div>
+
                               <div class="form-group row">
                                  <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control "
-                                       id="exampleInputPassword" placeholder="Password">
-                                 </div>
-                                 <div class="col-sm-6">
-                                    <input type="password" class="form-control "
-                                       id="exampleRepeatPassword" placeholder="Repeat Password">
-                                 </div>
-                              </div>
-                              <div class="form-group row">
-                                 <div class="col-sm-4 mb-3 mb-sm-0">
                                     <select id="countrySelect" [(ngModel)]="selectedCountry" name="selectedCountry"
                                        class="cool-sel">
                                        <option value="">Country</option>
@@ -51,17 +35,13 @@
                                        </option>
                                     </select>
                                  </div>
-                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control " id="state"
-                                       placeholder="State">
+                                 <div class="col-sm-6">
+                                    <input type="text" class="form-control " id="state" placeholder="State">
                                  </div>
-                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control " id="district"
-                                       placeholder="District">
-                                 </div>
+
                               </div>
                               <div class="form-group row">
-                                 <div class="col-sm-4 mb-3 mb-sm-0">
+                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <select id="genderSelect" name="genderSelect" class="cool-sel">
                                        <option value="">
                                           Gender
@@ -77,14 +57,19 @@
                                        </option>
                                     </select>
                                  </div>
-                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control " id="religion"
-                                       placeholder="Religion">
+                                 <div class="col-sm-6">
+                                    <input type="text" class="form-control " id="district" placeholder="District">
                                  </div>
-                                 <div class="col-sm-4">
+                              </div>
+                              <div class="form-group row">
+                                 <div class="col-sm-6 sp">
+                                    <input type="text" class="form-control " id="religion" placeholder="Religion">
+                                 </div>
+                                 <div class="col-sm-6">
                                     <input type="datetime" placeholder="DOB" class="form-control ">
                                  </div>
                               </div>
+
 
                               <div class="form-group">
                                  <div class="custom-control custom-checkbox small">
@@ -96,15 +81,16 @@
                               <a [routerLink]="['/']" class="btn btn-primary btn-user btn-block">
                                  Register Account
                               </a>
-                             
+
+
+                              <hr>
+                              <div class="text-center">
+                                 <a class="small" [routerLink]="['/forgot-password']">Forgot Password?</a>
+                              </div>
+                              <div class="text-center">
+                                 <a class="small" [routerLink]="['/login']">Already have an Account? Login!</a>
+                              </div>
                            </form>
-                           <hr>
-                           <div class="text-center">
-                              <a class="small" [routerLink]="['/forgot-password']">Forgot Password?</a>
-                           </div>
-                           <div class="text-center">
-                              <a class="small" [routerLink]="['/login']">Already have an Account? Login!</a>
-                           </div>
                         </div>
                      </div>
                   </div>
@@ -113,7 +99,4 @@
          </div>
       </div>
    </div>
-  
 </body>
-
-</html>
