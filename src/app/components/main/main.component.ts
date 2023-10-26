@@ -17,8 +17,16 @@ export interface Poll {
   name: string,
   active: boolean,
   id: number,
-  date: string,
-  location: string
+  date: Date,
+  location: string,
+  timeLeft:Date,
+  ques:string,
+  options:Option[]
+}
+
+export interface Option{
+  title:string,
+  subtitle:string
 }
 
 @Component({
@@ -40,7 +48,12 @@ export class MainComponent {
   activePolls: Poll[] = []
   inactivePolls: Poll[] = []
 
-
+  months = [
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"
+  ];
+  
   constructor(
     private categoryService: CategoryService,
     private pollService: PollService,

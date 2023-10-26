@@ -13,6 +13,7 @@ import { AddInfoComponent } from './components/add-info/add-info.component';
 import { PollComponent } from './components/poll/poll.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { FrameComponent } from './components/frame/frame.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FrameComponent } from './components/frame/frame.component';
     AddInfoComponent,
     PollComponent,
     BlogComponent,
-    FrameComponent
+    FrameComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

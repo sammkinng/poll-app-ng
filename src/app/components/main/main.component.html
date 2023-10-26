@@ -132,7 +132,7 @@
                      <div class="filters-card-header" id="headingTwo">
                         <h6 class="mb-0">
                            <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
-                           Select Country
+                           Select Audience
                            <i class="fas fa-angle-down float-right"></i>
                            </a>
                         </h6>
@@ -212,8 +212,8 @@
                         <div class="row no-gutters align-items-center">
                            <div class="col-2 auto py-3 pl-3">
                               <div class="bg-white rounded text-center">
-                                 <h6 class="text-danger mb-0 font-weight-bold">{{poll.date.split(' ')[0]}}</h6>
-                                 <small class="text-muted">{{poll.date.split(' ')[1] | uppercase}}</small>
+                                 <h6 class="text-danger mb-0 font-weight-bold">{{poll.date.getDate()}}</h6>
+                                 <small class="text-muted">{{months[ poll.date.getMonth() ].slice(0,3)| uppercase}}</small>
                               </div>
                            </div>
                            <div class="col-8 p-3">
