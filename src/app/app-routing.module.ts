@@ -8,6 +8,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AddInfoComponent } from './pages/add-info/add-info.component';
 import { PollComponent } from './pages/poll/poll.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { CategoryComponent } from './pages/category/category.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,16 @@ const routes: Routes = [
     path: 'blog/:id',
     component: BlogComponent,
     title: 'Blog'
+  },
+  {
+    path:'profile/:id',
+    component:ProfileComponent,
+    title:'User Profile'
+  },
+  {
+    path:'category/:id',
+    component:CategoryComponent,
+    title:'Category'
   },
   {
     path: '**',

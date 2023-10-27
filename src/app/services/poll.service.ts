@@ -8,7 +8,7 @@ export class PollService {
 
   pollList = [
     {
-      name: "poll11",
+      name: "poll1",
       active: true,
       id:'ddh1',
       date: new Date(),

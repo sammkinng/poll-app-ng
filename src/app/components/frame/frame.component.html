@@ -4,33 +4,21 @@
       <!-- Sidebar -->
       <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
          <!-- Sidebar - Brand -->
-         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+         <a class="sidebar-brand d-flex align-items-center justify-content-center" [routerLink]="['/']">
             <div class="sidebar-brand-icon">
                <img src="/assets/img/logo-icon.png" alt="">
             </div>
             <div class="sidebar-brand-text mx-3"><img src="/assets/img/logo.png" alt=""></div>
          </a>
          <!-- Nav Item - Dashboard -->
-         <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['/blog/1']">
+         <li [class]="i==selectedCategory? 'nav-item active':'nav-item'" *ngFor="let category of topCategories;let i=index"
+         (click)="selectedCategory=i"
+         >
+            <a class="nav-link" [routerLink]="['/blog/'+category.name]">
                <i class="fas fa-fw fa-film"></i>
-               <span>Movies</span></a>
+               <span>{{category.name}}</span></a>
          </li>
-         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/blog/1']">
-               <i class="fas fa-fw fa-glass-cheers"></i>
-               <span>Events</span></a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/blog/1']">
-               <i class="fas fa-fw fa-users"></i>
-               <span>People</span></a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/blog/1']">
-               <i class="fas fa-fw fa-futbol"></i>
-               <span>Sports</span></a>
-         </li>
+         
          <!-- Divider -->
          <hr class="sidebar-divider">
          <!-- Heading -->
@@ -136,7 +124,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-bell fa-fw"></i>
                         <!-- Counter - Alerts -->
-                        <span class="badge badge-danger badge-counter">8+</span>
+                        <span class="badge badge-danger badge-counter">{{notifications}}</span>
                      </a>
                      <!-- Dropdown - Alerts -->
                      <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -223,7 +211,7 @@
                      <!-- Dropdown - User Information -->
                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown">
-                        <a class="dropdown-item" [routerLink]="['/blog/1']">
+                        <a class="dropdown-item" [routerLink]="['/profile/1']">
                            <i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>
                            Profile
                         </a>
@@ -260,6 +248,8 @@
          <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                <div class="copyright text-center my-auto">
+                  <span>Copyright &copy; Poller 2023 | Made with <i class="fas fa-heart fa-fw text-danger"></i> for the people</span>
+                  
                </div>
             </div>
          </footer>

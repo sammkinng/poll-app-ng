@@ -16,6 +16,8 @@ import { FrameComponent } from './components/frame/frame.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { CardComponent } from './components/card/card.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { CategoryComponent } from './pages/category/category.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { LoaderComponent } from './components/loader/loader.component';
     FrameComponent,
     FilterComponent,
     CardComponent,
-    LoaderComponent
+    LoaderComponent,
+    ProfileComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
