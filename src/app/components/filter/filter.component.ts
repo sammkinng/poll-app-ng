@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Category, Audience } from '../main/main.component';
+import { Category, Audience, Poll } from '../main/main.component';
 import { AudienceService } from 'src/app/services/audience.service';
 import { CategoryService } from 'src/app/services/category.service';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-filter',
@@ -9,6 +10,25 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
+
+
+  selectedFilters: string[] = [];
+
+
+  toggleFilter(filter: string) {
+    if (this.isSelected(filter)) {
+      this.selectedFilters = this.selectedFilters.filter(f => f !== filter);
+    } else {
+      this.selectedFilters.push(filter);
+    }
+    this.globalState.selectedFilters=this.selectedFilters;
+  }
+
+  isSelected(filter: string): boolean {
+    return this.selectedFilters.includes(filter);
+  }
+
+
 
   mobileFilters = false;
   categories: Category[] = [];
@@ -18,7 +38,8 @@ export class FilterComponent {
 
   constructor(
     private categoryService: CategoryService,
-    private audienceService: AudienceService
+    private audienceService: AudienceService,
+    public globalState:StateService
   ) {
     categoryService.getCategories()
       .then(res => {
