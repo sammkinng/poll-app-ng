@@ -2,7 +2,8 @@
    <!-- Page Heading -->
    <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-3">
       <h1 class="h5 mb-0 text-gray-900"></h1>
-      <a [routerLink]="['/']" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Reset Filters <i class="fas fa-times fa-sm text-white-50"></i></a>
+      <a [routerLink]="['/']" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Reset Filters <i
+            class="fas fa-times fa-sm text-white-50"></i></a>
    </div>
    <!-- Content Row -->
    <div class="row">
@@ -10,40 +11,10 @@
          <app-filter></app-filter>
       </div>
       <div class="col-xl-9 col-lg-8">
-         <div class="row">
-            <div class="col-xl-4 col-md-6 mb-4" *ngFor="let poll of globalState.pollList;" >
-               <div class="card e-card shadow border-0">
-                  <a [routerLink]="['/poll',poll.id]">
-                     <div class="m-card-cover square">
-                        <img src="/assets/img/o1.jpg" class="card-img-top" alt="...">
-                     </div>
-                     <div class="card-body p-0">
-                        <div class="row no-gutters align-items-center">
-                           <div class="col-2 auto py-3 pl-3">
-                              <div class="bg-white rounded text-center">
-                                 <h6 class="text-danger mb-0 font-weight-bold">{{poll.date.getDate()}}</h6>
-                                 <small class="text-muted">{{months[ poll.date.getMonth() ].slice(0,3)| uppercase}}</small>
-                              </div>
-                           </div>
-                           <div class="col-8 p-3">
-                              <p class="card-text text-gray-900 mb-1">{{poll.name}}</p>
-                              <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> {{poll.location}}</small></p>
-                           </div>
-                           <div class="col-2 p-3" *ngIf="!poll.active" >
-                                 <i class="fas fa-circle red-circle"></i>
-                           </div>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-            </div>
-            
-         </div>
-         <div class="text-center mt-1 mb-4 col-12" *ngIf="globalState.loading">
-            <div class="spinner-border" role="status">
-               <span class="sr-only">Loading...</span>
-            </div>
-         </div>
+         <app-card>
+         </app-card>
+
+         <app-loader></app-loader>
       </div>
    </div>
-   </app-frame>
+</app-frame>

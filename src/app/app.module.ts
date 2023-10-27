@@ -14,6 +14,8 @@ import { PollComponent } from './components/poll/poll.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { FrameComponent } from './components/frame/frame.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { CardComponent } from './components/card/card.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FilterComponent } from './components/filter/filter.component';
     PollComponent,
     BlogComponent,
     FrameComponent,
-    FilterComponent
+    FilterComponent,
+    CardComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
