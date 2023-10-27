@@ -1,5 +1,5 @@
 <div class="row">
-<div class="col-xl-4 col-md-6 mb-4" *ngFor="let poll of globalState.pollList;" >
+<div class="col-xl-4 col-md-6 mb-4" *ngFor="let poll of globalState.filteredPolls;" >
     <div class="card e-card shadow border-0">
        <a [routerLink]="['/poll',poll.id]">
           <div class="m-card-cover square">

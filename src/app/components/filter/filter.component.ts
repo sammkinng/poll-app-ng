@@ -11,24 +11,30 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class FilterComponent {
 
+  selectedFilters: string[][] = [[],[]];
 
-  selectedFilters: string[] = [];
-
-
-  toggleFilter(filter: string) {
-    if (this.isSelected(filter)) {
-      this.selectedFilters = this.selectedFilters.filter(f => f !== filter);
-    } else {
-      this.selectedFilters.push(filter);
+  toggleActive(num:number){
+    if(this.globalState.active===num){
+      this.globalState.active=0
     }
-    this.globalState.selectedFilters=this.selectedFilters;
+    else{
+      this.globalState.active=num
+    }
+    this.globalState.filterItems(this.selectedFilters[0],this.selectedFilters[1])
   }
 
-  isSelected(filter: string): boolean {
-    return this.selectedFilters.includes(filter);
+  toggleFilter(filter: string,type:number) {
+    if (this.isSelected(filter,type)) {
+      this.selectedFilters[type] = this.selectedFilters[type].filter(f => f !== filter);
+    } else {
+      this.selectedFilters[type].push(filter);
+    }
+    this.globalState.filterItems(this.selectedFilters[0],this.selectedFilters[1])
   }
 
-
+  isSelected(filter: string,type:number): boolean {
+    return this.selectedFilters[type].includes(filter);
+  }
 
   mobileFilters = false;
   categories: Category[] = [];

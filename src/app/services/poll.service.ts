@@ -18,7 +18,9 @@ export class PollService {
       options:[{
         title:'',
         subtitle:''
-      }]
+      }],
+      audience:'India',
+      genre:'Action'
     },
     {
       name:"poll2",
@@ -31,7 +33,9 @@ export class PollService {
       options:[{
         title:'',
         subtitle:''
-      }]
+      }],
+      audience:'England',
+      genre:'Adventure'
     },
     {
       name:"poll3",
@@ -44,11 +48,13 @@ export class PollService {
       options:[{
         title:'',
         subtitle:''
-      }]
+      }],
+      audience:'India',
+      genre:'Adventure'
     },
     {
       name:"poll4",
-      active:true,
+      active:false,
       id:1,
       date:new Date(),
       location:"Delhi",
@@ -57,11 +63,13 @@ export class PollService {
       options:[{
         title:'',
         subtitle:''
-      }]
+      }],
+      audience:'India',
+      genre:'Action'
     },
     {
       name:"poll5",
-      active:true,
+      active:false,
       id:1,
       date:new Date(),
       location:"Delhi",
@@ -70,34 +78,10 @@ export class PollService {
       options:[{
         title:'',
         subtitle:''
-      }]
+      }],
+      audience:'India',
+      genre:'Animation'
     },
-    {
-      name:"poll6",
-      active:true,
-      id:1,
-      date:new Date(),
-      location:"Delhi",
-      timeLeft:new Date(),
-      ques:'Will India win this world cup?',
-      options:[{
-        title:'',
-        subtitle:''
-      }]
-    },
-    {
-      name:"poll7",
-      active:true,
-      id:1,
-      date:new Date(),
-      location:"Delhi",
-      timeLeft:new Date(),
-      ques:'Will India win this world cup?',
-      options:[{
-        title:'',
-        subtitle:''
-      }]
-    }
     
   ]
 

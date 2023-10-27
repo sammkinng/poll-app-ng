@@ -58,8 +58,8 @@
                          <input type="text" class="form-control" placeholder="Start typing to search..." [(ngModel)]="ip" (ngModelChange)="filterAudience()" name="cool1">
                       </div>
                    </form>
-                   <div class="custom-control custom-checkbox" *ngFor="let aud of filteredAudience;let i=index">
-                      <input type="checkbox" class="custom-control-input" [id]="'osahan116'+i" >
+                   <div class="custom-control custom-checkbox" *ngFor="let aud of filteredAudience;let i=index" >
+                      <input type="checkbox" class="custom-control-input" [id]="'osahan116'+i" (click)="toggleFilter(aud.country,0)">
                       <label class="custom-control-label" [for]="'osahan116'+i">{{aud.country}} <small class="text-black-50">{{aud.value}}</small></label>
                    </div>
                   
@@ -78,13 +78,13 @@
              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="filters-card-body card-shop-filters">
                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="osahan1155">
-                      <label class="custom-control-label" for="osahan1155">Active <small class="text-black-50">{{globalState.activePolls.length}}</small>
+                      <input type="checkbox" class="custom-control-input" id="osahan1155" (click)="toggleActive(1)">
+                      <label class="custom-control-label" for="osahan1155">Active <small class="text-black-50">{{globalState.pollSelector[1].length}}</small>
                       </label>
                    </div>
                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="osahan1166">
-                      <label class="custom-control-label" for="osahan1166">Inactive <small class="text-black-50">{{globalState.inactivePolls.length}}</small>
+                      <input type="checkbox" class="custom-control-input" id="osahan1166" (click)="toggleActive(2)">
+                      <label class="custom-control-label" for="osahan1166">Inactive <small class="text-black-50">{{globalState.pollSelector[2].length}}</small>
                       </label>
                    </div>
                    
@@ -102,7 +102,7 @@
              <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                 <div class="filters-card-body card-shop-filters">
                    <div class="custom-control custom-checkbox" *ngFor="let category of categories;let i=index">
-                      <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i">
+                      <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i" (click)="toggleFilter(category.name,1)">
                       <label class="custom-control-label" [for]="'osahan1155'+i">{{category.name}} <small class="text-black-50">{{category.value}}</small>
                       </label>
                    </div>
@@ -137,7 +137,7 @@
                       </div>
                    </form>
                    <div *ngFor="let aud of filteredAudience;let i=index" class="custom-control custom-checkbox" >
-                      <input type="checkbox" class="custom-control-input" [id]="'osahan11w'+i">
+                      <input type="checkbox" class="custom-control-input" [id]="'osahan11w'+i" (click)="toggleFilter(aud.country,0)">
                       <label class="custom-control-label" [for]="'osahan11w'+i">{{aud.country}} <small class="text-black-50">{{aud.value}}</small></label>
                    </div>
                    
@@ -156,13 +156,13 @@
              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="filters-card-body card-shop-filters">
                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="osahan11z">
-                      <label class="custom-control-label" for="osahan11z"> Active <small class="text-black-50">{{globalState.activePolls.length}}</small>
+                      <input type="checkbox" class="custom-control-input" id="osahan11z" (click)="toggleActive(1)">
+                      <label class="custom-control-label" for="osahan11z"> Active <small class="text-black-50">{{globalState.pollSelector[1].length}}</small>
                       </label>
                    </div>
                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="osahan11zz">
-                      <label class="custom-control-label" for="osahan11zz"> Inactive <small class="text-black-50">{{globalState.inactivePolls.length}}</small>
+                      <input type="checkbox" class="custom-control-input" id="osahan11zz" (click)="toggleActive(2)">
+                      <label class="custom-control-label" for="osahan11zz"> Inactive <small class="text-black-50">{{globalState.pollSelector[2].length}}</small>
                       </label>
                    </div>
                    </div>
@@ -179,7 +179,7 @@
              <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                 <div class="filters-card-body card-shop-filters">
                    <div class="custom-control custom-checkbox" *ngFor="let category of categories;let i =index">
-                      <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i">
+                      <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i" (click)="toggleFilter(category.name,1)">
                       <label class="custom-control-label" [for]="'osahan11z'+i"> {{category.name}} <small class="text-black-50">{{category.value}}</small>
                       </label>
                    </div>

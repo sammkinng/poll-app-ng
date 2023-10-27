@@ -18,7 +18,9 @@ export interface Poll {
   location: string,
   timeLeft:Date,
   ques:string,
-  options:Option[]
+  options:Option[],
+  audience:string,
+  genre:string
 }
 
 export interface Option{
