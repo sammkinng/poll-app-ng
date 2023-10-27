@@ -13,7 +13,7 @@ export interface Audience {
 export interface Poll {
   name: string,
   active: boolean,
-  id: number,
+  id: string,
   date: Date,
   location: string,
   timeLeft:Date,

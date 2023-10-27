@@ -17,7 +17,7 @@ export class StateService {
   constructor(
     private pollService: PollService
   ) {
-    pollService.getPolls()
+    pollService.getAllPolls()
       .then(res => {
         this.pollSelector[0] = res
         this.filteredPolls = res
