@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './components/main/main.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { ForgotPwComponent } from './components/forgot-pw/forgot-pw.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { AddInfoComponent } from './components/add-info/add-info.component';
-import { PollComponent } from './components/poll/poll.component';
-import { BlogComponent } from './components/blog/blog.component';
+import { MainComponent } from './pages/main/main.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ForgotPwComponent } from './pages/forgot-pw/forgot-pw.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AddInfoComponent } from './pages/add-info/add-info.component';
+import { PollComponent } from './pages/poll/poll.component';
+import { BlogComponent } from './pages/blog/blog.component';
 
 const routes: Routes = [
   {
@@ -27,28 +27,28 @@ const routes: Routes = [
   },
   {
     path: 'forgot-password',
-    component:ForgotPwComponent,
-    title:'Forgot Password'
+    component: ForgotPwComponent,
+    title: 'Forgot Password'
   },
   {
-    path:'add-info',
-    component:AddInfoComponent,
-    title:'Add Personal Details'
+    path: 'add-info',
+    component: AddInfoComponent,
+    title: 'Add Personal Details'
   },
   {
-    path:'poll/:id',
-    component:PollComponent,
-    title:'Poll'
+    path: 'poll/:id',
+    component: PollComponent,
+    title: 'Poll'
   },
   {
-    path:'blog/:id',
-    component:BlogComponent,
-    title:'Blog'
+    path: 'blog/:id',
+    component: BlogComponent,
+    title: 'Blog'
   },
   {
-    path:'**',
-    component:NotFoundComponent,
-    title:"404 Not Found"
+    path: '**',
+    component: NotFoundComponent,
+    title: "404 Not Found"
   }
 ];
 

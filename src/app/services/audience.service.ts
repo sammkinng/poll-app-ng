@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Audience } from '../components/main/main.component';
+import { Audience } from '../pages/main/main.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AudienceService {
 
-  audience=[
+  audience = [
     {
-      country:'India',
-      value:120
+      country: 'India',
+      value: 120
     },
     {
-      country:'England',
-      value:20
+      country: 'England',
+      value: 20
     },
     {
-      country:'South Africa',
-      value:100
+      country: 'South Africa',
+      value: 100
     },
     {
-      country:'New Zealand',
-      value:80
+      country: 'New Zealand',
+      value: 80
     }
   ]
 
   constructor() { }
 
-  getAudience(){
-    return new Promise<Audience[]>((resolve,reject)=>{
-      setTimeout(()=>resolve(this.audience),500)
+  getAudience() {
+    return new Promise<Audience[]>((resolve, reject) => {
+      setTimeout(() => resolve(this.audience), 500)
     })
   }
 }

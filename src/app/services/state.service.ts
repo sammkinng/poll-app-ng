@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Poll } from '../components/main/main.component';
+import { Poll } from '../pages/main/main.component';
 import { PollService } from './poll.service';
 
 @Injectable({
@@ -8,11 +8,11 @@ import { PollService } from './poll.service';
 export class StateService {
   loading = true;
 
-  pollSelector:Poll[][]=[
-    [],[],[]
+  pollSelector: Poll[][] = [
+    [], [], []
   ]
-  active:number=0
-  filteredPolls: Poll[]=[]
+  active: number = 0
+  filteredPolls: Poll[] = []
 
   constructor(
     private pollService: PollService
@@ -20,7 +20,7 @@ export class StateService {
     pollService.getPolls()
       .then(res => {
         this.pollSelector[0] = res
-        this.filteredPolls=res
+        this.filteredPolls = res
         this.countActive()
         this.loading = false
       })
@@ -28,9 +28,9 @@ export class StateService {
         console.log("error while fetching polls")
         this.loading = false
       })
-   }
+  }
 
-   private countActive() {
+  private countActive() {
     let l1: Poll[] = []
     let l2: Poll[] = []
     this.pollSelector[0].forEach(poll => {
@@ -45,7 +45,7 @@ export class StateService {
     this.pollSelector[2] = l2;
   }
 
-  filterItems(l1:string[],l2:string[]) {
+  filterItems(l1: string[], l2: string[]) {
     // Implement filtering logic based on selected filters
 
     if (l1.length === 0 && l2.length === 0) {
@@ -63,6 +63,6 @@ export class StateService {
         .filter(item => l1.some(filter => item.audience === filter))
         .filter(i => l2.some(filter => i.genre === filter));
     }
-    
+
   }
 }

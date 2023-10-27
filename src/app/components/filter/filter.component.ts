@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Category, Audience, Poll } from '../main/main.component';
+import { Category, Audience, Poll } from '../../pages/main/main.component';
 import { AudienceService } from 'src/app/services/audience.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { StateService } from 'src/app/services/state.service';
@@ -11,28 +11,28 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class FilterComponent {
 
-  selectedFilters: string[][] = [[],[]];
+  selectedFilters: string[][] = [[], []];
 
-  toggleActive(num:number){
-    if(this.globalState.active===num){
-      this.globalState.active=0
+  toggleActive(num: number) {
+    if (this.globalState.active === num) {
+      this.globalState.active = 0
     }
-    else{
-      this.globalState.active=num
+    else {
+      this.globalState.active = num
     }
-    this.globalState.filterItems(this.selectedFilters[0],this.selectedFilters[1])
+    this.globalState.filterItems(this.selectedFilters[0], this.selectedFilters[1])
   }
 
-  toggleFilter(filter: string,type:number) {
-    if (this.isSelected(filter,type)) {
+  toggleFilter(filter: string, type: number) {
+    if (this.isSelected(filter, type)) {
       this.selectedFilters[type] = this.selectedFilters[type].filter(f => f !== filter);
     } else {
       this.selectedFilters[type].push(filter);
     }
-    this.globalState.filterItems(this.selectedFilters[0],this.selectedFilters[1])
+    this.globalState.filterItems(this.selectedFilters[0], this.selectedFilters[1])
   }
 
-  isSelected(filter: string,type:number): boolean {
+  isSelected(filter: string, type: number): boolean {
     return this.selectedFilters[type].includes(filter);
   }
 
@@ -45,7 +45,7 @@ export class FilterComponent {
   constructor(
     private categoryService: CategoryService,
     private audienceService: AudienceService,
-    public globalState:StateService
+    public globalState: StateService
   ) {
     categoryService.getCategories()
       .then(res => {
@@ -62,15 +62,15 @@ export class FilterComponent {
       .catch(() => {
 
       })
-    }
+  }
 
-    filterAudience() {
-      if (!this.ip) {
-        this.filteredAudience = this.audience
-      }
-      this.filteredAudience = this.audience.filter(val =>
-        val?.country.toLowerCase().includes(this.ip)
-      )
+  filterAudience() {
+    if (!this.ip) {
+      this.filteredAudience = this.audience
     }
+    this.filteredAudience = this.audience.filter(val =>
+      val?.country.toLowerCase().includes(this.ip)
+    )
+  }
 
 }
