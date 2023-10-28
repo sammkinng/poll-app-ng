@@ -10,7 +10,6 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class FrameComponent {
   notifications=3
-  selectedCategory:any
 
   categories:Category[]=[]
   topCategories:Category[]=[{
@@ -24,18 +23,13 @@ export class FrameComponent {
   {
     name:'Crime',
     value:50
-  },
-  {
-    name:'Sports',
-    value:15
-  },
+  }
 ]
 
   constructor(
     private categoryService:CategoryService,
     public globalState:StateService
   ){
-    this.selectedCategory=0
     categoryService.getCategories()
     .then(res=>{
         this.categories=res

@@ -7,7 +7,7 @@ import { PollService } from './poll.service';
 })
 export class StateService {
   loading = true;
-
+  selectedCategories=0
   pollSelector: Poll[][] = [
     [], [], []
   ]
