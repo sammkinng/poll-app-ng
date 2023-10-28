@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/pages/main/main.component';
 import { CategoryService } from 'src/app/services/category.service';
 import { StateService } from 'src/app/services/state.service';
@@ -10,6 +11,7 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class FrameComponent {
   notifications=3
+  selected:any
 
   categories:Category[]=[]
   topCategories:Category[]=[{
@@ -28,11 +30,18 @@ export class FrameComponent {
 
   constructor(
     private categoryService:CategoryService,
-    public globalState:StateService
+    public globalState:StateService,
+    private route:ActivatedRoute
   ){
     categoryService.getCategories()
     .then(res=>{
         this.categories=res
+    })
+  }
+
+  ngOnInit(){
+    this.route.paramMap.subscribe(params => {
+      this.selected=params.get('id')
     })
   }
 
