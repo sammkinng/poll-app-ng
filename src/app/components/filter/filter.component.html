@@ -7,7 +7,7 @@
           <div  *ngIf="mobileFilters" class="filters-card border-bottom p-3">
              <div class="filters-card-header" id="headingOffer">
                 <h6 class="mb-0">
-                   <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseSort" aria-expanded="true" aria-controls="collapseSort">
+                   <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseSort" aria-expanded="true" aria-controls="collapseSort">
                    Sort by Products <i class="fas fa-angle-down float-right"></i>
                    </a>
                 </h6>
@@ -44,7 +44,7 @@
           <div class="filters-card border-bottom p-3">
              <div class="filters-card-header" id="headingTwo">
                 <h6 class="mb-0">
-                   <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
+                   <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
                    Select Audience
                    <i class="fas fa-angle-down float-right"></i>
                    </a>
@@ -59,18 +59,18 @@
                       </div>
                    </form>
                    <div class="custom-control custom-checkbox" *ngFor="let aud of filteredAudience;let i=index" >
-                      <input type="checkbox" class="custom-control-input" [id]="'osahan116'+i" (click)="toggleFilter(aud.country,0)">
+                      <input type="checkbox" class="custom-control-input" [id]="'osahan116'+i" (click)="toggleFilter(aud.country,0)" [checked]="selectedFilters[0].includes(aud.country)">
                       <label class="custom-control-label" [for]="'osahan116'+i">{{aud.country}} <small class="text-black-50">{{aud.value}}</small></label>
                    </div>
                   
-                   <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
+                   <div class="mt-2"><a href="#" class="link">See all</a></div>
                 </div>
              </div>
           </div>
           <div class="filters-card border-bottom p-3">
              <div class="filters-card-header" id="headingOne">
                 <h6 class="mb-0">
-                   <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                   <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                    Poll Status <i class="fas fa-angle-down float-right"></i>
                    </a>
                 </h6>
@@ -78,12 +78,12 @@
              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="filters-card-body card-shop-filters">
                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="osahan1155" (click)="toggleActive(1)">
+                      <input type="checkbox" class="custom-control-input" id="osahan1155" (click)="toggleActive(1)" [checked]="active">
                       <label class="custom-control-label" for="osahan1155">Active <small class="text-black-50">{{globalState.pollSelector[1].length}}</small>
                       </label>
                    </div>
                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="osahan1166" (click)="toggleActive(2)">
+                      <input type="checkbox" class="custom-control-input" id="osahan1166" (click)="toggleActive(2)" [checked]="inactive">
                       <label class="custom-control-label" for="osahan1166">Inactive <small class="text-black-50">{{globalState.pollSelector[2].length}}</small>
                       </label>
                    </div>
@@ -94,7 +94,7 @@
           <div class="filters-card border-bottom p-3">
              <div class="filters-card-header" id="headingOffer">
                 <h6 class="mb-0">
-                   <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
+                   <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
                    Genre <i class="fas fa-angle-down float-right"></i>
                    </a>
                 </h6>
@@ -102,11 +102,11 @@
              <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                 <div class="filters-card-body card-shop-filters">
                    <div class="custom-control custom-checkbox" *ngFor="let category of categories;let i=index">
-                      <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i" (click)="toggleFilter(category.name,1)">
+                      <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i" (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
                       <label class="custom-control-label" [for]="'osahan1155'+i">{{category.name}} <small class="text-black-50">{{category.value}}</small>
                       </label>
                    </div>
-                   <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
+                   <div class="mt-2"><a href="#" class="link">See all</a></div>
                 </div>
              </div>
           </div>
@@ -122,7 +122,7 @@
           <div class="filters-card border-bottom p-3">
              <div class="filters-card-header" id="headingTwo">
                 <h6 class="mb-0">
-                   <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
+                   <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
                    Select Audience
                    <i class="fas fa-angle-down float-right"></i>
                    </a>
@@ -137,18 +137,18 @@
                       </div>
                    </form>
                    <div *ngFor="let aud of filteredAudience;let i=index" class="custom-control custom-checkbox" >
-                      <input type="checkbox" class="custom-control-input" [id]="'osahan11w'+i" (click)="toggleFilter(aud.country,0)">
+                      <input type="checkbox" class="custom-control-input" [id]="'osahan11w'+i" (click)="toggleFilter(aud.country,0)" [checked]="selectedFilters[0].includes(aud.country)">
                       <label class="custom-control-label" [for]="'osahan11w'+i">{{aud.country}} <small class="text-black-50">{{aud.value}}</small></label>
                    </div>
                    
-                   <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
+                   <div class="mt-2"><a href="#" class="link">See all</a></div>
                 </div>
              </div>
           </div>
           <div class="filters-card border-bottom p-3">
              <div class="filters-card-header" id="headingOne">
                 <h6 class="mb-0">
-                   <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                   <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                    Poll Status <i class="fas fa-angle-down float-right"></i>
                    </a>
                 </h6>
@@ -156,12 +156,12 @@
              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="filters-card-body card-shop-filters">
                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="osahan11z" (click)="toggleActive(1)">
+                      <input type="checkbox" class="custom-control-input" id="osahan11z" (click)="toggleActive(1)" [checked]="active">
                       <label class="custom-control-label" for="osahan11z"> Active <small class="text-black-50">{{globalState.pollSelector[1].length}}</small>
                       </label>
                    </div>
                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="osahan11zz" (click)="toggleActive(2)">
+                      <input type="checkbox" class="custom-control-input" id="osahan11zz" (click)="toggleActive(2)" [checked]="inactive">
                       <label class="custom-control-label" for="osahan11zz"> Inactive <small class="text-black-50">{{globalState.pollSelector[2].length}}</small>
                       </label>
                    </div>
@@ -171,7 +171,7 @@
           <div class="filters-card border-bottom p-3">
              <div class="filters-card-header" id="headingOffer">
                 <h6 class="mb-0">
-                   <a [routerLink]="['/']" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
+                   <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true" aria-controls="collapseOffer">
                    Genre <i class="fas fa-angle-down float-right"></i>
                    </a>
                 </h6>
@@ -179,11 +179,11 @@
              <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                 <div class="filters-card-body card-shop-filters">
                    <div class="custom-control custom-checkbox" *ngFor="let category of categories;let i =index">
-                      <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i" (click)="toggleFilter(category.name,1)">
+                      <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i" (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
                       <label class="custom-control-label" [for]="'osahan11z'+i"> {{category.name}} <small class="text-black-50">{{category.value}}</small>
                       </label>
                    </div>
-                   <div class="mt-2"><a [routerLink]="['/']" class="link">See all</a></div>
+                   <div class="mt-2"><a href="#" class="link">See all</a></div>
                 </div>
              </div>
           </div>

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Category, Audience, Poll } from '../../pages/main/main.component';
 import { AudienceService } from 'src/app/services/audience.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { StateService } from 'src/app/services/state.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -11,14 +12,26 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class FilterComponent {
 
-  selectedFilters: string[][] = [[], []];
+  selectedFilters: string[][]=[[],[]] ;
+  active=this.globalState.active==1
+  inactive=this.globalState.active==2
 
   toggleActive(num: number) {
     if (this.globalState.active === num) {
       this.globalState.active = 0
+      this.active=false
+      this.inactive=false
     }
     else {
       this.globalState.active = num
+      if(num==1){
+        this.active=true
+        this.inactive=false
+      }
+      else{
+        this.active=false
+        this.inactive=true
+      }
     }
     this.globalState.filterItems(this.selectedFilters[0], this.selectedFilters[1])
   }
@@ -45,7 +58,8 @@ export class FilterComponent {
   constructor(
     private categoryService: CategoryService,
     private audienceService: AudienceService,
-    public globalState: StateService
+    public globalState: StateService,
+    private route:ActivatedRoute
   ) {
     categoryService.getCategories()
       .then(res => {
@@ -73,4 +87,15 @@ export class FilterComponent {
     )
   }
 
+  ngOnInit(){
+    this.route.paramMap.subscribe(params => {
+      let id=params.get('id')
+      let x:string[][]=[[],[]]
+      if(id){
+      x[1].push(id)
+      }
+      this.selectedFilters=x
+      this.globalState.filterItems(x[0],x[1])
+    })
+  }
 }

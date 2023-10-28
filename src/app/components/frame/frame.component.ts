@@ -23,7 +23,7 @@ export class FrameComponent {
     value:158
   },
   {
-    name:'Crime',
+    name:'Sport',
     value:50
   }
 ]
