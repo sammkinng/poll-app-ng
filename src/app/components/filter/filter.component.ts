@@ -12,6 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FilterComponent {
 
+  @Input() resetFxn=()=>{}
+
   selectedFilters: string[][]=[[],[]] ;
   active=this.globalState.active==1
   inactive=this.globalState.active==2
@@ -54,6 +56,7 @@ export class FilterComponent {
   audience: Audience[] = [];
   filteredAudience: Audience[] = [];
   ip = ""
+  seeAll=false
 
   constructor(
     private categoryService: CategoryService,

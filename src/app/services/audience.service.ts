@@ -23,6 +23,15 @@ export class AudienceService {
       country: 'New Zealand',
       value: 80
     }
+    ,
+    {
+      country: 'Australia',
+      value: 8
+    },
+    {
+      country: 'Sri Lanka',
+      value: 180
+    }
   ]
 
   constructor() { }
