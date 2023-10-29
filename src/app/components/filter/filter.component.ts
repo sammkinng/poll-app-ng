@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChange } from '@angular/core';
 import { Category, Audience, Poll } from '../../pages/main/main.component';
 import { AudienceService } from 'src/app/services/audience.service';
 import { CategoryService } from 'src/app/services/category.service';
@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FilterComponent {
 
-  @Input() resetFxn=()=>{}
+  @Input() resetFxn=0
 
   selectedFilters: string[][]=[[],[]] ;
   active=this.globalState.active==1
@@ -100,5 +100,33 @@ export class FilterComponent {
       this.selectedFilters=x
       this.globalState.filterItems(x[0],x[1])
     })
+
+    
+
+    
+
+   
+
   }
+
+  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
+    console.log("here",changes)
+    // The ngOnChanges hook is called when any input variable changes
+    if (changes['resetFxn']) {
+      console.log("====")
+      this.reset();
+    }
+  }
+
+  reset=()=>{
+    this.filteredAudience=this.audience
+    this.selectedFilters=[[],[]]
+    this.ip=""
+    this.active=false
+    this.inactive=false
+    this.globalState.active=0
+    this.globalState.filterItems([],[])
+  }
+
+
 }

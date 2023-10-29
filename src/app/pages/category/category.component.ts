@@ -7,4 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent {
+  count=0
+
+  reset(){
+    this.count+=1
+  }
 }

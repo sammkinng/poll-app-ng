@@ -36,5 +36,10 @@ export interface Option{
 
 
 export class MainComponent {
+  count=0
+
+  reset(){
+    this.count+=1
+  }
 
 }
