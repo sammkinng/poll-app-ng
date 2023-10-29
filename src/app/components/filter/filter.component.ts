@@ -110,10 +110,8 @@ export class FilterComponent {
   }
 
   ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-    console.log("here",changes)
     // The ngOnChanges hook is called when any input variable changes
     if (changes['resetFxn']) {
-      console.log("====")
       this.reset();
     }
   }
