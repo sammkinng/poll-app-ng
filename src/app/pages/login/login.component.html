@@ -13,17 +13,27 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" [formGroup]="form" (ngSubmit)="login">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Enter Email Address..." formControlName="email">
+                                                <div class="red" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.value!==null">Email is required.</div>
+                                                <div class="red" *ngIf="form.get('email')?.hasError('email')">Invalid email format.</div>
+                                              
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Password"
+                                                formControlName="password">
+                                                <div class="red" *ngIf="form.get('password')?.hasError('required') && form.get('password')?.value!==null">Password is required.</div>
+                                                <div class="red" *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.value!==null">Password too short.</div>
+
+                                                <div class="red" *ngIf="form.get('password')?.hasError('pattern') && !form.get('password')?.hasError('minlength')">Password must contain at least one uppercase letter, one special character, and one digit</div>
+
                                         </div>
-                                      <a [routerLink]="['/']" class="btn btn-primary btn-user btn-block">
+                                        <div class="red mb-3" *ngIf="auth.invalidCredentials">Invalid Credentials</div>
+                                        <a href="#" class="btn btn-primary btn-user btn-block" (click)="login()">
                                             Login
                                         </a>
                                         <hr>

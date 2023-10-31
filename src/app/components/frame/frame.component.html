@@ -18,8 +18,7 @@
          </li>
          <li [class]="selected===category.name ? 'nav-item active':'nav-item'"
             *ngFor="let category of topCategories;let i=index">
-            <a class="nav-link"
-               [routerLink]="['/category/'+category.name]">
+            <a class="nav-link" [routerLink]="['/category/'+category.name]">
                <i class="fas fa-fw fa-film"></i>
                <span>{{category.name}}</span></a>
          </li>
@@ -204,32 +203,33 @@
                   <li class="nav-item dropdown no-arrow">
                      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login?</span>
+                        <span [class]="auth.getUser()===null?'mr-2 d-none d-lg-inline text-gray-600 small red':'mr-2 d-none d-lg-inline text-gray-600 small'" >
+                           {{auth.getUser()===null?'Login ?':auth.getUser()?.uid}}</span>
                         <img class="img-profile rounded-circle" src="/assets/img/o1.png">
                      </a>
                      <!-- Dropdown - User Information -->
                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown">
-                        <a class="dropdown-item" [routerLink]="['/profile/1']">
-                           <i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>
-                           Profile
-                        </a>
-                        <a class="dropdown-item" [routerLink]="['/blog/1']">
-                           <i class="fas fa-heart fa-sm fa-fw mr-2 text-gray-400"></i>
-                           Watchlist
-                        </a>
-                        <a class="dropdown-item" [routerLink]="['/blog/1']">
-                           <i class="fas fa-list-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                           Your Lists
-                        </a>
-                        <a class="dropdown-item" [routerLink]="['/blog/1']">
-                           <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
-                           Account Settings
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <div *ngIf="auth.getUser()!==null">
+                           <a class="dropdown-item" [routerLink]="['/profile/1']">
+                              <i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>
+                              Profile
+                           </a>
+
+                           <a class="dropdown-item" [routerLink]="['/blog/1']">
+                              <i class="fas fa-list-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                              Your Polls
+                           </a>
+                           <a class="dropdown-item" [routerLink]="['/blog/1']">
+                              <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
+                              Account Settings
+                           </a>
+                           <div class="dropdown-divider"></div>
+                        </div>
+                        <a class="dropdown-item" [routerLink]="['/login']" data-toggle="modal"
+                           data-target="#logoutModal">
                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                           Logout
+                           {{auth.getUser()===null?'Login':'Logout'}}
                         </a>
                      </div>
                   </li>

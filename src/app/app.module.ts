@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPwComponent } from './pages/forgot-pw/forgot-pw.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AddInfoComponent } from './pages/add-info/add-info.component';
@@ -18,6 +18,10 @@ import { CardComponent } from './components/card/card.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CategoryComponent } from './pages/category/category.component';
+
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getAuth,provideAuth } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,10 @@ import { CategoryComponent } from './pages/category/category.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(()=>getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

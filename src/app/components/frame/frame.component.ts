@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/pages/main/main.component';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { StateService } from 'src/app/services/state.service';
 
@@ -31,7 +32,8 @@ export class FrameComponent {
   constructor(
     private categoryService:CategoryService,
     public globalState:StateService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    public auth:AuthService
   ){
     categoryService.getCategories()
     .then(res=>{
