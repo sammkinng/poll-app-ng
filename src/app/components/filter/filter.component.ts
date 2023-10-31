@@ -57,6 +57,7 @@ export class FilterComponent {
   filteredAudience: Audience[] = [];
   ip = ""
   seeAll=false
+  seeAllCat=false
 
   constructor(
     private categoryService: CategoryService,
