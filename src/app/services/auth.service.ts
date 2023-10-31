@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { signInWithEmailAndPassword,Auth, signOut, User } from '@angular/fire/auth';
 import { StateService } from './state.service';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +26,7 @@ export class AuthService {
   logout(){
     signOut(this.auth)
     .then((res)=>{
-
+      this.router.navigate(['/login'])
     })
     .catch((e)=>{
       console.log("Failed to logout: ",e)

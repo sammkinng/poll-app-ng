@@ -80,9 +80,9 @@
                         <label class="custom-control-label" [for]="'osahan116'+i">{{aud.country}} <small
                               class="text-black-50">{{aud.value}}</small></label>
                      </div>
-                  </ng-template>>
+                  </ng-template>
 
-                  <div class="mt-2"><a href="#" class="link">{{seeAll?'See less':'See all' }}</a></div>
+                  <div class="mt-2"><a href="#" class="link" (click)="seeAll=!seeAll">{{seeAll?'See less':'See all' }}</a></div>
                </div>
             </div>
          </div>

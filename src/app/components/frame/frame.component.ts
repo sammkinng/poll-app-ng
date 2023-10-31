@@ -13,6 +13,7 @@ import { StateService } from 'src/app/services/state.service';
 export class FrameComponent {
   notifications=3
   selected:any
+  modal=false
 
   categories:Category[]=[]
   topCategories:Category[]=[{
@@ -28,6 +29,22 @@ export class FrameComponent {
     value:50
   }
 ]
+
+logout(type:number){
+ if(type===1){
+  this.modal=true
+ }
+ else if(type===2){
+  this.modal=false
+  this.auth.logout()
+ }
+ else{
+  this.auth.logout()
+ }
+}
+
+
+
 
   constructor(
     private categoryService:CategoryService,
