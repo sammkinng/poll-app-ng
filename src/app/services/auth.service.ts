@@ -91,9 +91,10 @@ export class AuthService {
   }
 
   addDetails(uid: string, details: any) {
-    setDoc(doc(this.fs, 'user/' + uid), details)
+    setDoc(doc(this.fs, 'users/' + uid), details)
       .then(r => {
-
+        localStorage.removeItem('addUid')
+        this.router.navigate(['/'])
       })
       .catch(e => {
         this.addInfoErr=e.code

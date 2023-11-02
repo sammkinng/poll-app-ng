@@ -20,7 +20,8 @@ import { AuthService } from 'src/app/services/auth.service';
   ]
 })
 export class RegisterComponent {
-  reqdFields=false
+  terms = false
+  reqdFields = false
   form: FormGroup = this.fb.group({
     email: [null, [Validators.required, Validators.email]],
     password: [null, [
@@ -29,16 +30,17 @@ export class RegisterComponent {
       Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W)/),
       // Requires at least one uppercase letter, one lowercase letter, and one digit
     ]],
-    cnfPassword:[null,[Validators.required]]
+    cnfPassword: [null, [Validators.required]],
+    terms: [null]
   })
 
-  error=''
+  error = ''
 
 
   constructor(
     public auth: AuthService,
     private fb: FormBuilder,
-    private router:Router
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -58,21 +60,28 @@ export class RegisterComponent {
     };
   }
 
-  register(){
+  register() {
     if (this.form.valid) {
-      let x={
-        email:'',
-        password:''
+      if (this.form.get('terms')?.value) {
+        let x = {
+          email: '',
+          password: ''
+        }
+        x.email = this.form.get('email')?.value
+        x.password = this.form.get('password')?.value
+
+        this.auth.signup(x.email, x.password)
       }
-      x.email=this.form.get('email')?.value
-      x.password=this.form.get('password')?.value
-      
-      this.auth.signup(x.email,x.password)
+      else {
+        this.terms = true
+        setTimeout(() => this.terms = false, 1500)
+      }
     }
-    else{
-      this.reqdFields=true
-      setTimeout(()=>this.reqdFields=false,1500)
-    }}
+    else {
+      this.reqdFields = true
+      setTimeout(() => this.reqdFields = false, 1500)
+    }
+  }
 
 
 }

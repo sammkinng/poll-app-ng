@@ -29,7 +29,6 @@ export class AddInfoComponent {
     district:[null,[Validators.required]],
     religion:[null,[Validators.required]],
     dob:[null,[Validators.required]],
-    terms:[null]
   })
 
   constructor(

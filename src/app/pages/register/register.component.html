@@ -16,8 +16,8 @@
                                     <form class="user" [formGroup]="form">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp" formControlName="email"
-                                                placeholder="Enter Email Address...">
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                formControlName="email" placeholder="Enter Email Address...">
                                             <div class="red"
                                                 *ngIf="form.get('email')?.hasError('required') && form.get('email')?.value!==null">
                                                 Email is required.</div>
@@ -27,12 +27,14 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="password" class="form-control form-control-user" formControlName="password"
-                                                    id="exampleInputPassword" placeholder="Password">
+                                                <input type="password" class="form-control form-control-user"
+                                                    formControlName="password" id="exampleInputPassword"
+                                                    placeholder="Password">
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="password" class="form-control form-control-user" formControlName="cnfPassword"
-                                                    id="exampleRepeatPassword" placeholder="Repeat Password">
+                                                <input type="password" class="form-control form-control-user"
+                                                    formControlName="cnfPassword" id="exampleRepeatPassword"
+                                                    placeholder="Repeat Password">
                                             </div>
                                         </div>
                                         <div class="red mt"
@@ -47,21 +49,29 @@
                                             *ngIf="form.get('password')?.hasError('required') && form.get('password')?.value!==null">
                                             Password is required.</div>
 
-                                            <div class="red mt"
+                                        <div class="red mt"
                                             *ngIf="form.get('cnfPassword')?.hasError('required') && form.get('cnfPassword')?.value!==null">
                                             Confirm Password is required.</div>
 
-                                            <div class="red mt"
+                                        <div class="red mt"
                                             *ngIf="form?.hasError('passwordMismatch') && form.get('cnfPassword')?.value!==null">
                                             Passwords do not match.</div>
 
-                                            <div class="red mt"
-                                            *ngIf="auth.regError">
+                                        <div class="red mt" *ngIf="auth.regError">
                                             {{auth.regError.split('/')[1]}}</div>
 
-                                            <div class="red mt"
-                                            *ngIf="reqdFields">
+                                        <div class="red mt" *ngIf="reqdFields">
                                             Please fill all the fields</div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck"
+                                                    formControlName="terms">
+                                                <label class="custom-control-label" for="customCheck">By signing up I
+                                                    agree to <a href="#">Terms & Conditions</a></label>
+                                            </div>
+                                            <div class="red" *ngIf="terms">
+                                                Please accept Terms & Conditions.</div>
+                                        </div>
 
                                         <a href="#" class="btn btn-primary btn-user btn-block" (click)="register()">
                                             Register Account
