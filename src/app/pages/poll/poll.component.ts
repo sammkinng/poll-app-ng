@@ -14,9 +14,7 @@ export const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fr
 export class PollComponent {
 
   poll:Poll | null =null
-  days:string[]=days
-  months:string[]=months
-
+  
   constructor(
     private pollService:PollService,
     private route:ActivatedRoute
@@ -36,21 +34,6 @@ export class PollComponent {
         console.log(e)
       })
     });
-  }
-
-  getFormattedTime(date:any){
-    let h=date.getHours()
-    h=h>12?h-12:h
-    let sfx=h>12?'PM':'AM'
-
-    let m=date.getMinutes()
-    let mm=m<10?'0'+m:m
-
-    return days[date.getDay()].slice(0,3)+" "
-    +date.getDate()+" "
-    +months[date.getMonth()].slice(0,3)+" at "
-    +h+":"+mm+" "+sfx
-
   }
 
 

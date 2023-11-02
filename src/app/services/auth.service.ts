@@ -32,7 +32,6 @@ export class AuthService {
     .then(r=>{
       if(r.exists()){
         this.userDetails=r.data()
-        console.log(this.userDetails)
       }
     })
     .catch(e=>{

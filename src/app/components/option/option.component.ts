@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Option } from 'src/app/pages/main/main.component';
 
 @Component({
   selector: 'app-option',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./option.component.scss']
 })
 export class OptionComponent {
-
+  @Input() options:Option[]=[]
 }

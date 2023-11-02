@@ -1,1 +1,69 @@
-<p>content works!</p>
+<app-frame>
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="cover-pic">
+                <img src="/assets/img/cover2.jpg" class="img-fluid" alt="...">
+            </div>
+        </div>
+        <div class="col-xl-12 col-lg-12">
+            <div class="bg-white info-header shadow rounded mb-4">
+                <div class="row d-flex align-items-center justify-content-between py-3 px-4 border-bottom">
+                    <div class="col-lg-7 m-b-4">
+                        <h3 class="text-gray-900 mb-0 mt-0 font-weight-bold">{{content?.ques}}</h3>
+                        <p class="mb-0"><small class="text-muted"><i class="fas fa-map-marker-alt fa-fw fa-sm mr-1"></i>
+                                {{content?.location}}</small></p>
+                    </div>
+                    <div class="col-lg-5 text-right">
+                        <a href="#" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                                class="fas fa-share-alt"></i></a>
+                        <a href="#" class="d-sm-inline-block btn btn-danger shadow-sm" *ngIf="false"> Add to Watchlist
+                            <i class="fas fa-plus fa-sm  ml-1"></i></a>
+                    </div>
+                </div>
+                <div class="row d-flex align-items-center justify-content-between py-3 px-4">
+                    <div class="col-lg-6">
+                        <p class="mb-0 text-gray-900"><i class="fas fa-calendar-alt fa-sm fa-fw mr-1"></i>
+                            {{getFormattedTime(content?.date ) }}</p>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <p class="mb-0 text-gray-600"><i class="fas fa-film fa-sm fa-fw mr-1"></i> {{content?.audience}} |
+                            {{content?.genre}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-lg-3">
+            <div class="bg-white p-3 widget shadow rounded mb-4">
+                <ng-content></ng-content>
+
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6">
+            <div class="bg-white p-3 widget shadow rounded mb-4">
+                <ul class="nav nav-tabs" id="myTab" role="tablist" *ngIf="false">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">Summary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                            aria-controls="profile" aria-selected="false">Date And Time
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                            aria-controls="contact" aria-selected="false">FAQ</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    {{content?.content}}
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3">
+
+        </div>
+    </div>
+</app-frame>

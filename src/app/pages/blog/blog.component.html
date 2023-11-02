@@ -1,1 +1,3 @@
-<app-frame></app-frame>
+<app-content [content]="blog">
+    <app-blog-section [content]="blog?.content || ''" ></app-blog-section>
+</app-content>

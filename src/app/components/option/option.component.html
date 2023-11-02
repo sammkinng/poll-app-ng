@@ -1,1 +1,12 @@
-<p>option works!</p>
+<div class="artist-list mb-3" *ngFor="let option of options">
+    <a class="d-flex align-items-center" href="#">
+        <div class="dropdown-list-image mr-3">
+            <img class="rounded-circle" src="/assets/img/s1.png" alt="">
+            <div class="status-indicator bg-success"></div>
+        </div>
+        <div class="font-weight-bold">
+            <div class="text-truncate">{{option.title}}</div>
+            <div class="small text-gray-500">{{option.subtitle}}</div>
+        </div>
+    </a>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-blog-section',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog-section.component.scss']
 })
 export class BlogSectionComponent {
-
+  @Input() content:string=''
 }

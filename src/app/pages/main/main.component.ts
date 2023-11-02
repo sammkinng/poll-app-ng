@@ -10,7 +10,7 @@ export interface Audience {
   value: number
 }
 
-export interface Poll {
+interface Content{
   content:string,
   name: string,
   active: boolean,
@@ -19,10 +19,18 @@ export interface Poll {
   location: string,
   timeLeft:Date,
   ques:string,
-  options:Option[],
   audience:string,
   genre:string
 }
+
+export interface Poll extends Content{
+  options:Option[],
+}
+
+export interface Blog extends Content{
+  section:string
+}
+
 
 export interface Option{
   title:string,
