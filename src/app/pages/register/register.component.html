@@ -13,23 +13,57 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" [formGroup]="form">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                id="exampleInputEmail" aria-describedby="emailHelp" formControlName="email"
                                                 placeholder="Enter Email Address...">
+                                            <div class="red"
+                                                *ngIf="form.get('email')?.hasError('required') && form.get('email')?.value!==null">
+                                                Email is required.</div>
+                                            <div class="red" *ngIf="form.get('email')?.hasError('email')">Invalid email
+                                                format.</div>
+
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="password" class="form-control form-control-user"
+                                                <input type="password" class="form-control form-control-user" formControlName="password"
                                                     id="exampleInputPassword" placeholder="Password">
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="password" class="form-control form-control-user"
+                                                <input type="password" class="form-control form-control-user" formControlName="cnfPassword"
                                                     id="exampleRepeatPassword" placeholder="Repeat Password">
                                             </div>
                                         </div>
-                                        <a [routerLink]="['/add-info']" class="btn btn-primary btn-user btn-block">
+                                        <div class="red mt"
+                                            *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.value!==null">
+                                            Password too short.</div>
+
+                                        <div class="red mt"
+                                            *ngIf="form.get('password')?.hasError('pattern') && !form.get('password')?.hasError('minlength')">
+                                            Password must contain at least one uppercase letter, one special character,
+                                            and one digit</div>
+                                        <div class="red mt"
+                                            *ngIf="form.get('password')?.hasError('required') && form.get('password')?.value!==null">
+                                            Password is required.</div>
+
+                                            <div class="red mt"
+                                            *ngIf="form.get('cnfPassword')?.hasError('required') && form.get('cnfPassword')?.value!==null">
+                                            Confirm Password is required.</div>
+
+                                            <div class="red mt"
+                                            *ngIf="form?.hasError('passwordMismatch') && form.get('cnfPassword')?.value!==null">
+                                            Passwords do not match.</div>
+
+                                            <div class="red mt"
+                                            *ngIf="auth.regError">
+                                            {{auth.regError.split('/')[1]}}</div>
+
+                                            <div class="red mt"
+                                            *ngIf="reqdFields">
+                                            Please fill all the fields</div>
+
+                                        <a href="#" class="btn btn-primary btn-user btn-block" (click)="register()">
                                             Register Account
                                         </a>
                                         <hr>
@@ -45,7 +79,8 @@
                                         <a [routerLink]="['/add-info']" class="btn btn-twitter btn-user btn-block">
                                             <i class="fab fa-twitter fa-fw"></i> Register with Twitter(X)
                                         </a>
-                                        <a [routerLink]="['/add-info']" class="btn btn-phone btn-user btn-block" *ngIf="false">
+                                        <a [routerLink]="['/add-info']" class="btn btn-phone btn-user btn-block"
+                                            *ngIf="false">
                                             <i class="fas fa-phone-alt fa-fw"></i> Register with Phone Number (India)
                                         </a>
                                     </form>

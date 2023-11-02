@@ -15,6 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
   ]
 })
 export class LoginComponent {
+  reqdFields=false
   onCaptchaResolved(e: Event) {
     console.log(e)
   }
@@ -25,16 +26,14 @@ export class LoginComponent {
         this.form.get('email')?.value,
         this.form.get('password')?.value)
     }
-  }
+    else{
+      this.reqdFields=true
+      setTimeout(()=>this.reqdFields=false,1500)
+    }}
 
   form: FormGroup = this.fb.group({
     email: [null, [Validators.required, Validators.email]],
-    password: [null, [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W)/),
-      // Requires at least one uppercase letter, one lowercase letter, and one digit
-    ]]
+    password: [null, [Validators.required ]]
   })
 
 

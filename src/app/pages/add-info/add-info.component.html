@@ -13,36 +13,49 @@
                            <div class="text-center">
                               <h1 class="h4 text-gray-900 mb-4">Add Personal Details</h1>
                            </div>
-                           <form class="user">
+                           <form class="user" [formGroup]="form">
                               <div class="form-group row">
                                  <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control " id="exampleFirstName"
-                                       placeholder="First Name">
+                                       placeholder="First Name" formControlName="fName">
+                                       <div class="red"
+                                       *ngIf="form.get('fName')?.hasError('required') && form.get('fName')?.value!==null">
+                                       First Name is required.</div>
                                  </div>
                                  <div class="col-sm-6">
-                                    <input type="text" class="form-control " id="exampleLastName"
+                                    <input type="text" class="form-control " id="exampleLastName" formControlName="lName"
                                        placeholder="Last Name">
+                                       <div class="red"
+                                       *ngIf="form.get('lName')?.hasError('required') && form.get('lName')?.value!==null">
+                                       Last Name is required.</div>
                                  </div>
+                                
                               </div>
 
                               <div class="form-group row">
                                  <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <select id="countrySelect" [(ngModel)]="selectedCountry" name="selectedCountry"
+                                    <select id="countrySelect" name="selectedCountry" formControlName="country" (click)="clickedC=true"
                                        class="cool-sel">
                                        <option value="">Country</option>
                                        <option *ngFor="let country of countries" [value]="country.code">
                                           {{ country.name }}
                                        </option>
                                     </select>
+                                    <div class="red"
+                                    *ngIf="form.get('country')?.hasError('required') && clickedC">
+                                    Country is required.</div>
                                  </div>
                                  <div class="col-sm-6">
-                                    <input type="text" class="form-control " id="state" placeholder="State">
+                                    <input type="text" class="form-control " id="state" placeholder="State" formControlName="state">
+                                    <div class="red"
+                                    *ngIf="form.get('state')?.hasError('required') && form.get('state')?.value==''">
+                                    State is required.</div>
                                  </div>
 
                               </div>
                               <div class="form-group row">
                                  <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <select id="genderSelect" name="genderSelect" class="cool-sel">
+                                    <select id="genderSelect" name="genderSelect" class="cool-sel" formControlName="gender" (click)="clickedG=true">
                                        <option value="">
                                           Gender
                                        </option>
@@ -56,29 +69,52 @@
                                           Other
                                        </option>
                                     </select>
+                                    <div class="red"
+                                    *ngIf="form.get('gender')?.hasError('required') && clickedG">
+                                    Gender is required.</div>
                                  </div>
                                  <div class="col-sm-6">
-                                    <input type="text" class="form-control " id="district" placeholder="District">
+                                    <input type="text" class="form-control " id="district" placeholder="District" formControlName="district">
+                                    <div class="red"
+                                    *ngIf="form.get('district')?.hasError('required') && form.get('district')?.value!==null">
+                                    District is required.</div>
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <div class="col-sm-6 sp">
-                                    <input type="text" class="form-control " id="religion" placeholder="Religion">
+                                    <input type="text" class="form-control " id="religion" placeholder="Religion" formControlName="religion">
+                                    <div class="red"
+                                    *ngIf="form.get('religion')?.hasError('required') && form.get('religion')?.value!==null">
+                                    Religion is required.</div>
                                  </div>
                                  <div class="col-sm-6">
-                                    <input type="datetime" placeholder="DOB" class="form-control ">
+                                    <div class="form-control d-flex justify-content-between">
+                                    DOB:  
+                                    <input type="date" placeholder="DOB" formControlName="dob" id="ddd">
+                                    </div>
+                                    <div class="red"
+                                    *ngIf="form.get('dob')?.hasError('required') && form.get('dob')?.value!==null">
+                                    DOB is required.</div>
+                                    
                                  </div>
+                                
                               </div>
 
 
                               <div class="form-group">
                                  <div class="custom-control custom-checkbox small">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck" formControlName="terms">
                                     <label class="custom-control-label" for="customCheck">By signing up I agree to <a
                                           href="#">Terms & Conditions</a></label>
                                  </div>
+                                 <div class="red"
+                                    *ngIf="form.get('terms')?.value==false">
+                                    Please accept Terms & Conditions.</div>
                               </div>
-                              <a [routerLink]="['/']" class="btn btn-primary btn-user btn-block">
+                              <div class="red mt"
+                                            *ngIf="reqdFields">
+                                            Please fill all the fields</div>
+                              <a href="#" class="btn btn-primary btn-user btn-block" (click)="register()">
                                  Register Account
                               </a>
 

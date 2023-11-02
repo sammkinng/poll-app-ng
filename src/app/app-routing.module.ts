@@ -10,57 +10,68 @@ import { PollComponent } from './pages/poll/poll.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CategoryComponent } from './pages/category/category.component';
+import { addInfoGuard, uidGuard } from './guards/add-info.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
-    title: 'Landing page'
+    title: 'Landing page',
+    canActivate:[uidGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
-    title: 'Login'
+    title: 'Login',
+    canActivate:[uidGuard]
   },
   {
     path: 'register',
     component: RegisterComponent,
-    title: 'Register'
+    title: 'Register',
+    canActivate:[uidGuard]
   },
   {
     path: 'forgot-password',
     component: ForgotPwComponent,
-    title: 'Forgot Password'
+    title: 'Forgot Password',
+    canActivate:[uidGuard]
   },
   {
     path: 'add-info',
     component: AddInfoComponent,
-    title: 'Add Personal Details'
+    title: 'Add Personal Details',
+    canActivate:[addInfoGuard]
   },
   {
     path: 'poll/:id',
     component: PollComponent,
-    title: 'Poll'
+    title: 'Poll',
+    canActivate:[uidGuard]
   },
   {
     path: 'blog/:id',
     component: BlogComponent,
-    title: 'Blog'
+    title: 'Blog',
+    canActivate:[uidGuard]
   },
   {
     path:'profile/:id',
     component:ProfileComponent,
-    title:'User Profile'
+    title:'User Profile',
+    canActivate:[uidGuard]
   },
   {
     path:'category/:id',
     component:CategoryComponent,
-    title:'Category'
+    title:'Category',
+    canActivate:[uidGuard]
   },
   {
     path: '**',
     component: NotFoundComponent,
-    title: "404 Not Found"
+    title: "404 Not Found",
+    canActivate:[uidGuard]
   }
 ];
 

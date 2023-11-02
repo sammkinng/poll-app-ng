@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { CountryService } from 'src/app/services/country.service';
 
@@ -14,9 +16,51 @@ interface Country {
 })
 export class AddInfoComponent {
   countries: Country[] = [];
-  selectedCountry: string = ''; 
+  clickedG=false
+  clickedC=false
+  reqdFields=false
 
-  constructor(private countryService: CountryService) {
+  form:FormGroup=this.fb.group({
+    fName:[null,[Validators.required]],
+    lName:[null,[Validators.required]],
+    country:["",[Validators.required]],
+    state:[null,[Validators.required]],
+    gender:["",[Validators.required]],
+    district:[null,[Validators.required]],
+    religion:[null,[Validators.required]],
+    dob:[null,[Validators.required]],
+    terms:[null]
+  })
+
+  constructor(
+    private countryService: CountryService,
+    private auth:AuthService,
+    private fb:FormBuilder
+    ) {
     this.countries = countryService.getCountries();
   }
+
+  register(){
+    if(this.form.valid){
+      console.log(1)
+      let x:{[key:string]:string}={
+        fName:'',
+        lName:'',
+        country:'',
+        district:'',
+        state:'',
+        dob:'',
+        religion:''
+      }
+      Object.keys(x).forEach(k=>{
+        x[k]=this.form.get(k)?.value
+      })
+   
+      this.auth.addDetails(localStorage.getItem('addUid') ||'',x)
+    }
+  else{
+    this.reqdFields=true
+    setTimeout(()=>this.reqdFields=false,1500)
+  }}
+
 }

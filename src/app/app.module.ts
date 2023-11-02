@@ -21,6 +21,7 @@ import { CategoryComponent } from './pages/category/category.component';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getAuth,provideAuth } from '@angular/fire/auth';
+import { getFirestore ,provideFirestore} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -47,7 +48,8 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(()=>getAuth())
+    provideAuth(()=>getAuth()),
+    provideFirestore(()=>getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

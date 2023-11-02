@@ -27,12 +27,11 @@
                                                 id="exampleInputPassword" placeholder="Password"
                                                 formControlName="password">
                                                 <div class="red" *ngIf="form.get('password')?.hasError('required') && form.get('password')?.value!==null">Password is required.</div>
-                                                <div class="red" *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.value!==null">Password too short.</div>
-
-                                                <div class="red" *ngIf="form.get('password')?.hasError('pattern') && !form.get('password')?.hasError('minlength')">Password must contain at least one uppercase letter, one special character, and one digit</div>
-
                                         </div>
-                                        <div class="red mb-3" *ngIf="auth.invalidCredentials">Invalid Credentials</div>
+                                        <div class="red mb-3" *ngIf="auth.loginErr">{{auth.loginErr.split('/')[1]}} </div>
+                                        <div class="red mt"
+                                            *ngIf="reqdFields">
+                                            Please fill all the fields</div>
                                         <a href="#" class="btn btn-primary btn-user btn-block" (click)="login()">
                                             Login
                                         </a>
