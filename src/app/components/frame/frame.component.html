@@ -203,8 +203,8 @@
                   <li class="nav-item dropdown no-arrow">
                      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <span [class]="auth.getUser()===null?'mr-2 d-none d-lg-inline text-gray-600 small red':'mr-2 d-none d-lg-inline text-gray-600 small'" >
-                           {{auth.getUser()===null?'Login ?':auth.getUser()?.uid}}</span>
+                        <span [class]="auth.isLoggedIn()?'mr-2 d-none d-lg-inline text-gray-600 small':'mr-2 d-none d-lg-inline text-gray-600 small red'" >
+                           {{auth.isLoggedIn()?auth.userDetails.fName+' '+auth.userDetails.lName:'Login ?'}}</span>
                         <img class="img-profile rounded-circle" src="/assets/img/o1.png">
                      </a>
                      <!-- Dropdown - User Information -->

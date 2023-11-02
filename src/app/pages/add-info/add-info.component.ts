@@ -41,7 +41,6 @@ export class AddInfoComponent {
 
   register(){
     if(this.form.valid){
-      console.log(1)
       let x:{[key:string]:string}={
         fName:'',
         lName:'',

@@ -43,9 +43,6 @@ logout(type:number){
  }
 }
 
-
-
-
   constructor(
     private categoryService:CategoryService,
     public globalState:StateService,
