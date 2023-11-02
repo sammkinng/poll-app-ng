@@ -11,6 +11,7 @@ export interface Audience {
 }
 
 export interface Poll {
+  content:string,
   name: string,
   active: boolean,
   id: string,

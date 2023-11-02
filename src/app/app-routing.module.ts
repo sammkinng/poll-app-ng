@@ -11,12 +11,19 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { addInfoGuard, uidGuard } from './guards/add-info.guard';
+import { TermsComponent } from './pages/terms/terms.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
     title: 'Landing page',
+    canActivate:[uidGuard]
+  },
+  {
+    path: 'terms',
+    component: TermsComponent,
+    title: 'Terms & Conditions',
     canActivate:[uidGuard]
   },
   {

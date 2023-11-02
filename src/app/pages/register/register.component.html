@@ -67,7 +67,7 @@
                                                 <input type="checkbox" class="custom-control-input" id="customCheck"
                                                     formControlName="terms">
                                                 <label class="custom-control-label" for="customCheck">By signing up I
-                                                    agree to <a href="#">Terms & Conditions</a></label>
+                                                    agree to <a [routerLink]="['/terms']">Terms & Conditions</a></label>
                                             </div>
                                             <div class="red" *ngIf="terms">
                                                 Please accept Terms & Conditions.</div>

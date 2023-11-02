@@ -23,6 +23,10 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getAuth,provideAuth } from '@angular/fire/auth';
 import { getFirestore ,provideFirestore} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
+import { TermsComponent } from './pages/terms/terms.component';
+import { ContentComponent } from './components/content/content.component';
+import { OptionComponent } from './components/option/option.component';
+import { BlogSectionComponent } from './components/blog-section/blog-section.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { environment } from 'src/environments/environment';
     CardComponent,
     LoaderComponent,
     ProfileComponent,
-    CategoryComponent
+    CategoryComponent,
+    TermsComponent,
+    ContentComponent,
+    OptionComponent,
+    BlogSectionComponent
   ],
   imports: [
     BrowserModule,

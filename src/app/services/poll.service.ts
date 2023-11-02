@@ -8,6 +8,7 @@ export class PollService {
 
   pollList = [
     {
+      content:"Hello",
       name: "poll1",
       active: true,
       id:'ddh1',
@@ -34,13 +35,15 @@ export class PollService {
       {
         title: 'option 5',
         subtitle: 'desc 5'
-      }
+      },
     ],
       audience: 'India',
       genre: 'Action'
     },
     {
       name: "poll2",
+      
+      content:"Hello",
       active: true,
       id:'ddh2',
       date: new Date(),
@@ -71,7 +74,7 @@ export class PollService {
       audience: 'England',
       genre: 'Adventure'
     },
-    {
+    {content:"Hello",
       name: "poll3",
       active: true,
       id:'ddh3',
@@ -103,7 +106,7 @@ export class PollService {
       audience: 'India',
       genre: 'Adventure'
     },
-    {
+    {content:"Hello",
       name: "poll4",
       active: false,
       id:'ddh4',
@@ -135,7 +138,7 @@ export class PollService {
       audience: 'India',
       genre: 'Action'
     },
-    {
+    {content:"Hello",
       name: "poll5",
       active: false,
       id:'ddh5',
