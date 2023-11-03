@@ -12,12 +12,19 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { addInfoGuard, uidGuard } from './guards/add-info.guard';
 import { TermsComponent } from './pages/terms/terms.component';
+import { BlogHomeComponent } from './pages/blog-home/blog-home.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
     title: 'Landing page',
+    canActivate:[uidGuard]
+  },
+  {
+    path:'blog/home',
+    component:BlogHomeComponent,
+    title:'Blog Home',
     canActivate:[uidGuard]
   },
   {

@@ -28,7 +28,6 @@ import { ContentComponent } from './components/content/content.component';
 import { OptionComponent } from './components/option/option.component';
 import { BlogSectionComponent } from './components/blog-section/blog-section.component';
 import { BlogHomeComponent } from './pages/blog-home/blog-home.component';
-import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +50,7 @@ import { HomeComponent } from './components/home/home.component';
     ContentComponent,
     OptionComponent,
     BlogSectionComponent,
-    BlogHomeComponent,
-    HomeComponent
+    BlogHomeComponent
   ],
   imports: [
     BrowserModule,

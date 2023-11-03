@@ -8,10 +8,10 @@ export class PollService {
 
   pollList = [
     {
-      content:"Hello",
+      content: "Hello",
       name: "poll1",
-      active: true,
-      id:'ddh1',
+      closed: false,
+      id: 'ddh1',
       date: new Date(),
       location: "Delhi",
       timeLeft: new Date(),
@@ -36,16 +36,16 @@ export class PollService {
         title: 'option 5',
         subtitle: 'desc 5'
       },
-    ],
+      ],
       audience: 'India',
       genre: 'Action'
     },
     {
       name: "poll2",
-      
-      content:"Hello",
-      active: true,
-      id:'ddh2',
+
+      content: "Hello",
+      closed: false,
+      id: 'ddh2',
       date: new Date(),
       location: "Delhi",
       timeLeft: new Date(),
@@ -70,14 +70,15 @@ export class PollService {
         title: 'option 5',
         subtitle: 'desc 5'
       }
-    ],
+      ],
       audience: 'England',
       genre: 'Adventure'
     },
-    {content:"Hello",
+    {
+      content: "Hello",
       name: "poll3",
-      active: true,
-      id:'ddh3',
+      closed: true,
+      id: 'ddh3',
       date: new Date(),
       location: "Delhi",
       timeLeft: new Date(),
@@ -102,14 +103,15 @@ export class PollService {
         title: 'option 5',
         subtitle: 'desc 5'
       }
-    ],
+      ],
       audience: 'India',
       genre: 'Adventure'
     },
-    {content:"Hello",
+    {
+      content: "Hello",
       name: "poll4",
-      active: false,
-      id:'ddh4',
+      closed: false,
+      id: 'ddh4',
       date: new Date(),
       location: "Delhi",
       timeLeft: new Date(),
@@ -134,14 +136,15 @@ export class PollService {
         title: 'option 5',
         subtitle: 'desc 5'
       }
-    ],
+      ],
       audience: 'India',
       genre: 'Action'
     },
-    {content:"Hello",
+    {
+      content: "Hello",
       name: "poll5",
-      active: false,
-      id:'ddh5',
+      closed: true,
+      id: 'ddh5',
       date: new Date(),
       location: "Delhi",
       timeLeft: new Date(),
@@ -166,7 +169,7 @@ export class PollService {
         title: 'option 5',
         subtitle: 'desc 5'
       }
-    ],
+      ],
       audience: 'India',
       genre: 'Animation'
     },
@@ -181,9 +184,9 @@ export class PollService {
     })
   }
 
-  getPollById(id:string | null){
-    return new Promise<Poll | null>((resolve,reject)=>{
-      setTimeout(()=>resolve(this.pollList.find(i=>i.id===id) || null),500)
+  getPollById(id: string | null) {
+    return new Promise<Poll | null>((resolve, reject) => {
+      setTimeout(() => resolve(this.pollList.find(i => i.id === id) || null), 500)
     })
   }
 

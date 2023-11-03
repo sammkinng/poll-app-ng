@@ -9,7 +9,7 @@ export class BlogService {
   blogs:any[]=[
     {
       content:"Hello",
-      name: "poll1",
+      name: "blog1",
       id:'ddh1',
       date: new Date(),
       location: "Delhi",
@@ -18,7 +18,7 @@ export class BlogService {
       genre: 'Action'
     },
     {
-      name: "poll2",
+      name: "blog2",
       content:"Hello",
       id:'ddh2',
       date: new Date(),
@@ -28,7 +28,7 @@ export class BlogService {
       genre: 'Adventure'
     },
     {content:"Hello",
-      name: "poll3",
+      name: "blog3",
       id:'ddh3',
       date: new Date(),
       location: "Delhi",
@@ -37,7 +37,7 @@ export class BlogService {
       genre: 'Adventure'
     },
     {content:"Hello",
-      name: "poll4",
+      name: "blog4",
       id:'ddh4',
       date: new Date(),
       location: "Delhi",
@@ -46,7 +46,7 @@ export class BlogService {
       genre: 'Action'
     },
     {content:"Hello",
-      name: "poll5",
+      name: "blog5",
       id:'ddh5',
       date: new Date(),
       location: "Delhi",

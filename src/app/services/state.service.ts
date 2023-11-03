@@ -44,7 +44,7 @@ export class StateService {
     let l1: Poll[] = []
     let l2: Poll[] = []
     this.pollSelector[0].forEach(poll => {
-      if (poll.active) {
+      if (!poll.closed) {
         l1.push(poll)
       }
       else {
