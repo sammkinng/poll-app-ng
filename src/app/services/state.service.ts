@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Blog, Poll } from '../pages/main/main.component';
+import { Blog, Category, Poll } from '../pages/main/main.component';
 import { PollService } from './poll.service';
 import { BlogService } from './blog.service';
+import { CategoryService } from './category.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,13 @@ export class StateService {
   allBlogs:Blog[]=[]
   active: number = 0
   filteredPolls: Poll[] = []
-  filteredBlogs: Blog[]=[]
+  categories:Category[]=[]
+  
 
   constructor(
     private pollService: PollService,
-    private blogService:BlogService
+    private blogService:BlogService,
+    private categoryService:CategoryService
   ) {
     pollService.getAllPolls()
       .then(res => {
@@ -33,10 +36,14 @@ export class StateService {
         this.loading = false
       })
 
+      categoryService.getCategories()
+      .then(res=>{
+          this.categories=res
+      })
+
     blogService.getBlogs()
     .then(res=>{
       this.allBlogs=res
-      this.filteredBlogs=res
     })
   }
 
@@ -76,12 +83,4 @@ export class StateService {
 
   }
 
-  filterBlogs(l:string[]){
-    if(l.length===0){
-      this.filteredBlogs=this.allBlogs
-    }
-    else{
-      this.filteredBlogs=this.allBlogs.filter(i=>l.some(f=>i.genre===f))
-    }
-  }
 }

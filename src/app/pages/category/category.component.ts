@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-category',
@@ -12,4 +12,7 @@ export class CategoryComponent {
   reset(){
     this.count+=1
   }
+  constructor(
+    public globalState:StateService
+  ) {}
 }

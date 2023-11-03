@@ -127,7 +127,7 @@
             <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                <div class="filters-card-body card-shop-filters">
                   <div *ngIf="seeAllCat; else elseBlock1">
-                  <div class="custom-control custom-checkbox" *ngFor="let category of categories;let i=index">
+                  <div class="custom-control custom-checkbox" *ngFor="let category of globalState.categories;let i=index">
                      <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i"
                         (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
                      <label class="custom-control-label" [for]="'osahan1155'+i">{{category.name}} <small
@@ -135,7 +135,7 @@
                      </label>
                   </div></div>
                   <ng-template #elseBlock1>
-                     <div class="custom-control custom-checkbox" *ngFor="let category of categories.slice(0,4);let i=index">
+                     <div class="custom-control custom-checkbox" *ngFor="let category of globalState.categories.slice(0,4);let i=index">
                         <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i"
                            (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
                         <label class="custom-control-label" [for]="'osahan1155'+i">{{category.name}} <small
@@ -237,7 +237,7 @@
             <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                <div class="filters-card-body card-shop-filters">
                   <div *ngIf="seeAllCat; else elseBlock1">
-                  <div class="custom-control custom-checkbox" *ngFor="let category of categories;let i =index">
+                  <div class="custom-control custom-checkbox" *ngFor="let category of globalState.categories;let i =index">
                      <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i"
                         (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
                      <label class="custom-control-label" [for]="'osahan11z'+i"> {{category.name}} <small
@@ -245,7 +245,7 @@
                      </label>
                   </div></div>
                   <ng-template #elseBlock1>
-                     <div class="custom-control custom-checkbox" *ngFor="let category of categories.slice(0,4);let i =index">
+                     <div class="custom-control custom-checkbox" *ngFor="let category of globalState.categories.slice(0,4);let i =index">
                         <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i"
                            (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
                         <label class="custom-control-label" [for]="'osahan11z'+i"> {{category.name}} <small

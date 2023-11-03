@@ -38,7 +38,7 @@
                <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">All Pages</h6>
                   <a class="collapse-item" [routerLink]="['/category/'+cat.name]"
-                     *ngFor="let cat of categories">{{cat.name}}</a>
+                     *ngFor="let cat of globalState.categories">{{cat.name}}</a>
                </div>
             </div>
          </li>

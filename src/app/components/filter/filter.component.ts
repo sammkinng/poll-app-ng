@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, Output, SimpleChange } from '@angular/core';
-import { Category, Audience, Poll } from '../../pages/main/main.component';
+import { Component, Input,  SimpleChange } from '@angular/core';
+import { Audience} from '../../pages/main/main.component';
 import { AudienceService } from 'src/app/services/audience.service';
-import { CategoryService } from 'src/app/services/category.service';
 import { StateService } from 'src/app/services/state.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -52,7 +51,6 @@ export class FilterComponent {
   }
 
   mobileFilters = false;
-  categories: Category[] = [];
   audience: Audience[] = [];
   filteredAudience: Audience[] = [];
   ip = ""
@@ -60,18 +58,10 @@ export class FilterComponent {
   seeAllCat=false
 
   constructor(
-    private categoryService: CategoryService,
     private audienceService: AudienceService,
     public globalState: StateService,
     private route:ActivatedRoute
   ) {
-    categoryService.getCategories()
-      .then(res => {
-        this.categories = res
-      })
-      .catch(() => {
-
-      })
     audienceService.getAudience()
       .then(res => {
         this.audience = res

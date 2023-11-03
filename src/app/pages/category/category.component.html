@@ -13,8 +13,11 @@
          <app-filter [resetFxn]="count"></app-filter>
       </div>
       <div class="col-xl-9 col-lg-8">
-         <app-card>
-         </app-card>
+         <div class="row">
+            <div class="col-xl-4 col-md-6 mb-4" *ngFor="let poll of globalState.filteredPolls;">
+         
+         <app-card [content]="poll" type="/poll">
+         </app-card></div></div>
          <app-loader></app-loader>
       </div>
    </div>

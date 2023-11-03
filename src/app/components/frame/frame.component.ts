@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/pages/main/main.component';
 import { AuthService } from 'src/app/services/auth.service';
-import { CategoryService } from 'src/app/services/category.service';
 import { StateService } from 'src/app/services/state.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class FrameComponent {
   selected:any
   modal=false
 
-  categories:Category[]=[]
   topCategories:Category[]=[{
     name:'Action',
     value:150
@@ -44,15 +42,11 @@ logout(type:number){
 }
 
   constructor(
-    private categoryService:CategoryService,
     public globalState:StateService,
     private route:ActivatedRoute,
     public auth:AuthService
   ){
-    categoryService.getCategories()
-    .then(res=>{
-        this.categories=res
-    })
+    
   }
 
   ngOnInit(){
