@@ -1,7 +1,5 @@
-<div class="row">
-<div class="col-xl-4 col-md-6 mb-4" *ngFor="let poll of globalState.filteredPolls;" >
-    <div class="card e-card shadow border-0">
-       <a [routerLink]="['/poll',poll.id]">
+   <div class="card e-card shadow border-0">
+       <a [routerLink]="[type,content?.id]">
           <div class="m-card-cover square">
              <img src="/assets/img/o1.jpg" class="card-img-top" alt="...">
           </div>
@@ -9,20 +7,18 @@
              <div class="row no-gutters align-items-center">
                 <div class="col-2 auto py-3 pl-3">
                    <div class="bg-white rounded text-center">
-                      <h6 class="text-danger mb-0 font-weight-bold">{{poll.date.getDate()}}</h6>
-                      <small class="text-muted">{{months[ poll.date.getMonth() ].slice(0,3)| uppercase}}</small>
+                      <h6 class="text-danger mb-0 font-weight-bold">{{content?.date?.getDate()}}</h6>
+                      <small class="text-muted">{{months[ content?.date?.getMonth() || 0 ].slice(0,3)| uppercase}}</small>
                    </div>
                 </div>
                 <div class="col-8 p-3">
-                   <p class="card-text text-gray-900 mb-1">{{poll.name}}</p>
-                   <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> {{poll.location}}</small></p>
+                   <p class="card-text text-gray-900 mb-1">{{content?.name}}</p>
+                   <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> {{content?.location}}</small></p>
                 </div>
-                <div class="col-2 p-3" *ngIf="!poll.active" >
+                <div class="col-2 p-3" *ngIf="!content?.active" >
                       <i class="fas fa-circle red-circle"></i>
                 </div>
              </div>
           </div>
        </a>
     </div>
- </div>
- </div>

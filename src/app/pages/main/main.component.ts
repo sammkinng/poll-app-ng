@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StateService } from 'src/app/services/state.service';
 
 export interface Category {
   name: string,
@@ -13,22 +14,19 @@ export interface Audience {
 interface Content{
   content:string,
   name: string,
-  active: boolean,
   id: string,
   date: Date,
   location: string,
-  timeLeft:Date,
   ques:string,
-  audience:string,
   genre:string
 }
 
 export interface Poll extends Content{
-  options:Option[],
+  options:Option[],active: boolean,audience:string,timeLeft:Date,
 }
 
 export interface Blog extends Content{
-  section:string
+  section:string,active:true,audience:'',timeLeft:null
 }
 
 
@@ -50,5 +48,8 @@ export class MainComponent {
   reset(){
     this.count+=1
   }
-
+  
+  constructor(
+    public globalState:StateService
+  ) {}
 }

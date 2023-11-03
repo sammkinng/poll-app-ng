@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Poll } from '../pages/main/main.component';
+import { Blog, Poll } from '../pages/main/main.component';
 import { PollService } from './poll.service';
+import { BlogService } from './blog.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,14 @@ export class StateService {
   pollSelector: Poll[][] = [
     [], [], []
   ]
+  allBlogs:Blog[]=[]
   active: number = 0
   filteredPolls: Poll[] = []
+  filteredBlogs: Blog[]=[]
 
   constructor(
-    private pollService: PollService
+    private pollService: PollService,
+    private blogService:BlogService
   ) {
     pollService.getAllPolls()
       .then(res => {
@@ -28,6 +32,12 @@ export class StateService {
         console.log("error while fetching polls")
         this.loading = false
       })
+
+    blogService.getBlogs()
+    .then(res=>{
+      this.allBlogs=res
+      this.filteredBlogs=res
+    })
   }
 
   private countActive() {
@@ -64,5 +74,14 @@ export class StateService {
         .filter(i => l2.some(filter => i.genre === filter));
     }
 
+  }
+
+  filterBlogs(l:string[]){
+    if(l.length===0){
+      this.filteredBlogs=this.allBlogs
+    }
+    else{
+      this.filteredBlogs=this.allBlogs.filter(i=>l.some(f=>i.genre===f))
+    }
   }
 }

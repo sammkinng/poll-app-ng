@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { StateService } from 'src/app/services/state.service';
+import { Blog, Poll } from 'src/app/pages/main/main.component';
 
 export const months = [
   "January", "February", "March", "April",
@@ -14,8 +14,9 @@ export const months = [
 })
 export class CardComponent {
   months:string[]=months
-  
-  constructor(
-    public globalState:StateService
-  ) {}
+  path='poll'
+
+  @Input() content:Poll|Blog|null=null
+  @Input() type='/poll'
+
 }
