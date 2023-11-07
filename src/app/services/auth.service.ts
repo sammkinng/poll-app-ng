@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { signInWithEmailAndPassword, Auth, signOut, createUserWithEmailAndPassword } from '@angular/fire/auth';
-import { Firestore, setDoc, doc,getDoc } from '@angular/fire/firestore';
+import { Firestore, setDoc, doc, getDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  loginErr=''
-  userDetails:any={}
-  regError=''
-  addInfoErr=''
+  loginErr = ''
+  userDetails: any = {}
+  regError = ''
+  addInfoErr = ''
 
   login(username: string, password: string) {
     signInWithEmailAndPassword(this.auth, username, password)
@@ -22,27 +22,27 @@ export class AuthService {
       .catch((error) => {
         // Handle login error
         console.error('Login error:', error.message);
-        this.loginErr=error.code
-        setTimeout(()=>this.loginErr='',3000)
+        this.loginErr = error.code
+        setTimeout(() => this.loginErr = '', 3000)
       });
   }
 
-  details(uid:string){
-    getDoc(doc(this.fs,'users/'+uid))
-    .then(r=>{
-      if(r.exists()){
-        this.userDetails=r.data()
-      }
-    })
-    .catch(e=>{
-      console.log(e)
-    })
+  details(uid: string) {
+    getDoc(doc(this.fs, 'users/' + uid))
+      .then(r => {
+        if (r.exists()) {
+          this.userDetails = r.data()
+        }
+      })
+      .catch(e => {
+        console.log(e)
+      })
   }
 
   logout() {
     signOut(this.auth)
       .then((res) => {
-        this.router.navigate(['/login'])
+        this.router.navigate(['/auth/login'])
       })
       .catch((e) => {
         console.log("Failed to logout: ", e)
@@ -59,15 +59,16 @@ export class AuthService {
   }
 
   signup(email: string, password: string) {
+    console.log("heere")
     createUserWithEmailAndPassword(this.auth, email, password)
       .then(res => {
-        localStorage.setItem('addUid',res.user.uid)
-        this.router.navigate(['/add-info'])
+        localStorage.setItem('addUid', res.user.uid)
+        this.router.navigate(['/auth/add-info'])
       })
       .catch(e => {
-        console.log("Registration Failed",e.message)
-        this.regError=e.code
-        setTimeout(()=>this.regError='',3000)
+        console.log("Registration Failed", e.message)
+        this.regError = e.code
+        setTimeout(() => this.regError = '', 3000)
       })
   }
 
@@ -78,7 +79,7 @@ export class AuthService {
         this.router.navigate(['/'])
       })
       .catch(e => {
-        this.addInfoErr=e.code
+        this.addInfoErr = e.code
         console.log(e, "error adding details")
       })
   }
@@ -90,7 +91,7 @@ export class AuthService {
   ) {
     auth.onAuthStateChanged((user) => {
       if (user) {
-       this.details(user.uid)
+        this.details(user.uid)
       } else {
         console.log('No user')
       }

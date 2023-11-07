@@ -18,19 +18,24 @@
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." formControlName="email">
-                                                <div class="red" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.value!==null">Email is required.</div>
-                                                <div class="red" *ngIf="form.get('email')?.hasError('email')">Invalid email format.</div>
-                                              
+                                            <div class="red"
+                                                *ngIf="form.get('email')?.hasError('required') && form.get('email')?.value!==null">
+                                                Email is required.</div>
+                                            <div class="red" *ngIf="form.get('email')?.hasError('email')">Invalid email
+                                                format.</div>
+
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password"
                                                 formControlName="password">
-                                                <div class="red" *ngIf="form.get('password')?.hasError('required') && form.get('password')?.value!==null">Password is required.</div>
+                                            <div class="red"
+                                                *ngIf="form.get('password')?.hasError('required') && form.get('password')?.value!==null">
+                                                Password is required.</div>
                                         </div>
-                                        <div class="red mb-3" *ngIf="auth.loginErr">{{auth.loginErr.split('/')[1]}} </div>
-                                        <div class="red mt"
-                                            *ngIf="reqdFields">
+                                        <div class="red mb-3" *ngIf="auth.loginErr">{{auth.loginErr.split('/')[1]}}
+                                        </div>
+                                        <div class="red mt" *ngIf="reqdFields">
                                             Please fill all the fields</div>
                                         <a href="#" class="btn btn-primary btn-user btn-block" (click)="login()">
                                             Login
@@ -54,10 +59,10 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" [routerLink]="['/forgot-password']">Forgot Password?</a>
+                                        <a class="small" [routerLink]="['/auth/forgot-password']">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="" [routerLink]="['/register']">Create an Account!</a>
+                                        <a class="" [routerLink]="['/auth/register']">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
