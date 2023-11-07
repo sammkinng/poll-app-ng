@@ -62,7 +62,6 @@ export class AuthService {
   }
 
   signup(email: string, password: string) {
-    console.log("heere")
     createUserWithEmailAndPassword(this.auth, email, password)
       .then(res => {
         localStorage.setItem('addUid', res.user.uid)

@@ -72,6 +72,19 @@
                                             <div class="red" *ngIf="terms">
                                                 Please accept Terms & Conditions.</div>
                                         </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <img [src]="captchaa" alt="cpacthca" style="margin-right: 15px;"/>
+
+                                                <i class="fas fa-retweet fa-lg" style="color: black;" (click)="refreshCaptcha()"></i>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control form-control-user" placeholder="Enter capcha" formControlName="capcha"/>
+                                            </div>
+                                        </div>
+                                        <div class="red"
+                                                *ngIf="catErr">
+                                                Capcha is not correct</div>
 
                                         <a class="btn btn-primary btn-user btn-block text-white" (click)="register()">
                                             Register Account

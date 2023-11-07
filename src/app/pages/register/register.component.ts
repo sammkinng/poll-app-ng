@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { CaptchaService } from 'src/app/services/captcha.service';
 
 @Component({
   selector: 'app-register',
@@ -30,16 +31,23 @@ export class RegisterComponent {
       // Requires at least one uppercase letter, one lowercase letter, and one digit
     ]],
     cnfPassword: [null, [Validators.required]],
-    terms: [null]
+    terms: [null],
+    capcha: ['']
   })
 
   error = ''
-
+  captchaa: string
+  captchTxt: string
+  catErr = false
 
   constructor(
     public auth: AuthService,
     private fb: FormBuilder,
-  ) { }
+    private captcha: CaptchaService
+  ) {
+    this.captchTxt = captcha.generateRandomText(4)
+    this.captchaa = captcha.image(this.captchTxt)
+  }
 
   ngOnInit() {
     this.form.setValidators(this.passwordMatchValidator());
@@ -61,14 +69,20 @@ export class RegisterComponent {
   register() {
     if (this.form.valid) {
       if (this.form.get('terms')?.value) {
-        let x = {
-          email: '',
-          password: ''
+        if (this.form.get('capcha')?.value !== this.captchTxt) {
+          this.catErr = true
+          setTimeout(() => this.catErr = false, 1500)
         }
-        x.email = this.form.get('email')?.value
-        x.password = this.form.get('password')?.value
+        else {
+          let x = {
+            email: '',
+            password: ''
+          }
+          x.email = this.form.get('email')?.value
+          x.password = this.form.get('password')?.value
 
-        this.auth.signup(x.email, x.password)
+          this.auth.signup(x.email, x.password)
+        }
       }
       else {
         this.terms = true
@@ -81,5 +95,8 @@ export class RegisterComponent {
     }
   }
 
-
+  refreshCaptcha() {
+    this.captchTxt = this.captcha.generateRandomText(4)
+    this.captchaa = this.captcha.image(this.captchTxt)
+  }
 }
