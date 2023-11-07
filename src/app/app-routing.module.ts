@@ -13,73 +13,87 @@ import { CategoryComponent } from './pages/category/category.component';
 import { addInfoGuard, uidGuard } from './guards/add-info.guard';
 import { TermsComponent } from './pages/terms/terms.component';
 import { BlogHomeComponent } from './pages/blog-home/blog-home.component';
+import { FrameComponent } from './components/frame/frame.component';
+import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
-    title: 'Landing page',
-    canActivate:[uidGuard]
+    component: FrameComponent,
+    children: [
+      {
+        path: '',
+        component: MainComponent,
+        title: 'Landing page',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'blog/home',
+        component: BlogHomeComponent,
+        title: 'Blog Home',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'terms',
+        component: TermsComponent,
+        title: 'Terms & Conditions',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'poll/:id',
+        component: PollComponent,
+        title: 'Poll',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'blog/:id',
+        component: BlogComponent,
+        title: 'Blog',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'profile/:id',
+        component: ProfileComponent,
+        title: 'User Profile',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'category/:id',
+        component: CategoryComponent,
+        title: 'Category',
+        canActivate: [uidGuard]
+      }
+    ]
   },
   {
-    path:'blog/home',
-    component:BlogHomeComponent,
-    title:'Blog Home',
-    canActivate:[uidGuard]
-  },
-  {
-    path: 'terms',
-    component: TermsComponent,
-    title: 'Terms & Conditions',
-    canActivate:[uidGuard]
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    title: 'Login',
-    canActivate:[uidGuard]
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-    title: 'Register',
-    canActivate:[uidGuard]
-  },
-  {
-    path: 'forgot-password',
-    component: ForgotPwComponent,
-    title: 'Forgot Password',
-    canActivate:[uidGuard]
-  },
-  {
-    path: 'add-info',
-    component: AddInfoComponent,
-    title: 'Add Personal Details',
-    canActivate:[addInfoGuard]
-  },
-  {
-    path: 'poll/:id',
-    component: PollComponent,
-    title: 'Poll',
-    canActivate:[uidGuard]
-  },
-  {
-    path: 'blog/:id',
-    component: BlogComponent,
-    title: 'Blog',
-    canActivate:[uidGuard]
-  },
-  {
-    path:'profile/:id',
-    component:ProfileComponent,
-    title:'User Profile',
-    canActivate:[uidGuard]
-  },
-  {
-    path:'category/:id',
-    component:CategoryComponent,
-    title:'Category',
-    canActivate:[uidGuard]
+    path: 'auth',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent,
+        title: 'Login',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
+        title: 'Register',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPwComponent,
+        title: 'Forgot Password',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'add-info',
+        component: AddInfoComponent,
+        title: 'Add Personal Details',
+        canActivate: [addInfoGuard]
+      },
+    ]
   },
   {
     path: '**',
