@@ -16,8 +16,7 @@
                <i class="fas fa-fw fa-film"></i>
                <span>Home</span></a>
          </li>
-         <li class="nav-item"
-            *ngFor="let category of topCategories;let i=index">
+         <li class="nav-item" *ngFor="let category of topCategories;let i=index">
             <a class="nav-link" [routerLink]="['/category/'+category.name]">
                <i class="fas fa-fw fa-film"></i>
                <span>{{category.name}}</span></a>
@@ -29,8 +28,8 @@
          <div class="sidebar-heading">Extra</div>
          <!-- Nav Item - Pages Collapse Menu -->
          <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+               aria-controls="collapseTwo">
                <i class="fas fa-fw fa-pager"></i>
                <span>Genre</span>
             </a>
@@ -48,21 +47,21 @@
                <span>Blogs</span></a>
          </li>
          <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-               aria-expanded="true" aria-controls="collapsePages">
+            <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+               aria-controls="collapsePages">
                <i class="fas fa-fw fa-clone"></i>
                <span>Extra Pages</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Login Screens:</h6>
-                  <a class="collapse-item" href="#">Login</a>
-                  <a class="collapse-item" href="#">Register</a>
-                  <a class="collapse-item" href="#">Forgot Password</a>
+                  <a class="collapse-item">Login</a>
+                  <a class="collapse-item">Register</a>
+                  <a class="collapse-item">Forgot Password</a>
                   <div class="collapse-divider"></div>
                   <h6 class="collapse-header">Other Pages:</h6>
-                  <a class="collapse-item" href="#">404 Page</a>
-                  <a class="collapse-item" href="#">Blank Page</a>
+                  <a class="collapse-item">404 Page</a>
+                  <a class="collapse-item">Blank Page</a>
 
                </div>
             </div>
@@ -95,8 +94,8 @@
                <ul class="navbar-nav ml-auto">
                   <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                   <li class="nav-item dropdown no-arrow d-sm-none">
-                     <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <a class="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-search fa-fw"></i>
                      </a>
                      <!-- Dropdown - Messages -->
@@ -118,18 +117,18 @@
                   <!-- Nav Item - Alerts -->
 
                   <li class="nav-item dropdown no-arrow mx-1">
-                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <a class="nav-link dropdown-toggle" id="alertsDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-bell fa-fw"></i>
                         <!-- Counter - Alerts -->
-                           </a>
+                     </a>
                      <!-- Dropdown - Alerts -->
                      <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="alertsDropdown">
                         <h6 class="dropdown-header">
                            Alerts
                         </h6>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center">
                            <div class="mr-3">
                               <div class="icon-circle bg-primary text-white">
                                  KN
@@ -141,7 +140,7 @@
                               </span>
                            </div>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center">
                            <div class="dropdown-list-image mr-3">
                               <img class="rounded-circle w-60" src="/assets/img/o1.png" alt="">
                               <div class="status-indicator bg-success"></div>
@@ -151,7 +150,7 @@
                               <div class="small text-gray-500">Gurdeep Osahan · 58m</div>
                            </div>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center">
                            <div class="dropdown-list-image mr-3">
                               <img class="rounded-circle w-60" src="/assets/img/o1.png" alt="">
                               <div class="status-indicator"></div>
@@ -162,7 +161,7 @@
                               <div class="small text-gray-500">Jae Chun · 1d</div>
                            </div>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center">
                            <div class="dropdown-list-image mr-3">
                               <img class="rounded-circle w-60" src="/assets/img/o1.png" alt="">
                               <div class="status-indicator bg-warning"></div>
@@ -173,7 +172,7 @@
                               <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                            </div>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center">
                            <div class="mr-3">
                               <div class="icon-circle bg-success">
                                  <i class="fas fa-donate text-white"></i>
@@ -184,7 +183,7 @@
                               Sed aliquet nibh nec odio congue, in condimentum massa dapibus.
                            </div>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center">
                            <div class="mr-3">
                               <div class="icon-circle bg-warning">
                                  <i class="fas fa-exclamation-triangle text-white"></i>
@@ -195,14 +194,15 @@
                               Pellentesque sit amet nunc consectetur, porta sapien a, bibendum dolor.
                            </div>
                         </a>
-                        <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        <a class="dropdown-item text-center small text-gray-500">Show All Alerts</a>
                      </div>
                   </li>
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
-                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                     <a class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <span [class]="auth.isLoggedIn()?'mr-2 d-none d-lg-inline text-gray-600 small':'mr-2 d-none d-lg-inline text-gray-600 small red'" >
+                        <span
+                           [class]="auth.isLoggedIn()?'mr-2 d-none d-lg-inline text-gray-600 small':'mr-2 d-none d-lg-inline text-gray-600 small red'">
                            {{auth.isLoggedIn()?auth.userDetails.fName+' '+auth.userDetails.lName:'Login ?'}}</span>
                         <img class="img-profile rounded-circle" src="/assets/img/o1.png">
                      </a>
@@ -215,17 +215,17 @@
                               Profile
                            </a>
 
-                           <a class="dropdown-item" href="#">
+                           <a class="dropdown-item">
                               <i class="fas fa-list-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                               Your Polls
                            </a>
-                           <a class="dropdown-item" href="#">
+                           <a class="dropdown-item">
                               <i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i>
                               Account Settings
                            </a>
                            <div class="dropdown-divider"></div>
                         </div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" (click)="logout(auth.getUser()===null?0:1)"
+                        <a class="dropdown-item" data-toggle="modal" (click)="logout(auth.getUser()===null?0:1)"
                            data-target="#logoutModal">
                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                            {{auth.getUser()===null?'Login':'Logout'}}
@@ -243,7 +243,7 @@
                   <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
                   <a [routerLink]="['/']">&larr; Back to Dashboard</a>
                </div>
-            
+
             </div>
             <!-- /.container-fluid -->
          </div>
@@ -268,8 +268,8 @@
       <i class="fas fa-angle-up"></i>
    </a>
    <!-- Logout Modal-->
-   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" *ngIf="modal"
-      aria-hidden="true">
+   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      *ngIf="modal" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
          <div class="modal-content">
             <div class="modal-header">
@@ -281,13 +281,9 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-               <a class="btn btn-primary" href="#" (click)="logout(2)" data-dismiss="modal">Logout</a>
+               <a class="btn btn-primary" (click)="logout(2)" data-dismiss="modal">Logout</a>
             </div>
          </div>
       </div>
    </div>
 </body>
-
-
-
-   

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/pages/main/main.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { StateService } from 'src/app/services/state.service';
@@ -11,7 +10,7 @@ import { StateService } from 'src/app/services/state.service';
 })
 export class FrameComponent {
   notifications=3
-  selected:any
+  selected:any=null
   modal=false
 
   topCategories:Category[]=[{
@@ -43,16 +42,7 @@ logout(type:number){
 
   constructor(
     public globalState:StateService,
-    private route:ActivatedRoute,
     public auth:AuthService
-  ){
-    
-  }
-
-  ngOnInit(){
-    this.route.paramMap.subscribe(params => {
-      this.selected=params.get('id')
-    })
-  }
+  ){}
 
 }

@@ -18,44 +18,45 @@
                                  <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control " id="exampleFirstName"
                                        placeholder="First Name" formControlName="fName">
-                                       <div class="red"
+                                    <div class="red"
                                        *ngIf="form.get('fName')?.hasError('required') && form.get('fName')?.value!==null">
                                        First Name is required.</div>
                                  </div>
                                  <div class="col-sm-6">
-                                    <input type="text" class="form-control " id="exampleLastName" formControlName="lName"
-                                       placeholder="Last Name">
-                                       <div class="red"
+                                    <input type="text" class="form-control " id="exampleLastName"
+                                       formControlName="lName" placeholder="Last Name">
+                                    <div class="red"
                                        *ngIf="form.get('lName')?.hasError('required') && form.get('lName')?.value!==null">
                                        Last Name is required.</div>
                                  </div>
-                                
+
                               </div>
 
                               <div class="form-group row">
                                  <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <select id="countrySelect" name="selectedCountry" formControlName="country" (click)="clickedC=true"
-                                       class="cool-sel">
+                                    <select id="countrySelect" name="selectedCountry" formControlName="country"
+                                       (click)="clickedC=true" class="cool-sel">
                                        <option value="">Country</option>
                                        <option *ngFor="let country of countries" [value]="country.code">
                                           {{ country.name }}
                                        </option>
                                     </select>
-                                    <div class="red"
-                                    *ngIf="form.get('country')?.hasError('required') && clickedC">
-                                    Country is required.</div>
+                                    <div class="red" *ngIf="form.get('country')?.hasError('required') && clickedC">
+                                       Country is required.</div>
                                  </div>
                                  <div class="col-sm-6">
-                                    <input type="text" class="form-control " id="state" placeholder="State" formControlName="state">
+                                    <input type="text" class="form-control " id="state" placeholder="State"
+                                       formControlName="state">
                                     <div class="red"
-                                    *ngIf="form.get('state')?.hasError('required') && form.get('state')?.value==''">
-                                    State is required.</div>
+                                       *ngIf="form.get('state')?.hasError('required') && form.get('state')?.value==''">
+                                       State is required.</div>
                                  </div>
 
                               </div>
                               <div class="form-group row">
                                  <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <select id="genderSelect" name="genderSelect" class="cool-sel" formControlName="gender" (click)="clickedG=true">
+                                    <select id="genderSelect" name="genderSelect" class="cool-sel"
+                                       formControlName="gender" (click)="clickedG=true">
                                        <option value="">
                                           Gender
                                        </option>
@@ -69,41 +70,41 @@
                                           Other
                                        </option>
                                     </select>
-                                    <div class="red"
-                                    *ngIf="form.get('gender')?.hasError('required') && clickedG">
-                                    Gender is required.</div>
+                                    <div class="red" *ngIf="form.get('gender')?.hasError('required') && clickedG">
+                                       Gender is required.</div>
                                  </div>
                                  <div class="col-sm-6">
-                                    <input type="text" class="form-control " id="district" placeholder="District" formControlName="district">
+                                    <input type="text" class="form-control " id="district" placeholder="District"
+                                       formControlName="district">
                                     <div class="red"
-                                    *ngIf="form.get('district')?.hasError('required') && form.get('district')?.value!==null">
-                                    District is required.</div>
+                                       *ngIf="form.get('district')?.hasError('required') && form.get('district')?.value!==null">
+                                       District is required.</div>
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <div class="col-sm-6 sp">
-                                    <input type="text" class="form-control " id="religion" placeholder="Religion" formControlName="religion">
+                                    <input type="text" class="form-control " id="religion" placeholder="Religion"
+                                       formControlName="religion">
                                     <div class="red"
-                                    *ngIf="form.get('religion')?.hasError('required') && form.get('religion')?.value!==null">
-                                    Religion is required.</div>
+                                       *ngIf="form.get('religion')?.hasError('required') && form.get('religion')?.value!==null">
+                                       Religion is required.</div>
                                  </div>
                                  <div class="col-sm-6">
                                     <div class="form-control d-flex justify-content-between">
-                                    DOB:  
-                                    <input type="date" placeholder="DOB" formControlName="dob" id="ddd">
+                                       DOB:
+                                       <input type="date" placeholder="DOB" formControlName="dob" id="ddd">
                                     </div>
                                     <div class="red"
-                                    *ngIf="form.get('dob')?.hasError('required') && form.get('dob')?.value!==null">
-                                    DOB is required.</div>
-                                    
+                                       *ngIf="form.get('dob')?.hasError('required') && form.get('dob')?.value!==null">
+                                       DOB is required.</div>
+
                                  </div>
-                                
+
                               </div>
 
-                              <div class="red mt"
-                                            *ngIf="reqdFields">
-                                            Please fill all the fields</div>
-                              <a href="#" class="btn btn-primary btn-user btn-block" (click)="register()">
+                              <div class="red mt" *ngIf="reqdFields">
+                                 Please fill all the fields</div>
+                              <a class="btn btn-primary btn-user btn-block" (click)="register()">
                                  Register Account
                               </a>
                            </form>

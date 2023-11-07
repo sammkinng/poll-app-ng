@@ -9,7 +9,7 @@
          <div *ngIf="mobileFilters" class="filters-card border-bottom p-3">
             <div class="filters-card-header" id="headingOffer">
                <h6 class="mb-0">
-                  <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseSort" aria-expanded="true"
+                  <a class="btn-link" data-toggle="collapse" data-target="#collapseSort" aria-expanded="true"
                      aria-controls="collapseSort">
                      Sort by Products <i class="fas fa-angle-down float-right"></i>
                   </a>
@@ -47,7 +47,7 @@
          <div class="filters-card border-bottom p-3">
             <div class="filters-card-header" id="headingTwo">
                <h6 class="mb-0">
-                  <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true"
+                  <a class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true"
                      aria-controls="collapsetwo">
                      Select Audience
                      <i class="fas fa-angle-down float-right"></i>
@@ -82,14 +82,14 @@
                      </div>
                   </ng-template>
 
-                  <div class="mt-2"><a href="#" class="link" (click)="seeAll=!seeAll">{{seeAll?'See less':'See all' }}</a></div>
+                  <div class="mt-2"><a class="link linkkk" (click)="seeAll=!seeAll">{{seeAll?'See less':'See all' }}</a></div>
                </div>
             </div>
          </div>
          <div class="filters-card border-bottom p-3">
             <div class="filters-card-header" id="headingOne">
                <h6 class="mb-0">
-                  <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  <a class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                      aria-controls="collapseOne">
                      Poll Status <i class="fas fa-angle-down float-right"></i>
                   </a>
@@ -118,7 +118,7 @@
          <div class="filters-card border-bottom p-3">
             <div class="filters-card-header" id="headingOffer">
                <h6 class="mb-0">
-                  <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true"
+                  <a class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true"
                      aria-controls="collapseOffer">
                      Genre <i class="fas fa-angle-down float-right"></i>
                   </a>
@@ -127,23 +127,29 @@
             <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                <div class="filters-card-body card-shop-filters">
                   <div *ngIf="seeAllCat; else elseBlock1">
-                  <div class="custom-control custom-checkbox" *ngFor="let category of globalState.categories;let i=index">
-                     <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i"
-                        (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
-                     <label class="custom-control-label" [for]="'osahan1155'+i">{{category.name}} <small
-                           class="text-black-50">{{category.value}}</small>
-                     </label>
-                  </div></div>
-                  <ng-template #elseBlock1>
-                     <div class="custom-control custom-checkbox" *ngFor="let category of globalState.categories.slice(0,4);let i=index">
+                     <div class="custom-control custom-checkbox"
+                        *ngFor="let category of globalState.categories;let i=index">
                         <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i"
-                           (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
+                           (click)="toggleFilter(category.name,1)"
+                           [checked]="selectedFilters[1].includes(category.name)">
+                        <label class="custom-control-label" [for]="'osahan1155'+i">{{category.name}} <small
+                              class="text-black-50">{{category.value}}</small>
+                        </label>
+                     </div>
+                  </div>
+                  <ng-template #elseBlock1>
+                     <div class="custom-control custom-checkbox"
+                        *ngFor="let category of globalState.categories.slice(0,4);let i=index">
+                        <input type="checkbox" class="custom-control-input" [id]="'osahan1155'+i"
+                           (click)="toggleFilter(category.name,1)"
+                           [checked]="selectedFilters[1].includes(category.name)">
                         <label class="custom-control-label" [for]="'osahan1155'+i">{{category.name}} <small
                               class="text-black-50">{{category.value}}</small>
                         </label>
                      </div>
                   </ng-template>
-                  <div class="mt-2"><a href="#" class="link" (click)="seeAllCat=!seeAllCat">{{seeAllCat?'See less':'See all'}}</a></div>
+                  <div class="mt-2"><a class="link linkkk" (click)="seeAllCat=!seeAllCat">{{seeAllCat?'See less':'See
+                        all'}}</a></div>
                </div>
             </div>
          </div>
@@ -159,7 +165,7 @@
          <div class="filters-card border-bottom p-3">
             <div class="filters-card-header" id="headingTwo">
                <h6 class="mb-0">
-                  <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true"
+                  <a class="btn-link" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true"
                      aria-controls="collapsetwo" (click)="seeAll=!seeAll">
                      Select Audience
                      <i class="fas fa-angle-down float-right"></i>
@@ -193,14 +199,14 @@
                      </div>
                   </ng-template>
 
-                  <div class="mt-2"><a href="#" class="link" (click)="seeAll=!seeAll">{{seeAll?'See less':'See all'}}</a></div>
+                  <div class="mt-2"><a class="link linkkk" (click)="seeAll=!seeAll">{{seeAll?'See less':'See all'}}</a></div>
                </div>
             </div>
          </div>
          <div class="filters-card border-bottom p-3">
             <div class="filters-card-header" id="headingOne">
                <h6 class="mb-0">
-                  <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  <a class="btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                      aria-controls="collapseOne">
                      Poll Status <i class="fas fa-angle-down float-right"></i>
                   </a>
@@ -228,7 +234,7 @@
          <div class="filters-card border-bottom p-3">
             <div class="filters-card-header" id="headingOffer">
                <h6 class="mb-0">
-                  <a href="#" class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true"
+                  <a class="btn-link" data-toggle="collapse" data-target="#collapseOffer" aria-expanded="true"
                      aria-controls="collapseOffer">
                      Genre <i class="fas fa-angle-down float-right"></i>
                   </a>
@@ -237,23 +243,29 @@
             <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer" data-parent="#accordion">
                <div class="filters-card-body card-shop-filters">
                   <div *ngIf="seeAllCat; else elseBlock1">
-                  <div class="custom-control custom-checkbox" *ngFor="let category of globalState.categories;let i =index">
-                     <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i"
-                        (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
-                     <label class="custom-control-label" [for]="'osahan11z'+i"> {{category.name}} <small
-                           class="text-black-50">{{category.value}}</small>
-                     </label>
-                  </div></div>
-                  <ng-template #elseBlock1>
-                     <div class="custom-control custom-checkbox" *ngFor="let category of globalState.categories.slice(0,4);let i =index">
+                     <div class="custom-control custom-checkbox"
+                        *ngFor="let category of globalState.categories;let i =index">
                         <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i"
-                           (click)="toggleFilter(category.name,1)" [checked]="selectedFilters[1].includes(category.name)">
+                           (click)="toggleFilter(category.name,1)"
+                           [checked]="selectedFilters[1].includes(category.name)">
+                        <label class="custom-control-label" [for]="'osahan11z'+i"> {{category.name}} <small
+                              class="text-black-50">{{category.value}}</small>
+                        </label>
+                     </div>
+                  </div>
+                  <ng-template #elseBlock1>
+                     <div class="custom-control custom-checkbox"
+                        *ngFor="let category of globalState.categories.slice(0,4);let i =index">
+                        <input type="checkbox" class="custom-control-input" [id]="'osahan11z'+i"
+                           (click)="toggleFilter(category.name,1)"
+                           [checked]="selectedFilters[1].includes(category.name)">
                         <label class="custom-control-label" [for]="'osahan11z'+i"> {{category.name}} <small
                               class="text-black-50">{{category.value}}</small>
                         </label>
                      </div>
                   </ng-template>
-                  <div class="mt-2"><a href="#" class="link" (click)="seeAllCat=!seeAllCat">{{seeAllCat?'See less':'See all'}}</a></div>
+                  <div class="mt-2"><a class="link linkkk" (click)="seeAllCat=!seeAllCat">{{seeAllCat?'See less':'See
+                        all'}}</a></div>
                </div>
             </div>
          </div>

@@ -77,6 +77,7 @@ export class AuthService {
       .then(r => {
         localStorage.removeItem('addUid')
         this.router.navigate(['/'])
+        this.router.navigate(['/'])
       })
       .catch(e => {
         this.addInfoErr = e.code

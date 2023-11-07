@@ -7,6 +7,10 @@
     background-color: #fff;
   }
 
+  .linkkk{
+    cursor: pointer;
+  }
+
   @media screen and (max-width: 768px) {
     /* Your mobile-specific styles go here */
     .sp{
