@@ -15,6 +15,7 @@ import { TermsComponent } from './pages/terms/terms.component';
 import { BlogHomeComponent } from './pages/blog-home/blog-home.component';
 import { FrameComponent } from './components/frame/frame.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
+import { ResultComponent } from './pages/result/result.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,12 @@ const routes: Routes = [
         path: 'poll/:id',
         component: PollComponent,
         title: 'Poll',
+        canActivate: [uidGuard]
+      },
+      {
+        path: 'result/:id',
+        component: ResultComponent,
+        title: 'Poll Result',
         canActivate: [uidGuard]
       },
       {

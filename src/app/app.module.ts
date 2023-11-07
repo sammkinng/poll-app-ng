@@ -29,6 +29,8 @@ import { OptionComponent } from './components/option/option.component';
 import { BlogSectionComponent } from './components/blog-section/blog-section.component';
 import { BlogHomeComponent } from './pages/blog-home/blog-home.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
+import { ResultComponent } from './pages/result/result.component';
+import { SubmittedComponent } from './pages/submitted/submitted.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { AuthLayoutComponent } from './components/auth-layout/auth-layout.compon
     OptionComponent,
     BlogSectionComponent,
     BlogHomeComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    ResultComponent,
+    SubmittedComponent
   ],
   imports: [
     BrowserModule,
