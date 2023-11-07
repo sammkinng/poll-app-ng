@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -40,7 +39,6 @@ export class RegisterComponent {
   constructor(
     public auth: AuthService,
     private fb: FormBuilder,
-    private router: Router
   ) { }
 
   ngOnInit() {
