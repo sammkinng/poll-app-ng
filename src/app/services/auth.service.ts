@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   loginErr = ''
-  userDetails: any = {}
+  userDetails: any = {
+    fName:'',
+    lName:''
+  }
   regError = ''
   addInfoErr = ''
 
@@ -76,7 +79,6 @@ export class AuthService {
     setDoc(doc(this.fs, 'users/' + uid), details)
       .then(r => {
         localStorage.removeItem('addUid')
-        this.router.navigate(['/'])
         this.router.navigate(['/'])
       })
       .catch(e => {
