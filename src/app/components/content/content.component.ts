@@ -15,16 +15,16 @@ export class ContentComponent {
   @Input()content:Poll|Blog|null=null
 
   getFormattedTime(date:any){
-    let h=date.getHours()
+    let h=date?.getHours()
     h=h>12?h-12:h
     let sfx=h>12?'PM':'AM'
 
-    let m=date.getMinutes()
+    let m=date?.getMinutes()
     let mm=m<10?'0'+m:m
 
-    return days[date.getDay()].slice(0,3)+" "
-    +date.getDate()+" "
-    +months[date.getMonth()].slice(0,3)+" at "
+    return days[date?.getDay()]?.slice(0,3)+" "
+    +date?.getDate()+" "
+    +months[date?.getMonth()]?.slice(0,3)+" at "
     +h+":"+mm+" "+sfx
 
   }
