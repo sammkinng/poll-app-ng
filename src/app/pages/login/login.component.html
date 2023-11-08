@@ -56,19 +56,19 @@
                                         </a>
 
                                         <hr>
-                                        <a [routerLink]="['/']" class="btn btn-google btn-user btn-block">
+                                        <a (click)="auth.signwithProvider(0,0)" class="btn btn-google btn-user btn-block text-white">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
-                                        <a [routerLink]="['/']" class="btn btn-microsoft btn-user btn-block">
+                                        <a (click)="auth.signwithProvider(1,0)" class="btn btn-microsoft btn-user btn-block text-white">
                                             <i class="fab fa-microsoft fa-fw"></i> Login with Microsoft
                                         </a>
-                                        <a [routerLink]="['/']" class="btn btn-facebook btn-user btn-block">
+                                        <a (click)="auth.signwithProvider(2,0)" class="btn btn-facebook btn-user btn-block text-white">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
-                                        <a [routerLink]="['/']" class="btn btn-twitter btn-user btn-block">
+                                        <a (click)="auth.signwithProvider(3,0)" class="btn btn-twitter btn-user btn-block text-white">
                                             <i class="fab fa-twitter fa-fw"></i> Login with Twitter(X)
                                         </a>
-                                        <a [routerLink]="['/']" class="btn btn-phone btn-user btn-block" *ngIf="false">
+                                        <a (click)="auth.signwithProvider(4,0)" class="btn btn-phone btn-user btn-block text-white" *ngIf="false">
                                             <i class="fas fa-phone-alt fa-fw"></i> Login with Phone Number (India)
                                         </a>
                                     </form>

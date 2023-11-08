@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { signInWithEmailAndPassword, Auth, signOut, createUserWithEmailAndPassword } from '@angular/fire/auth';
-import { Firestore, setDoc, doc, getDoc } from '@angular/fire/firestore';
+import { signInWithEmailAndPassword, Auth, signOut, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, OAuthProvider } from '@angular/fire/auth';
+import { Firestore, setDoc, doc, getDoc, collection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 export class AuthService {
   loginErr = ''
   userDetails: any = {
-    fName:'',
-    lName:''
+    fName: '',
+    lName: ''
   }
   regError = ''
   addInfoErr = ''
@@ -74,6 +74,67 @@ export class AuthService {
       })
   }
 
+  async userExists(uid:string){
+    try {
+      let r=await getDoc(doc(this.fs, 'users/' + uid))
+      if(r.exists()){
+        return true
+      }
+      else{
+        return false
+      }
+    } catch (error) {
+      return false
+    }
+  }
+  
+
+  signwithProvider(id:number,type:number){
+    let provider
+    switch(id){
+      case 0:
+        provider=new GoogleAuthProvider()
+        break
+      case 1:
+        provider= new OAuthProvider('microsoft.com')
+        break
+      case 2:
+        provider=new FacebookAuthProvider()
+        break
+      case 3:
+        provider=new TwitterAuthProvider()
+        break
+      default:
+        return
+    }
+    signInWithPopup(this.auth, provider)
+      .then(r => {
+        this.userExists(r.user.uid)
+        .then(rr=>{
+          if(rr){
+            this.router.navigate(['/'])
+          }
+          else{
+            localStorage.setItem('addUid', r.user.uid)
+            this.router.navigate(['/auth/add-info'])
+          }
+        })
+      })
+      .catch(e=>{
+        console.log(e)
+        if(type){
+        this.regError=e.code
+        setTimeout(() => this.regError = '', 3000)
+        }
+        else{
+          this.loginErr=e.code
+          setTimeout(()=>this.loginErr,1500)
+        }
+      })
+
+  }
+
+  
   addDetails(uid: string, details: any) {
     setDoc(doc(this.fs, 'users/' + uid), details)
       .then(r => {

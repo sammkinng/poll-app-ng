@@ -99,4 +99,8 @@ export class RegisterComponent {
     this.captchTxt = this.captcha.generateRandomText(4)
     this.captchaa = this.captcha.image(this.captchTxt)
   }
+
+  registerWithProvider(key:number){
+    this.auth.signwithProvider(key,1)
+  }
 }

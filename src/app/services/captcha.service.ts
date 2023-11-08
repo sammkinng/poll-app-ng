@@ -12,7 +12,7 @@ export class CaptchaService {
     this.params.lineWidth = 2
     this.params.fontSize = 30
     this.params.codeLength =  6
-    this.params.canvasWidth = 150
+    this.params.canvasWidth = 122
     this.params.canvasHeight = 50
   }
 

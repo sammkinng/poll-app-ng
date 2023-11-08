@@ -91,21 +91,21 @@
                                             Register Account
                                         </a>
                                         <hr>
-                                        <a [routerLink]="['/auth/add-info']" class="btn btn-google btn-user btn-block">
+                                        <a (click)="registerWithProvider(0)" class="btn btn-google btn-user btn-block text-white">
                                             <i class="fab fa-google fa-fw"></i> Register with Google
                                         </a>
-                                        <a [routerLink]="['/auth/add-info']"
-                                            class="btn btn-microsoft btn-user btn-block">
+                                        <a (click)="registerWithProvider(1)"
+                                            class="btn btn-microsoft btn-user btn-block text-white">
                                             <i class="fab fa-microsoft fa-fw"></i> Register with Microsoft
                                         </a>
-                                        <a [routerLink]="['/auth/add-info']"
-                                            class="btn btn-facebook btn-user btn-block">
+                                        <a (click)="registerWithProvider(2)"
+                                            class="btn btn-facebook btn-user btn-block text-white">
                                             <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                                         </a>
-                                        <a [routerLink]="['/auth/add-info']" class="btn btn-twitter btn-user btn-block">
+                                        <a (click)="registerWithProvider(3)" class="btn btn-twitter btn-user btn-block text-white">
                                             <i class="fab fa-twitter fa-fw"></i> Register with Twitter(X)
                                         </a>
-                                        <a [routerLink]="['/auth/add-info']" class="btn btn-phone btn-user btn-block"
+                                        <a (click)="registerWithProvider(4)" class="btn btn-phone btn-user btn-block text-white"
                                             *ngIf="false">
                                             <i class="fas fa-phone-alt fa-fw"></i> Register with Phone Number (India)
                                         </a>
