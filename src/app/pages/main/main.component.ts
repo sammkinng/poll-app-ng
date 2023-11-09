@@ -22,7 +22,8 @@ interface Content{
 }
 
 export interface Poll extends Content{
-  options:Option[],closed: boolean,audience:string,timeLeft:Date,
+  options:Option[]
+  closed: boolean,audience:string,timeLeft:Date,
 }
 
 export interface Blog extends Content{
@@ -32,7 +33,7 @@ export interface Blog extends Content{
 
 export interface Option{
   title:string,
-  subtitle:string
+  id:string
 }
 
 @Component({

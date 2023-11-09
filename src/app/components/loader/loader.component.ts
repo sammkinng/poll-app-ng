@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { StateService } from 'src/app/services/state.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-loader',
@@ -7,9 +6,5 @@ import { StateService } from 'src/app/services/state.service';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
-  constructor(
-    public globalState:StateService
-  ) {
-  
-  }
+  @Input() loading=true
 }

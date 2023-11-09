@@ -57,8 +57,8 @@ export class AuthService {
     return !!this.auth.currentUser;
   }
 
-  getUser() {
-    return this.auth.currentUser
+  getUID() {
+    return this.auth.currentUser?.uid || ''
   }
 
   signup(email: string, password: string) {

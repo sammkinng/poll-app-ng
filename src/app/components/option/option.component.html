@@ -1,12 +1,20 @@
-<div class="artist-list mb-3 linkkk" *ngFor="let option of options">
-    <a class="d-flex align-items-center">
+<div class="artist-list mb-3 linkkk" *ngFor="let option of options;">
+    <a [class]="selected==option.id?'d-flex align-items-center border p-2 selected':'d-flex align-items-center border p-2'" (click)="selectOption(option.id)">
         <div class="dropdown-list-image mr-3">
             <img class="rounded-circle" src="/assets/img/s1.png" alt="">
             <div class="status-indicator bg-success"></div>
         </div>
         <div class="font-weight-bold">
             <div class="text-truncate">{{option.title}}</div>
-            <div class="small text-gray-500">{{option.subtitle}}</div>
         </div>
     </a>
 </div>
+
+<div class="red" *ngIf="voteErr">
+    Select at least 1 option</div>
+    <div class="red" *ngIf="VoteErr">
+        VoteErr</div>
+
+<button class="btn btn-primary btn-user btn-block text-white" [disabled]="voted" (click)="vote(selected||'')">
+    {{voted?'You have already Voted':'Vote'}}
+</button>

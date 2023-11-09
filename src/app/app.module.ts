@@ -31,6 +31,7 @@ import { BlogHomeComponent } from './pages/blog-home/blog-home.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { ResultComponent } from './pages/result/result.component';
 import { SubmittedComponent } from './pages/submitted/submitted.component';
+import { LoaderModalComponent } from './components/loader-modal/loader-modal.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { SubmittedComponent } from './pages/submitted/submitted.component';
     BlogHomeComponent,
     AuthLayoutComponent,
     ResultComponent,
-    SubmittedComponent
+    SubmittedComponent,
+    LoaderModalComponent
   ],
   imports: [
     BrowserModule,

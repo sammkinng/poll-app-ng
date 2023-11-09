@@ -18,23 +18,23 @@ export class PollService {
       ques: 'Will India win this world cup?',
       options: [{
         title: 'option 1',
-        subtitle: 'desc 1'
+        id:'1'
       },
       {
         title: 'option 2',
-        subtitle: 'desc 2'
+        id:'2'
       },
       {
         title: 'option 3',
-        subtitle: 'desc 3'
+        id:'3'
       },
       {
         title: 'option 4',
-        subtitle: 'desc 4'
+        id:'4'
       },
       {
         title: 'option 5',
-        subtitle: 'desc 5'
+        id:'5'
       },
       ],
       audience: 'India',
@@ -52,24 +52,24 @@ export class PollService {
       ques: 'Will India win this world cup?',
       options: [{
         title: 'option 1',
-        subtitle: 'desc 1'
+        id:'1'
       },
       {
         title: 'option 2',
-        subtitle: 'desc 2'
+        id:'2'
       },
       {
         title: 'option 3',
-        subtitle: 'desc 3'
+        id:'3'
       },
       {
         title: 'option 4',
-        subtitle: 'desc 4'
+        id:'4'
       },
       {
         title: 'option 5',
-        subtitle: 'desc 5'
-      }
+        id:'5'
+      },
       ],
       audience: 'England',
       genre: 'Adventure'
@@ -85,24 +85,24 @@ export class PollService {
       ques: 'Will India win this world cup?',
       options: [{
         title: 'option 1',
-        subtitle: 'desc 1'
+        id:'1'
       },
       {
         title: 'option 2',
-        subtitle: 'desc 2'
+        id:'2'
       },
       {
         title: 'option 3',
-        subtitle: 'desc 3'
+        id:'3'
       },
       {
         title: 'option 4',
-        subtitle: 'desc 4'
+        id:'4'
       },
       {
         title: 'option 5',
-        subtitle: 'desc 5'
-      }
+        id:'5'
+      },
       ],
       audience: 'India',
       genre: 'Adventure'
@@ -118,24 +118,24 @@ export class PollService {
       ques: 'Will India win this world cup?',
       options: [{
         title: 'option 1',
-        subtitle: 'desc 1'
+        id:'1'
       },
       {
         title: 'option 2',
-        subtitle: 'desc 2'
+        id:'2'
       },
       {
         title: 'option 3',
-        subtitle: 'desc 3'
+        id:'3'
       },
       {
         title: 'option 4',
-        subtitle: 'desc 4'
+        id:'4'
       },
       {
         title: 'option 5',
-        subtitle: 'desc 5'
-      }
+        id:'5'
+      },
       ],
       audience: 'India',
       genre: 'Action'
@@ -151,24 +151,24 @@ export class PollService {
       ques: 'Will India win this world cup?',
       options: [{
         title: 'option 1',
-        subtitle: 'desc 1'
+        id:'1'
       },
       {
         title: 'option 2',
-        subtitle: 'desc 2'
+        id:'2'
       },
       {
         title: 'option 3',
-        subtitle: 'desc 3'
+        id:'3'
       },
       {
         title: 'option 4',
-        subtitle: 'desc 4'
+        id:'4'
       },
       {
         title: 'option 5',
-        subtitle: 'desc 5'
-      }
+        id:'5'
+      },
       ],
       audience: 'India',
       genre: 'Animation'

@@ -13,6 +13,7 @@ export const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fr
 export class PollComponent {
 
   poll:Poll | null =null
+  id:string=''
   
   constructor(
     private pollService:PollService,
@@ -22,6 +23,7 @@ export class PollComponent {
   ngOnInit() {
     // Access the route snapshot to get the URL parameters
     this.route.paramMap.subscribe(params => {
+      this.id=params.get('id') || ''
       // Retrieve parameters using the 'get' method
       this.pollService.getPollById(params.get('id'))
       .then(res=>{
