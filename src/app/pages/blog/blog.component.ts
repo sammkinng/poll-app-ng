@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from 'src/app/services/blog.service';
 import { Blog } from '../main/main.component';
 
@@ -13,7 +13,8 @@ export class BlogComponent {
   
   constructor(
     private blogService:BlogService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private router:Router
   ){
     
   }
@@ -24,6 +25,9 @@ export class BlogComponent {
       // Retrieve parameters using the 'get' method
       this.blogService.getBlogById(params.get('id'))
       .then(res=>{
+        if(res==null){
+          this.router.navigate(['/blog/not-found/404'])
+        }
         this.blog=res
       })
       .catch(e=>{
