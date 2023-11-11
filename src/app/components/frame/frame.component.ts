@@ -18,6 +18,7 @@ export class FrameComponent {
   notifications:any[]=[
 
   ]
+  loggedIn=localStorage.getItem('uid')
 
   topCategories:Category[]=[{
     name:'Action',

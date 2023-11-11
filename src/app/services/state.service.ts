@@ -3,12 +3,14 @@ import { Blog, Category, Poll } from '../pages/main/main.component';
 import { PollService } from './poll.service';
 import { BlogService } from './blog.service';
 import { CategoryService } from './category.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateService {
   loading = true;
+  filter=''
   
   pollSelector: Poll[][] = [
     [], [], []
@@ -30,6 +32,9 @@ export class StateService {
         this.filteredPolls = res
         this.countActive()
         this.loading = false
+        if(this.filter){
+          this.filterItems([],[this.filter])
+        }
       })
       .catch(() => {
         console.log("error while fetching polls")

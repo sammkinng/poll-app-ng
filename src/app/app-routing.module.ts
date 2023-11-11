@@ -16,6 +16,7 @@ import { BlogHomeComponent } from './pages/blog-home/blog-home.component';
 import { FrameComponent } from './components/frame/frame.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { ResultComponent } from './pages/result/result.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -59,10 +60,10 @@ const routes: Routes = [
         canActivate: [uidGuard]
       },
       {
-        path: 'profile/:id',
+        path: 'profile',
         component: ProfileComponent,
         title: 'User Profile',
-        canActivate: [uidGuard]
+        canActivate: [uidGuard,authGuard]
       },
       {
         path: 'category/:id',

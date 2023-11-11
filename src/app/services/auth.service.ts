@@ -19,7 +19,7 @@ export class AuthService {
     signInWithEmailAndPassword(this.auth, username, password)
       .then((userCredential) => {
         // Successfully logged in
-        console.log('Logged in:', userCredential.user);
+        localStorage.setItem('uid',userCredential.user.uid)
         this.router.navigate(['/'])
       })
       .catch((error) => {
@@ -45,16 +45,12 @@ export class AuthService {
   logout() {
     signOut(this.auth)
       .then((res) => {
+        localStorage.removeItem('uid')
         this.router.navigate(['/auth/login'])
       })
       .catch((e) => {
         console.log("Failed to logout: ", e)
       })
-  }
-
-  isLoggedIn(): boolean {
-    // Check if the user is logged in
-    return !!this.auth.currentUser;
   }
 
   getUID() {
@@ -64,6 +60,7 @@ export class AuthService {
   signup(email: string, password: string) {
     createUserWithEmailAndPassword(this.auth, email, password)
       .then(res => {
+        localStorage.setItem('uid',res.user.uid)
         localStorage.setItem('addUid', res.user.uid)
         this.router.navigate(['/auth/add-info'])
       })
@@ -109,6 +106,7 @@ export class AuthService {
     }
     signInWithPopup(this.auth, provider)
       .then(r => {
+        localStorage.setItem('uid',r.user.uid)
         this.userExists(r.user.uid)
         .then(rr=>{
           if(rr){
@@ -128,7 +126,7 @@ export class AuthService {
         }
         else{
           this.loginErr=e.code
-          setTimeout(()=>this.loginErr,1500)
+          setTimeout(()=>this.loginErr='',1500)
         }
       })
 

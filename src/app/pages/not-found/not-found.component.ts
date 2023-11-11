@@ -9,6 +9,7 @@ import { Category } from '../main/main.component';
 })
 export class NotFoundComponent {
   modal=false
+  loggedIn=localStorage.getItem('uid')
 
   topCategories:Category[]=[{
     name:'Action',

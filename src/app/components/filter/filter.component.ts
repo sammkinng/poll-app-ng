@@ -84,20 +84,12 @@ export class FilterComponent {
   ngOnInit(){
     this.route.paramMap.subscribe(params => {
       let id=params.get('id')
-      let x:string[][]=[[],[]]
       if(id){
-      x[1].push(id)
+        this.selectedFilters=[[],[id]]
+        this.globalState.filter=id
+        this.globalState.filterItems([],[id])
       }
-      this.selectedFilters=x
-      this.globalState.filterItems(x[0],x[1])
     })
-
-    
-
-    
-
-   
-
   }
 
   ngOnChanges(changes: { [propName: string]: SimpleChange }) {
