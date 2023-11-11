@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Chart, ChartItem } from 'chart.js/auto';
 
 type PieChartData = {
   name: string;
   value: number;
 };
+
+export type PieData={
+  id:string,
+  labels:string[],
+  dLabel:string,
+  data:number[]
+}
 
 type BarGraphData = {
   labels: string[];
@@ -210,4 +218,21 @@ export class GraphService {
     return canvas.toDataURL()
   }
   
+
+  createpie(pieData:PieData){
+
+    let bg:string[]=[]
+    pieData.data.forEach(i=>{
+      bg.push(this.getRandomColor())
+    })
+    new Chart(document.getElementById(pieData.id) as ChartItem, {
+      "type": "doughnut",
+      "data": {
+          "labels":pieData.labels,
+          "datasets": [{
+              "label":pieData.dLabel,
+              "data": pieData.data,
+              "backgroundColor": bg }]
+      }
+  })}
 }
