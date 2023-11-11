@@ -31,7 +31,11 @@ export class PollComponent {
         if(res==null){
           this.router.navigate(['/poll/not-found/404'])
         }
-        this.poll=res
+        if(res?.closed){
+          this.router.navigate(['/result/'+params.get('id')])
+        }
+        else{
+        this.poll=res}
       })
       .catch(e=>{
         console.log(e)

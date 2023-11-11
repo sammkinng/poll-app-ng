@@ -1,13 +1,13 @@
 <div id="row">
     <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-3">
-        <h1 class="h5 mb-0 text-gray-900">Results are out!</h1>
+        <h1 class="h5 mb-0 text-gray-900">{{declared?'Results are out!':'Poll is live!'}}</h1>
         
      </div>
     <div class="bg-white info-header shadow rounded mb-4">
         <div class="row d-flex align-items-center justify-content-between p-3 border-bottom">
            <div class="col-lg-7 m-b-4">
-              <h3 class="text-gray-900 mb-0 mt-0 font-weight-bold">will india?</h3>
-              <p class="mb-0 text-gray-800"><small class="text-muted"><i class="fas fa-user-circle fa-fw fa-sm mr-1"></i> Genre</small></p>
+              <h3 class="text-gray-900 mb-0 mt-0 font-weight-bold">{{title}}</h3>
+              <p class="mb-0 text-gray-800"><small class="text-muted"><i class="fas fa-user-circle fa-fw fa-sm mr-1"></i> {{genre}}</small></p>
            </div>
            <div class="col-lg-5 text-right" *ngIf="false">
               <a href="#" class="btn btn-primary btn-circle">
@@ -25,10 +25,9 @@
            </div>
         </div>
         <div class="p-3 mb-4">
-           <h1 class="h6 mb-3 mt-0 font-weight-bold text-gray-900" >Summary</h1>
+           <h1 class="h6 mb-3 mt-0 font-weight-bold text-gray-900" >{{declared ? 'Summary':''}}</h1>
            <div>
-              <p class="mb-0 text-gray-600">An American and Canadian actor, producer and semi-retired professional wrestler, signed with WWE.  Johnson is half-Black and half-Samoan. His father, Rocky Johnson, is a Black Canadian, from Nova Scotia, and part of the first Black tag team champions in WWE history back when it was known as the WWF along with Tony Atlas. His mother is Samoan and the daughter of Peter Maivia, who was also a pro wrestler. Maivia's wife, Lia Maivia, was one of wrestling's few female promoters, taking over Polynesian Pacific Pro Wrestling after her husband's death in 1982, until 1988. Through his mother, he is ...
-              </p>
+              <p class="mb-0 text-gray-600">{{declared?'summary':'Please come back Later'}}</p>
            </div>
         </div>
      </div>
