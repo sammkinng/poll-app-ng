@@ -48,7 +48,8 @@ export class AddInfoComponent {
         district:'',
         state:'',
         dob:'',
-        religion:''
+        religion:'',
+        gender:''
       }
       Object.keys(x).forEach(k=>{
         x[k]=this.form.get(k)?.value

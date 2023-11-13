@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { signInWithEmailAndPassword, Auth, signOut, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, OAuthProvider } from '@angular/fire/auth';
 import { Firestore, setDoc, doc, getDoc, collection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   loginErr = ''
-  userDetails: any = {
+  private userDetails = new BehaviorSubject<any>({
     fName: '',
     lName: ''
-  }
+  })
+  userDetails$:Observable<any>=this.userDetails.asObservable()
   regError = ''
   addInfoErr = ''
 
@@ -34,7 +36,7 @@ export class AuthService {
     getDoc(doc(this.fs, 'users/' + uid))
       .then(r => {
         if (r.exists()) {
-          this.userDetails = r.data()
+          this.userDetails.next(r.data())
         }
       })
       .catch(e => {

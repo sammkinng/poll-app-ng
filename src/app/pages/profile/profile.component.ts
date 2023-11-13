@@ -9,7 +9,10 @@ import { CountryService } from 'src/app/services/country.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-
+  userDetails={
+    fName:'',
+    lName:''
+  }
   clickedG=false
   clickedC=false
   countries:{
@@ -34,6 +37,14 @@ export class ProfileComponent {
   private cs:CountryService
  ){
   this.countries=cs.getCountries()
+ }
+
+ ngOnInit(){
+  this.auth.userDetails$.subscribe(v=>{
+    this.userDetails=v
+    console.log(v)
+    this.form.patchValue(v)
+  })
  }
 
 }

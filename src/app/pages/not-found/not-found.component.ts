@@ -10,7 +10,10 @@ import { Category } from '../main/main.component';
 export class NotFoundComponent {
   modal=false
   loggedIn=localStorage.getItem('uid')
-
+  userDetails={
+    fName:'',
+    lName:''
+  }
   topCategories:Category[]=[{
     name:'Action',
     value:150
@@ -41,4 +44,10 @@ logout(type:number){
     public auth:AuthService,
     public globalState:StateService,
   ){}
+
+  ngOnInit(){
+    this.auth.userDetails$.subscribe(v=>{
+      this.userDetails=v
+    })
+  }
 }

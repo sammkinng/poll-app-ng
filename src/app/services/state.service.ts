@@ -3,7 +3,6 @@ import { Blog, Category, Poll } from '../pages/main/main.component';
 import { PollService } from './poll.service';
 import { BlogService } from './blog.service';
 import { CategoryService } from './category.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'

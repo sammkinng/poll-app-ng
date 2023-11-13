@@ -11,55 +11,65 @@ import { months } from '../card/card.component';
   styleUrls: ['./frame.component.scss']
 })
 export class FrameComponent {
-  months=months
-  notificationsBadge=0
-  selected:any=null
-  modal=false
-  notifications:any[]=[
+  userDetails = {
+    fName: '',
+    lName: ''
+  }
+  months = months
+  notificationsBadge = 0
+  selected: any = null
+  modal = false
+  notifications: any[] = [
 
   ]
-  loggedIn=localStorage.getItem('uid')
+  loggedIn = localStorage.getItem('uid')
 
-  topCategories:Category[]=[{
-    name:'Action',
-    value:150
+  topCategories: Category[] = [{
+    name: 'Action',
+    value: 150
   },
   {
-    name:'Drama',
-    value:158
+    name: 'Drama',
+    value: 158
   },
   {
-    name:'Sport',
-    value:50
+    name: 'Sport',
+    value: 50
   }
-]
+  ]
 
-logout(type:number){
- if(type===1){
-  this.modal=true
- }
- else if(type===2){
-  this.modal=false
-  this.auth.logout()
- }
- else{
-  this.auth.logout()
- }
-}
+  logout(type: number) {
+    if (type === 1) {
+      this.modal = true
+    }
+    else if (type === 2) {
+      this.modal = false
+      this.auth.logout()
+    }
+    else {
+      this.auth.logout()
+    }
+  }
 
   constructor(
-    public globalState:StateService,
-    public auth:AuthService,
-    private notif:NotificationService
-  ){
+    public globalState: StateService,
+    public auth: AuthService,
+    private notif: NotificationService
+  ) {
     notif.getNofifications()
-    .then(r=>{
-      this.notifications=r
-    })
+      .then(r => {
+        this.notifications = r
+      })
   }
 
-  formatDate(date:Date){
-    return months[date.getMonth()]+" "+date.getDate()+" "+date.getFullYear()
+  formatDate(date: Date) {
+    return months[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear()
+  }
+
+  ngOnInit() {
+    this.auth.userDetails$.subscribe(v => {
+      this.userDetails = v
+    })
   }
 
 }
