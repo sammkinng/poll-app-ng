@@ -6,7 +6,7 @@
          </span>
       </div>
       <div class="col-md-6 text-center text-md-right" *ngIf="false">
-         <a data-toggle="modal" data-target="#logoutModal" class="btn btn btn-light">Sign out</a>
+         <a class="btn btn btn-light" (click)="logout()">Sign out</a>
       </div>
    </div>
 </section>
@@ -23,7 +23,7 @@
                aria-selected="false"><i class="fas fa-list-alt fa-sm fa-fw mr-2 text-gray-400"></i> Your Polls</a>
             <a class="nav-link" data-toggle="tab" href="#sidebar-1-4" role="tab" aria-controls="sidebar-1-4"
                aria-selected="false"><i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i> Account Settings</a>
-            <a class="nav-link linkkk" data-toggle="modal" data-target="#logoutModal"><i
+            <a class="nav-link blue" (click)="logout()"><i
                   class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout</a>
          </div>
       </div>

@@ -68,6 +68,7 @@ export class ProfileComponent {
     this.form.patchValue(v)
     this.form1.patchValue(v)
   })
+  this.logout()
  }
 
  save(name:string){
@@ -89,6 +90,10 @@ compareValues(name:string){
     }
   })
   return ans
+}
+
+logout(){
+  document.getElementById('lgbtn')?.click()
 }
 
 }
