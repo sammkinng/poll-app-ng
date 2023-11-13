@@ -41,21 +41,7 @@ export class AddInfoComponent {
 
   register(){
     if(this.form.valid){
-      let x:{[key:string]:string}={
-        fName:'',
-        lName:'',
-        country:'',
-        district:'',
-        state:'',
-        dob:'',
-        religion:'',
-        gender:''
-      }
-      Object.keys(x).forEach(k=>{
-        x[k]=this.form.get(k)?.value
-      })
-   
-      this.auth.addDetails(localStorage.getItem('addUid') ||'',x)
+      this.auth.addDetails(localStorage.getItem('addUid') ||'',this.form.value)
     }
   else{
     this.reqdFields=true

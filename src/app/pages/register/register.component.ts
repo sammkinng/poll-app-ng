@@ -74,14 +74,7 @@ export class RegisterComponent {
           setTimeout(() => this.catErr = false, 1500)
         }
         else {
-          let x = {
-            email: '',
-            password: ''
-          }
-          x.email = this.form.get('email')?.value
-          x.password = this.form.get('password')?.value
-
-          this.auth.signup(x.email, x.password)
+          this.auth.signup(this.form.get('email')?.value, this.form.get('password')?.value)
         }
       }
       else {
