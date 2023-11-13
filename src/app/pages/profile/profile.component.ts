@@ -59,6 +59,10 @@ export class ProfileComponent {
   .catch((e)=>{
     console.log(e)
   })
+  if(globalState.initialRendering){
+    this.logout()
+    globalState.initialRendering=false
+  }
  }
 
  ngOnInit(){
@@ -68,7 +72,6 @@ export class ProfileComponent {
     this.form.patchValue(v)
     this.form1.patchValue(v)
   })
-  this.logout()
  }
 
  save(name:string){

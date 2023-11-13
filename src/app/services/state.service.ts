@@ -10,7 +10,7 @@ import { CategoryService } from './category.service';
 export class StateService {
   loading = true;
   filter=''
-  
+  initialRendering=true
   pollSelector: Poll[][] = [
     [], [], []
   ]
