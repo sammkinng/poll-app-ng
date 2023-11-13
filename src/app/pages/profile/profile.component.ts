@@ -28,26 +28,32 @@ export class ProfileComponent {
   form:FormGroup=this.fb.group({
     fName:[null,[Validators.required]],
     lName:[null,[Validators.required]],
-    country:["",[Validators.required]],
-    state:[null,[Validators.required]],
     gender:["",[Validators.required]],
-    district:[null,[Validators.required]],
     religion:[null,[Validators.required]],
     dob:[null,[Validators.required]],
+  })
+
+  form1:FormGroup=this.fb.group({
+    country:["",[Validators.required]],
+    state:[null,[Validators.required]],
+    district:[null,[Validators.required]]
   })
 
  constructor(
   public auth:AuthService,
   private fb:FormBuilder,
   private cs:CountryService,
-  private fs:FirestoreService,
+  public fs:FirestoreService,
   public globalState:StateService
  ){
   this.countries=cs.getCountries()
   fs.canUpdate()
   .then(r=>{
-    if(!r){
+    if(!r[0]){
       this.form.disable()
+    }
+    if(!r[1]){
+      this.form1.disable()
     }
   })
   .catch((e)=>{
@@ -60,23 +66,26 @@ export class ProfileComponent {
     this.userDetails=v
     this.orignalValue=v
     this.form.patchValue(v)
+    this.form1.patchValue(v)
   })
  }
 
- save(){
-  if(this.form.valid){
-    this.fs.updataData(this.auth.getUID(),{})
+ save(name:string){
+  let form=eval(name)
+  if(form.value){
+    this.fs.updataData(this.auth.getUID(),form.value,this.orignalValue)
   }
 else{
   this.reqdFields=true
   setTimeout(()=>this.reqdFields=false,1500)
 }}
 
-compareValues(){
+compareValues(name:string){
+  let form=eval(name)
   let ans=true
-  Object.keys(this.orignalValue).forEach(k=>{
+  Object.keys(form.value).forEach(k=>{
     if(ans){
-      ans=this.orignalValue[k]===this.form.value[k]
+      ans=this.orignalValue[k]===form.value[k]
     }
   })
   return ans
