@@ -13,13 +13,13 @@
             <div class="sidebar-brand-text mx-3"><img src="/assets/img/logo.png" alt=""></div>
          </a>
          <!-- Nav Item - Dashboard -->
-         <li [class]="selected===null ? 'nav-item active':'nav-item'" (click)="selected=null">
+         <li [class]="selected==='/' ? 'nav-item active':'nav-item'" >
             <a class="nav-link" [routerLink]="['']">
                <i class="fas fa-fw fa-film"></i>
                <span>Home</span></a>
          </li>
          <li [class]="selected===category.name ? 'nav-item active':'nav-item'"
-            *ngFor="let category of topCategories;let i=index" (click)="selected=category.name">
+            *ngFor="let category of topCategories;let i=index" >
             <a class="nav-link" [routerLink]="['/category/'+category.name]">
                <i class="fas fa-fw fa-film"></i>
                <span>{{category.name}}</span></a>

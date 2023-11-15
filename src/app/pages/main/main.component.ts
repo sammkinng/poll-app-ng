@@ -22,12 +22,12 @@ interface Content{
 }
 
 export interface Poll extends Content{
-  options:Option[]
+  options:Option[],
   closed: boolean,audience:string,timeLeft:Date,
 }
 
 export interface Blog extends Content{
-  section:string,closed:true,audience:'',timeLeft:null
+  section:string,closed:false,audience:'',timeLeft:null
 }
 
 
