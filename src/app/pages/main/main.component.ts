@@ -12,6 +12,8 @@ export interface Audience {
 }
 
 interface Content{
+  bg1:string,
+  bg2:string,
   content:string,
   name: string,
   id: string,
