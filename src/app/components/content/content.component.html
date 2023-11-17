@@ -55,8 +55,8 @@
                         aria-controls="contact" aria-selected="false">FAQ</a>
                 </li>
             </ul>
-            <div class="tab-content" id="myTabContent">
-                {{content?.content}}
+            <div class="tab-content" id="myTabContent" [innerHTML]="content?.content">
+               
             </div>
         </div>
     </div>

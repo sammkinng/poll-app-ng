@@ -8,7 +8,7 @@ export class PollService {
 
   pollList = [
     {
-      content: "Hello",
+      content: "<h1>This is heading</h1><p>here goes</p><p><br></p><h2>subheading</h2><p>bhjdabh</p><p><br></p><h3>small head</h3><p>fdfd  jkfxjgjb jkfnbng <strong>jnxfb <em>dfbngnmnb </em></strong><em>fnbjcnb<u>kjvbvmbn  </u></em><u>vbvb</u></p><ol><li><u>fdg</u></li><li><u>3rwf</u></li><li><u>fxhg</u></li></ol><p><br></p><p><br></p><p>gnbvn </p><ul><li>fg</li><li>ggfb</li><li>gf</li></ul><p>cgbn</p><p><br></p><p><br></p>".replaceAll('<p><br></p>',''),
       name: "poll1",
       closed: false,
       id: 'ddh1',
