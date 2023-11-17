@@ -16,26 +16,7 @@ export class PollService {
       location: "Delhi",
       timeLeft: new Date(),
       ques: 'Will India win this world cup?',
-      options: [{
-        title: 'option 1',
-        id:'1'
-      },
-      {
-        title: 'option 2',
-        id:'2'
-      },
-      {
-        title: 'option 3',
-        id:'3'
-      },
-      {
-        title: 'option 4',
-        id:'4'
-      },
-      {
-        title: 'option 5',
-        id:'5'
-      },
+      options: ["A",'B','C','D','E'
       ],
       audience: 'India',
       genre: 'Action'
@@ -50,26 +31,7 @@ export class PollService {
       location: "Delhi",
       timeLeft: new Date(),
       ques: 'Will India win this world cup?',
-      options: [{
-        title: 'option 1',
-        id:'1'
-      },
-      {
-        title: 'option 2',
-        id:'2'
-      },
-      {
-        title: 'option 3',
-        id:'3'
-      },
-      {
-        title: 'option 4',
-        id:'4'
-      },
-      {
-        title: 'option 5',
-        id:'5'
-      },
+      options: ["A",'B','C','D','E'
       ],
       audience: 'England',
       genre: 'Adventure'
@@ -83,26 +45,7 @@ export class PollService {
       location: "Delhi",
       timeLeft: new Date(),
       ques: 'Will India win this world cup?',
-      options: [{
-        title: 'option 1',
-        id:'1'
-      },
-      {
-        title: 'option 2',
-        id:'2'
-      },
-      {
-        title: 'option 3',
-        id:'3'
-      },
-      {
-        title: 'option 4',
-        id:'4'
-      },
-      {
-        title: 'option 5',
-        id:'5'
-      },
+      options: ["A",'B','C','D','E'
       ],
       audience: 'India',
       genre: 'Adventure'
@@ -116,26 +59,7 @@ export class PollService {
       location: "Delhi",
       timeLeft: new Date(),
       ques: 'Will India win this world cup?',
-      options: [{
-        title: 'option 1',
-        id:'1'
-      },
-      {
-        title: 'option 2',
-        id:'2'
-      },
-      {
-        title: 'option 3',
-        id:'3'
-      },
-      {
-        title: 'option 4',
-        id:'4'
-      },
-      {
-        title: 'option 5',
-        id:'5'
-      },
+      options: ["A",'B','C','D','E'
       ],
       audience: 'India',
       genre: 'Action'
@@ -149,26 +73,7 @@ export class PollService {
       location: "Delhi",
       timeLeft: new Date(),
       ques: 'Will India win this world cup?',
-      options: [{
-        title: 'option 1',
-        id:'1'
-      },
-      {
-        title: 'option 2',
-        id:'2'
-      },
-      {
-        title: 'option 3',
-        id:'3'
-      },
-      {
-        title: 'option 4',
-        id:'4'
-      },
-      {
-        title: 'option 5',
-        id:'5'
-      },
+      options: ["A",'B','C','D','E'
       ],
       audience: 'India',
       genre: 'Animation'

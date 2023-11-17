@@ -75,8 +75,7 @@ export class FrameComponent {
     
       this.router.events.subscribe((event) => {
           const currentPath = this.router.url;
-          console.log(currentPath)
-          if(currentPath=='/'){
+          if(currentPath==='/'){
             this.selected='/'
           }
           else{

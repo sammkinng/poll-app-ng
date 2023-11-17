@@ -22,7 +22,7 @@ interface Content{
 }
 
 export interface Poll extends Content{
-  options:Option[],
+  options:string[],
   closed: boolean,audience:string,timeLeft:Date,
 }
 

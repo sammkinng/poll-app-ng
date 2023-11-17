@@ -9,13 +9,13 @@ import { VoteService } from 'src/app/services/vote.service';
   styleUrls: ['./option.component.scss']
 })
 export class OptionComponent {
-  @Input() options: Option[] = []
+  @Input() options: string[] = []
   @Input() pollId: string = ''
 
   voteErr = false
   VoteErr=''
 
-  selected: string | null = null
+  selected: any = null
 
   voted = false
 
@@ -58,7 +58,7 @@ export class OptionComponent {
     }
   }
 
-  selectOption(i: string) {
+  selectOption(i: any) {
     if (!this.voted) {
       if (this.selected === i) {
         this.selected = null
