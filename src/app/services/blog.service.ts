@@ -9,7 +9,9 @@ export class BlogService {
   blogs:any[]=[
     {
       content:"Hello",
-      name: "blog1",
+      bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+      bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    name: "blog1",
       id:'ddh1',
       date: new Date(),
       location: "Delhi",
@@ -19,7 +21,9 @@ export class BlogService {
     },
     {
       name: "blog2",
-      content:"Hello",
+      bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+      bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    content:"Hello",
       id:'ddh2',
       date: new Date(),
       location: "Delhi",
@@ -28,7 +32,9 @@ export class BlogService {
       genre: 'Adventure'
     },
     {content:"Hello",
-      name: "blog3",
+    bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+  name: "blog3",
       id:'ddh3',
       date: new Date(),
       location: "Delhi",
@@ -37,7 +43,9 @@ export class BlogService {
       genre: 'Adventure'
     },
     {content:"Hello",
-      name: "blog4",
+    bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+  name: "blog4",
       id:'ddh4',
       date: new Date(),
       location: "Delhi",
@@ -46,7 +54,9 @@ export class BlogService {
       genre: 'Action'
     },
     {content:"Hello",
-      name: "blog5",
+    bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+  name: "blog5",
       id:'ddh5',
       date: new Date(),
       location: "Delhi",

@@ -1,7 +1,7 @@
    <div class="card e-card shadow border-0">
        <a [routerLink]="[type,content?.id]">
-          <div class="m-card-cover square">
-             <img src="/assets/img/o1.jpg" class="card-img-top" alt="...">
+          <div class="imgc">
+             <img loading="eager" [src]="content?.bg1 ||'/assets/img/o1.jpg'" class="card-img-top" alt="...">
           </div>
           <div class="card-body p-0">
              <div class="row no-gutters align-items-center">
