@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Category } from '../pages/main/main.component';
+import { FirestoreService } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +30,11 @@ export class CategoryService {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private fs:FirestoreService
+  ) { }
 
-  getCategories() {
-    return new Promise<Category[]>((res, rej) => {
-      setTimeout(() => res(this.categoriesList), 1000)
-    })
+  async getCategories() {
+    return await this.fs.getCategories()
   }
 }

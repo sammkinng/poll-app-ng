@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Audience } from '../pages/main/main.component';
+import { FirestoreService } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -34,11 +34,11 @@ export class AudienceService {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private fs:FirestoreService
+  ) { }
 
-  getAudience() {
-    return new Promise<Audience[]>((resolve, reject) => {
-      setTimeout(() => resolve(this.audience), 500)
-    })
+  async getAudience() {
+    return await this.fs.getAudiences()
   }
 }

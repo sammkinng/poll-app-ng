@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Firestore, doc, setDoc,getDocs, collection, getDoc } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,6 @@ export class FirestoreService {
 
   constructor(
   private fs:Firestore,
-  private router:Router
   ) {}
 
   canUpdate(){
@@ -129,6 +127,24 @@ export class FirestoreService {
     else{
       return null
     }
+  }
+
+  async getCategories(){
+    let docs:any[]=[]
+    let qs=await getDocs(collection(this.fs,'genres'))
+    qs.forEach(d=>{
+      docs.push(d.data())
+    })
+    return docs
+  }
+
+  async getAudiences(){
+    let docs:any[]=[]
+    let qs=await getDocs(collection(this.fs,'audiences'))
+    qs.forEach(d=>{
+      docs.push(d.data())
+    })
+    return docs
   }
 
 
