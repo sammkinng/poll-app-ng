@@ -10,20 +10,20 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class BlogHomeComponent {
   filteredBlogs: Blog[]=[]
+  allBlogs:Blog[]=[]
   count=0
   filters:string[]=[]
   seeAll=false
 
-  form:FormGroup
+  // form:FormGroup
 
   reset(){
-    this.count+=1
+    this.filteredBlogs=this.allBlogs
+    this.filters=[]
   }
 
   toggle(name:string){
-    let e=this.form.get(name)?.value
-    
-    if(e){
+    if(this.filters.includes(name)){
       this.filters=this.filters.filter(f=>f!==name)
     }
     else{
@@ -36,20 +36,17 @@ export class BlogHomeComponent {
     public globalState:StateService,
     private fb:FormBuilder
   ) {
-    this.filteredBlogs=globalState.allBlogs
-    let x:any={}
-    globalState.categories.forEach(cat=>{
-      x[cat.name]=[false]
-    })
-    this.form=fb.group(x)
+    globalState.allBlogs$.subscribe(d=>{
+      this.filteredBlogs=d
+      this.allBlogs=d})
   }
 
   filterBlogs(){
     if(this.filters.length===0){
-      this.filteredBlogs=this.globalState.allBlogs
+      this.filteredBlogs=this.allBlogs
     }
     else{
-      this.filteredBlogs=this.globalState.allBlogs.filter(i=>this.filters.some(f=>i.genre===f))
+      this.filteredBlogs=this.allBlogs.filter(i=>this.filters.some(f=>i.genre===f))
     }
   }
 }

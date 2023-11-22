@@ -3,6 +3,7 @@ import { Blog, Category, Poll } from '../pages/main/main.component';
 import { PollService } from './poll.service';
 import { BlogService } from './blog.service';
 import { CategoryService } from './category.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class StateService {
   pollSelector: Poll[][] = [
     [], [], []
   ]
-  allBlogs:Blog[]=[]
+  private allBlogs=new BehaviorSubject<Blog[]>([])
+  allBlogs$:Observable<Blog[]>=this.allBlogs.asObservable()
   active: number = 0
   filteredPolls: Poll[] = []
   categories:Category[]=[]
@@ -47,7 +49,7 @@ export class StateService {
 
     blogService.getBlogs()
     .then(res=>{
-      this.allBlogs=res
+      this.allBlogs.next(res)
     })
   }
 
