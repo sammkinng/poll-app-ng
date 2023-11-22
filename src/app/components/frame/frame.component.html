@@ -13,13 +13,13 @@
             <div class="sidebar-brand-text mx-3"><img src="/assets/img/logo.png" alt=""></div>
          </a>
          <!-- Nav Item - Dashboard -->
-         <li [class]="selected==='/' ? 'nav-item active':'nav-item'" >
+         <li [class]="selected==='/' ? 'nav-item active':'nav-item'">
             <a class="nav-link" [routerLink]="['']">
                <i class="fas fa-fw fa-film"></i>
                <span>Home</span></a>
          </li>
          <li [class]="selected===category.name ? 'nav-item active':'nav-item'"
-            *ngFor="let category of topCategories;let i=index" >
+            *ngFor="let category of topCategories;let i=index">
             <a class="nav-link" [routerLink]="['/category/'+category.name]">
                <i class="fas fa-fw fa-film"></i>
                <span>{{category.name}}</span></a>
@@ -140,7 +140,7 @@
                               </div>
                            </div>
                            <div>
-                              <div class="small text-gray-500">{{formatDate(notif.date)}}</div>
+
                               <span [class]="notif.bold?'font-weight-bold':''">{{notif.text}}
                               </span>
                            </div>
@@ -179,7 +179,7 @@
                         <span
                            [class]="loggedIn?'mr-2 d-none d-lg-inline text-gray-600 small':'mr-2 d-none d-lg-inline text-gray-600 small red'">
                            {{loggedIn?userDetails.fName+' '+userDetails.lName:'Login ?'}}</span>
-                        <img class="img-profile rounded-circle" src="/assets/img/o1.png">
+                        <i class="fas fa-user-circle fa-lg"></i>
                      </a>
                      <!-- Dropdown - User Information -->
                      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

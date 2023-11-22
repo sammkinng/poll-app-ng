@@ -9,7 +9,7 @@ import { VoteService } from 'src/app/services/vote.service';
   styleUrls: ['./option.component.scss']
 })
 export class OptionComponent {
-  @Input() options: string[] = []
+  @Input() options: any[] = []
   @Input() pollId: string = ''
 
   voteErr = false

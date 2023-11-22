@@ -64,10 +64,6 @@ export class FrameComponent {
       })
   }
 
-  formatDate(date: Date) {
-    return months[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear()
-  }
-
   ngOnInit() {
     this.auth.userDetails$.subscribe(v => {
       this.userDetails = v
