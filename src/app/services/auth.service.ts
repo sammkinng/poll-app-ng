@@ -136,6 +136,8 @@ export class AuthService {
 
   
   addDetails(uid: string, details: any) {
+    details['times']=0
+    details['times1']=0
     setDoc(doc(this.fs, 'users/' + uid), details)
       .then(r => {
         localStorage.removeItem('addUid')
