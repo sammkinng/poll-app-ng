@@ -143,5 +143,13 @@ export class FirestoreService {
     return docs
   }
 
+  async getNotifications(){
+    let docs: any[] = []
+    let qs = await getDocs(collection(this.fs, 'notifications'))
+    qs.forEach(d => {
+      docs.push(d.data())
+    })
+    return docs
+  }
 
 }

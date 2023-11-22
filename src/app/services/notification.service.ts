@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FirestoreService } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -6,52 +7,27 @@ import { Injectable } from '@angular/core';
 export class NotificationService {
 
   notifications=[{
-    type:0,
-    bold:false,
-    date:new Date(),
-    day:'1d',
     text:'notif',
-    writer:'gurdepp',
-    icon:'AB'
+    img:''
   },{
-    type:1,
-    bold:false,
-    date:new Date(),
-    day:'1d',
     text:'notif',
-    writer:'gurdepp',
-    icon:'AB'
+    img:''
   },{
-    type:1,
-    bold:false,
-    date:new Date(),
-    day:'1d',
     text:'notif',
-    writer:'gurdepp',
-    icon:'AB'
+    img:''
   },{
-    type:0,
-    bold:false,
-    date:new Date(),
-    day:'1d',
     text:'notif',
-    writer:'gurdepp',
-    icon:'AB'
+    img:''
   },{
-    type:0,
-    bold:false,
-    date:new Date(),
-    day:'1d',
     text:'notif',
-    writer:'gurdepp',
-    icon:'AB'
+    img:''
   }]
 
-  constructor() { }
+  constructor(
+    private fs:FirestoreService
+  ) { }
 
-  getNofifications(){
-    return new Promise<any[]>((resolve,reject)=>{
-      setTimeout(()=>resolve(this.notifications),100)
-    })
+  async getNofifications(){
+    return await this.fs.getNotifications()
   }
 }

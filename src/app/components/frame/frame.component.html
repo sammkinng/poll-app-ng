@@ -134,10 +134,9 @@
                            Alerts
                         </h6>
                         <a class="dropdown-item d-flex align-items-center" *ngFor="let notif of notifications;">
-                           <div class="mr-3">
-                              <div class="icon-circle bg-primary text-white">
-                                 {{notif.icon}}
-                              </div>
+                           <div class="dropdown-list-image mr-3">
+                              <img class="rounded-circle w-60" [src]="notif.img ||'/assets/img/o1.jpg'" alt="ab">
+                       
                            </div>
                            <div>
 

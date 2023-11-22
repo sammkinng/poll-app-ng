@@ -1,5 +1,5 @@
 <div class="artist-list mb-3 linkkk" *ngFor="let option of options">
-    <a [class]="selected==option?'d-flex align-items-center border p-2 selected':'d-flex align-items-center border p-2'" (click)="selectOption(option)">
+    <a [class]="selected==option.name?'d-flex align-items-center border p-2 selected':'d-flex align-items-center border p-2'" (click)="selectOption(option.name)">
         <div class="dropdown-list-image mr-3">
             <img class="rounded-circle" [src]="option?.img || '/assets/img/s1.png'" alt="">
             <div class="status-indicator bg-success"></div>
