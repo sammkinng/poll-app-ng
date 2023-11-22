@@ -14,15 +14,18 @@ export const months = [
 })
 export class CardComponent {
   months:string[]=months
-  path='poll'
-
+  
   @Input() content:Poll|Blog|null=null
   @Input() type='/poll'
 
 
   timeLeft(date:any){
+    if(date){
     let ms=date.getTime()-new Date().getTime()
     let s=ms/1000
     return Math.floor(s/3600)+":"+Math.floor((s%3600)/60)
   }
+  return ''
+}
+
 }

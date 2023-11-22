@@ -16,16 +16,16 @@
                    <!-- <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> {{content?.location}}</small></p> -->
                 </div>
                 
-                <div class="col-3 p-2" *ngIf="content?.closed;else elseBlock" >
+                <div class="col-3 p-2" *ngIf="content?.closed" >
                       <i class="fas fa-circle red-circle"> </i>
                       <small class="text-danger"> Closed</small>
                 </div>
-                <ng-template #elseBlock>
-                  <div class="col-3 p-2">
+                
+                  <div class="col-3 p-2" *ngIf="type==='/poll' && !content?.closed">
                      <i class="fas fa-circle green-circle"> </i>
                      <small class="text-success "> {{timeLeft(content?.timeLeft)}}</small>
                   </div>
-                </ng-template>
+                
              </div>
           </div>
        </a>
