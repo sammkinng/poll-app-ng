@@ -107,4 +107,29 @@ export class FirestoreService {
       return false
     }
   }
+
+  async getBlogs(){
+    let docs:any[]=[]
+    let qs=await getDocs(collection(this.fs,'blogs'))
+    qs.forEach(d=>{
+      let x=d.data()
+      x['date']=new Date(x['date'])
+      docs.push(x)
+    })
+    return docs
+  }
+
+  async getBlogById(id:string){
+    let res=await getDoc(doc(this.fs,'blogs/',id))
+    if(res.exists()){
+      let x=res.data()
+      x['date']=new Date(x['date'])
+      return x
+    }
+    else{
+      return null
+    }
+  }
+
+
 }

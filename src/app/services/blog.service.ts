@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Blog } from '../pages/main/main.component';
+import { FirestoreService } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -70,17 +70,20 @@ export class BlogService {
 
   ]
 
-  getBlogs() {
-    return new Promise<Blog[]>((res, rej) => {
-      setTimeout(() => res(this.blogs), 500)
-    })
+  async getBlogs() {
+    this.blogs= await this.fs.getBlogs()
+    return this.blogs
   }
 
-  getBlogById(id: string | null) {
-    return new Promise<Blog | null>((res, rej) => {
-      setTimeout(() => res(this.blogs.find(i => i.id === id) || null), 500)
-    })
+  async getBlogById(id: string | null) {
+    let blog= this.blogs.find(i => i.id === id)
+    if(blog){
+      return blog
+    }
+    return await this.fs.getBlogById(id||'')
   }
 
-  constructor() { }
+  constructor(
+    private fs:FirestoreService
+  ) { }
 }

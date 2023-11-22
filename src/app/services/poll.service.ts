@@ -102,9 +102,6 @@ export class PollService {
   }
 
   async getPollById(id: string | null) {
-    // return new Promise<Poll | null>((resolve, reject) => {
-    //   setTimeout(() => resolve(this.pollList.find(i => i.id === id) || null), 500)
-    // })
     let poll= this.pollList.find(i => i.id === id)
     if(poll){
       return poll
