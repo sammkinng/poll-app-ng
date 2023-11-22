@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Poll } from '../pages/main/main.component';
+import { FirestoreService } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PollService {
 
-  pollList = [
+  pollList:Poll[] = [
     {
       
       bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
@@ -91,19 +92,24 @@ export class PollService {
 
   ]
 
-  constructor() { }
+  constructor(
+    private fs:FirestoreService
+  ) { }
 
-  getAllPolls() {
-    return new Promise<Poll[]>((resolve, reject) => {
-      setTimeout(() => resolve(this.pollList), 1000)
-    })
+  async getAllPolls() {
+   this.pollList=await this.fs.getPolls()
+   return this.pollList
   }
 
-  getPollById(id: string | null) {
-    return new Promise<Poll | null>((resolve, reject) => {
-      setTimeout(() => resolve(this.pollList.find(i => i.id === id) || null), 500)
-    })
+  async getPollById(id: string | null) {
+    // return new Promise<Poll | null>((resolve, reject) => {
+    //   setTimeout(() => resolve(this.pollList.find(i => i.id === id) || null), 500)
+    // })
+    let poll= this.pollList.find(i => i.id === id)
+    if(poll){
+      return poll
+    }
+    return await this.fs.getPollById(id||'')
   }
-
-
+  
 }

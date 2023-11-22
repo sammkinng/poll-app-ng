@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PollService } from 'src/app/services/poll.service';
 import { Poll } from '../main/main.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DocumentData } from 'firebase/firestore';
 
 export const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -12,7 +13,7 @@ export const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fr
 })
 export class PollComponent {
 
-  poll:Poll | null =null
+  poll:Poll | null | DocumentData =null
   id:string=''
   
   constructor(

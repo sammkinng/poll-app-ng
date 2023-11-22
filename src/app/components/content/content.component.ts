@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Blog, Poll } from 'src/app/pages/main/main.component';
 import { days } from 'src/app/pages/poll/poll.component';
 import { months } from '../card/card.component';
+import { DocumentData } from 'firebase/firestore';
 
 @Component({
   selector: 'app-content',
@@ -12,7 +13,7 @@ export class ContentComponent {
   days:string[]=days
   months:string[]=months
 
-  @Input()content:Poll|Blog|null=null
+  @Input()content:Poll|Blog|null|DocumentData=null
 
   getFormattedTime(date:any){
     let h=date?.getHours()

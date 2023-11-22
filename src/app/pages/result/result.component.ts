@@ -51,7 +51,7 @@ export class ResultComponent {
               let x: string[] = []
               this.options = res.options
               
-              res.options.forEach(o => {
+              res.options.forEach((o:any) => {
                 x.push(o)
                 this.pieData['labels'] = x
               })
