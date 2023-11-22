@@ -67,4 +67,44 @@ export class FirestoreService {
     }
   }
 
+  async getResultById(rid:string){
+    let res=await getDoc(doc(this.fs,'results/',rid))
+    if(res.exists()){
+      return res.data()
+    }
+    else{
+      return null
+    }
+  }
+
+  async getVotesById(id:string){
+    let res=await getDoc(doc(this.fs,'votes/',id))
+    if(res.exists()){
+      return res.data()
+    }
+    else{
+      return {}
+    }
+  }
+
+  async setVotesById(id:string,option:string,uid:string){
+    let v=await this.getVotesById(id)
+    let r=await this.getResultById(id)
+    v[uid]=option
+    if(r){
+      r[option]++
+    }
+    else{
+      r={}
+      r[option]=1
+    }
+    try {
+      await setDoc(doc(this.fs,'votes/',id),v)
+      await setDoc(doc(this.fs,'results/',id),r)
+      return true
+    } catch (error) {
+      console.log(error)
+      return false
+    }
+  }
 }

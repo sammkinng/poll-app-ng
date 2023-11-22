@@ -12,8 +12,8 @@
 
 <div class="red" *ngIf="voteErr">
     Select at least 1 option</div>
-    <div class="red" *ngIf="VoteErr">
-        VoteErr</div>
+    <div class="red" *ngIf="votes.err">
+        {{votes.err}}</div>
 
 <button class="btn btn-primary btn-user btn-block text-white" [disabled]="voted" (click)="vote(selected||'')">
     {{voted?'You have already Voted':'Vote'}}

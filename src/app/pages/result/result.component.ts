@@ -59,6 +59,7 @@ export class ResultComponent {
 
               this.vs.getResultById(params.get('id') || '')
                 .then(r => {
+                  if(r){
                   this.summary = r['summary']
                   let x: number[] = []
                   this.options.forEach(o => {
@@ -66,6 +67,7 @@ export class ResultComponent {
                   })
                   this.pieData['data'] = x
                   this.gs.createpie(this.pieData)
+                }
                 })
 
             }

@@ -31,15 +31,12 @@ export class OptionComponent {
           this.voted=true
         }
       })
-      .catch(e=>{
-        this.VoteErr=e.code
-      })
     }
   }
 
   constructor(
     private auth: AuthService,
-    private votes: VoteService,
+    public votes: VoteService,
   ) { }
 
   ngOnChanges() {
