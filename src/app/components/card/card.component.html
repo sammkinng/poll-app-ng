@@ -1,23 +1,31 @@
    <div class="card e-card shadow border-0">
        <a [routerLink]="[type,content?.id]">
           <div class="imgc">
-             <img loading="eager" [src]="content?.bg1 ||'/assets/img/o1.jpg'" class="card-img-top" alt="...">
+             <img loading="eager" [src]="content?.bg ||'/assets/img/o1.jpg'" class="card-img-top" alt="...">
           </div>
           <div class="card-body p-0">
              <div class="row no-gutters align-items-center">
-                <div class="col-2 auto py-3 pl-3">
+                <div class="col-3 auto py-3 pl-3">
                    <div class="bg-white rounded text-center">
                       <h6 class="text-danger mb-0 font-weight-bold">{{content?.date?.getDate()}}</h6>
-                      <small class="text-muted">{{months[ content?.date?.getMonth() || 0 ].slice(0,3)| uppercase}}</small>
+                      <small class="text-muted">{{months[ content?.date?.getMonth() || 0 ].slice(0,3)| uppercase}} {{content?.date?.getFullYear()}}</small>
                    </div>
                 </div>
-                <div class="col-8 p-3">
+                <div class="col-6 p-3">
                    <p class="card-text text-gray-900 mb-1">{{content?.name}}</p>
-                   <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> {{content?.location}}</small></p>
+                   <!-- <p class="card-text"><small class="text-muted"><i class="fas fa-map-marker-alt fa-sm ml-1"></i> {{content?.location}}</small></p> -->
                 </div>
-                <div class="col-2 p-3" *ngIf="content?.closed" >
-                      <i class="fas fa-circle red-circle"></i>
+                
+                <div class="col-3 p-2" *ngIf="content?.closed;else elseBlock" >
+                      <i class="fas fa-circle red-circle"> </i>
+                      <small class="text-danger"> Closed</small>
                 </div>
+                <ng-template #elseBlock>
+                  <div class="col-3 p-2">
+                     <i class="fas fa-circle green-circle"> </i>
+                     <small class="text-success "> {{timeLeft(content?.timeLeft)}}</small>
+                  </div>
+                </ng-template>
              </div>
           </div>
        </a>

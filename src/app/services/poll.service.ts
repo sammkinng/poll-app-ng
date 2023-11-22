@@ -8,15 +8,15 @@ export class PollService {
 
   pollList = [
     {
-      bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-      bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+      
+      bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
       content: "<h1>This is heading</h1><p>here goes</p><p><br></p><h2>subheading</h2><p>bhjdabh</p><p><br></p><h3>small head</h3><p>fdfd  jkfxjgjb jkfnbng <strong>jnxfb <em>dfbngnmnb </em></strong><em>fnbjcnb<u>kjvbvmbn  </u></em><u>vbvb</u></p><ol><li><u>fdg</u></li><li><u>3rwf</u></li><li><u>fxhg</u></li></ol><p><br></p><p><br></p><p>gnbvn </p><ul><li>fg</li><li>ggfb</li><li>gf</li></ul><p>cgbn</p><p><br></p><p><br></p>".replaceAll('<p><br></p>',''),
       name: "poll1",
       closed: false,
       id: 'ddh1',
       date: new Date(),
       location: "Delhi",
-      timeLeft: new Date(),
+      timeLeft: new Date('11-25-2023'),
       ques: 'Will India win this world cup?',
       options: ["A",'B','C','D','E'
       ],
@@ -25,23 +25,23 @@ export class PollService {
     },
     {
       name: "poll2",
-      bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-      bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+      
+      bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
     
       content: "Hello",
       closed: false,
       id: 'ddh2',
       date: new Date(),
       location: "Delhi",
-      timeLeft: new Date(),
+      timeLeft: new Date('11-25-2023'),
       ques: 'Will India win this world cup?',
       options: ["A",'B','C','D','E'
       ],
       audience: 'England',
       genre: 'Adventure'
     },
-    {bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-    bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    {
+    bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
   
       content: "Hello",
       name: "poll3",
@@ -49,15 +49,15 @@ export class PollService {
       id: 'ddh3',
       date: new Date(),
       location: "Delhi",
-      timeLeft: new Date(),
+      timeLeft: new Date('11-25-2023'),
       ques: 'Will India win this world cup?',
       options: ["A",'B','C','D','E'
       ],
       audience: 'India',
       genre: 'Adventure'
     },
-    {bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-    bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    {
+    bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
   
       content: "Hello",
       name: "poll4",
@@ -65,15 +65,15 @@ export class PollService {
       id: 'ddh4',
       date: new Date(),
       location: "Delhi",
-      timeLeft: new Date(),
+      timeLeft: new Date('11-25-2023'),
       ques: 'Will India win this world cup?',
       options: ["A",'B','C','D','E'
       ],
       audience: 'India',
       genre: 'Action'
     },
-    {bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-    bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    {
+    bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
   
       content: "Hello",
       name: "poll5",
@@ -81,7 +81,7 @@ export class PollService {
       id: 'ddh5',
       date: new Date(),
       location: "Delhi",
-      timeLeft: new Date(),
+      timeLeft: new Date('11-25-2023'),
       ques: 'Will India win this world cup?',
       options: ["A",'B','C','D','E'
       ],

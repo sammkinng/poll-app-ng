@@ -9,8 +9,8 @@ export class BlogService {
   blogs:any[]=[
     {
       content:"Hello",
-      bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-      bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+      
+      bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
     name: "blog1",
       id:'ddh1',
       date: new Date(),
@@ -21,8 +21,8 @@ export class BlogService {
     },
     {
       name: "blog2",
-      bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-      bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+      
+      bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
     content:"Hello",
       id:'ddh2',
       date: new Date(),
@@ -32,8 +32,8 @@ export class BlogService {
       genre: 'Adventure'
     },
     {content:"Hello",
-    bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-    bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    
+    bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
   name: "blog3",
       id:'ddh3',
       date: new Date(),
@@ -43,8 +43,8 @@ export class BlogService {
       genre: 'Adventure'
     },
     {content:"Hello",
-    bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-    bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    
+    bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
   name: "blog4",
       id:'ddh4',
       date: new Date(),
@@ -54,8 +54,8 @@ export class BlogService {
       genre: 'Action'
     },
     {content:"Hello",
-    bg1:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
-    bg2:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
+    
+    bg:"https://firebasestorage.googleapis.com/v0/b/voteapp-dev.appspot.com/o/banners%2Fcover.jpg?alt=media&token=73ed60be-fc8c-4534-9c35-8c151186bc4e",
   name: "blog5",
       id:'ddh5',
       date: new Date(),
