@@ -15,9 +15,9 @@
     <div class="red" *ngIf="votes.err">
         {{votes.err}}</div>
 
-<button class="btn btn-primary btn-user btn-block text-white" [disabled]="voted" (click)="vote(selected||'')">
-    {{voted?'You have already Voted':'Vote'}}
+<button class="btn btn-primary btn-user btn-block text-white" [disabled]="voted || voteSuccess" (click)="vote(selected||'')">
+    {{btnName()}}
 </button>
 
-<div id="dddddd" *ngIf="voted">
+<div id="dddddd" *ngIf="voted || voteSuccess">
 <a [href]="'/result/'+pollId" id="result_link">Result Link</a></div>

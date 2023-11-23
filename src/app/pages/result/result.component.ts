@@ -13,7 +13,6 @@ import { Option } from '../main/main.component';
 export class ResultComponent {
   declared = false
   options: string[] = []
-  summary = ''
   title=''
   genre=''
 
@@ -49,21 +48,21 @@ export class ResultComponent {
             if (res?.closed) {
               this.declared = true
               let x: string[] = []
-              this.options = res.options
+              
               
               res.options.forEach((o:any) => {
-                x.push(o)
+                x.push(o.name)
                 this.pieData['labels'] = x
+                this.options=x
               })
 
 
               this.vs.getResultById(params.get('id') || '')
                 .then(r => {
                   if(r){
-                  this.summary = r['summary']
                   let x: number[] = []
-                  this.options.forEach(o => {
-                    x.push(parseInt(r[o]))
+                  this.options.forEach(op => {
+                    x.push(parseInt(r[op]))
                   })
                   this.pieData['data'] = x
                   this.gs.createpie(this.pieData)

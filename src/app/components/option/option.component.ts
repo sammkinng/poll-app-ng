@@ -14,6 +14,7 @@ export class OptionComponent {
 
   voteErr = false
   VoteErr=''
+  voteSuccess=false
 
   selected: any = null
 
@@ -28,10 +29,20 @@ export class OptionComponent {
       this.votes.setVoteByPollIdAndUser(this.pollId,this.auth.getUID(),option)
       .then(r=>{
         if(r){
-          this.voted=true
+          this.voteSuccess=true
         }
       })
     }
+  }
+
+  btnName(){
+    if(this.voted){
+return 'You have already Voted'
+    }
+    if(this.voteSuccess){
+      return 'Vote Submitted!'
+    }
+    return 'Vote'
   }
 
   constructor(
@@ -56,7 +67,7 @@ export class OptionComponent {
   }
 
   selectOption(i: any) {
-    if (!this.voted) {
+    if (!this.voted && !this.voteSuccess) {
       if (this.selected === i) {
         this.selected = null
       }
