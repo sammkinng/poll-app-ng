@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CountryService } from 'src/app/services/country.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -15,6 +16,16 @@ export class ProfileComponent {
     fName: '',
     lName: ''
   }
+
+  tabMap: { [key: string]: string } = {
+    'sidebar-1-1': 'kk0',
+    'sidebar-1-4': 'kk3',
+    'sidebar-1-x': 'kk1',
+    'sidebar-1-3': 'kk2',
+
+  }
+
+  curr = 'sidebar-1-1'
 
   orignalValue: { [key: string]: any } = {}
   clickedG = false
@@ -44,7 +55,8 @@ export class ProfileComponent {
     private fb: FormBuilder,
     private cs: CountryService,
     public fs: FirestoreService,
-    public globalState: StateService
+    public globalState: StateService,
+    private route: ActivatedRoute
   ) {
     this.countries = cs.getCountries()
     if (globalState.initialRendering) {
@@ -59,19 +71,34 @@ export class ProfileComponent {
       this.orignalValue = v
       this.form.patchValue(v)
       this.form1.patchValue(v)
-      if(v.times>1){
+      if (v.times > 1) {
         this.form.disable()
       }
-      if(v.times1>1){
+      if (v.times1 > 1) {
         this.form1.disable()
       }
     })
+
+
+    this.route.fragment.subscribe(fragment => {
+      if (!fragment) {
+        fragment = 'sidebar-1-1'
+      }
+      document.getElementById(this.tabMap[this.curr])?.classList.remove('active')
+      document.getElementById(this.tabMap[fragment || ''])?.classList.add('active')
+      document.getElementById(this.curr)?.classList.remove('show')
+      document.getElementById(this.curr)?.classList.remove('active')
+      document.getElementById(fragment || '')?.classList.add('show')
+      document.getElementById(fragment || '')?.classList.add('active')
+      this.curr = fragment
+    });
+
   }
 
-  save(name: string,type:number) {
+  save(name: string, type: number) {
     let form = eval(name)
     if (form.value) {
-      this.fs.updataData(this.auth.getUID(), form.value, this.orignalValue,type)
+      this.fs.updataData(this.auth.getUID(), form.value, this.orignalValue, type)
     }
     else {
       this.reqdFields = true
@@ -93,5 +120,6 @@ export class ProfileComponent {
   logout() {
     document.getElementById('lgbtn')?.click()
   }
+
 
 }

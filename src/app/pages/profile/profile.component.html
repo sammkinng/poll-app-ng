@@ -14,14 +14,14 @@
    <div class="col-xl-3 col-lg-3">
       <div class="bg-white p-3 widget shadow rounded mb-4">
          <div class="nav nav-pills flex-column lavalamp" id="sidebar-1" role="tablist">
-            <a class="nav-link active" data-toggle="tab" href="#sidebar-1-1" role="tab" aria-controls="sidebar-1"
+            <a class="nav-link active" data-toggle="tab" href="#sidebar-1-1" role="tab" aria-controls="sidebar-1" id="kk0"
                aria-selected="true"><i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
-               <a class="nav-link" data-toggle="tab" href="#sidebar-1-x" role="tab" aria-controls="sidebar-1-x"
+            <a class="nav-link" data-toggle="tab" href="#sidebar-1-x" role="tab" aria-controls="sidebar-1-x" id="kk1"
                aria-selected="false"><i class="fas fa-list-alt fa-sm fa-fw mr-2 text-gray-400"></i> Address</a>
-           
-            <a class="nav-link" data-toggle="tab" href="#sidebar-1-3" role="tab" aria-controls="sidebar-1-3"
+
+            <a class="nav-link" data-toggle="tab" href="#sidebar-1-3" role="tab" aria-controls="sidebar-1-3" id="kk2"
                aria-selected="false"><i class="fas fa-list-alt fa-sm fa-fw mr-2 text-gray-400"></i> Your Polls</a>
-            <a class="nav-link" data-toggle="tab" href="#sidebar-1-4" role="tab" aria-controls="sidebar-1-4"
+            <a class="nav-link" data-toggle="tab" href="#sidebar-1-4" role="tab" aria-controls="sidebar-1-4" id="kk3"
                aria-selected="false"><i class="fas fa-cog fa-sm fa-fw mr-2 text-gray-400"></i> Account Settings</a>
             <a class="nav-link blue" (click)="logout()"><i
                   class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout</a>
@@ -55,9 +55,9 @@
 
                            <label for="exampleInput2">Last Name</label>
                            <input formControlName="lName" id="exampleInput2" type="text" class="form-control"
-                              placeholder="Last name"> 
-                              <div class="red" *ngIf="!globalState.loading && form.get('lName')?.value==''">
-                                 Last Name is required.</div>
+                              placeholder="Last name">
+                           <div class="red" *ngIf="!globalState.loading && form.get('lName')?.value==''">
+                              Last Name is required.</div>
                         </div>
                      </div>
                      <div class="form-group row">
@@ -94,20 +94,21 @@
                            <label for="exampleInput5">Religion</label>
                            <input formControlName="religion" id="exampleInput5" type="text" class="form-control"
                               placeholder="Religion">
-                              <div class="red" *ngIf="!globalState.loading && form.get('religion')?.value==''">
-                                 Religion is required.</div>
+                           <div class="red" *ngIf="!globalState.loading && form.get('religion')?.value==''">
+                              Religion is required.</div>
                         </div>
                      </div>
-                     
+
                   </form>
                </div>
                <div class="red mb-1" *ngIf="reqdFields">
                   Please fill all the fields</div>
-                  <div class="red mb-1" *ngIf="fs.err">
-                     {{fs.err}}</div>
+               <div class="red mb-1" *ngIf="fs.err">
+                  {{fs.err}}</div>
                <div class="row">
                   <div class="col">
-                     <button (click)="save('this.form',0)" [disabled]="compareValues('this.form')" class="btn btn-primary text-white">Save
+                     <button (click)="save('this.form',0)" [disabled]="compareValues('this.form')"
+                        class="btn btn-primary text-white">Save
                         Changes</button>
                   </div>
                </div>
@@ -120,15 +121,15 @@
                <div class="mb-3">Note: You can update your Address twice in Lifetime</div>
                <div>
                   <form [formGroup]="form1" class="user">
-                     
+
                      <div class="form-group row">
                         <div class="col-md-6 mb-3 mb-sm-0">
 
                            <label for="exampleInput6">District</label>
                            <input id="exampleInput6" formControlName="district" type="text" class="form-control"
                               placeholder="District">
-                              <div class="red" *ngIf="!globalState.loading && form.get('district')?.value==''">
-                                 District is required.</div>
+                           <div class="red" *ngIf="!globalState.loading && form.get('district')?.value==''">
+                              District is required.</div>
                         </div>
 
                         <div class="col-md-3 mb-3 mb-sm-0">
@@ -136,8 +137,8 @@
                            <label for="exampleInput7">State</label>
                            <input formControlName="state" id="exampleInput7" type="text" class="form-control"
                               placeholder="State">
-                              <div class="red" *ngIf="!globalState.loading && form.get('state')?.value==''">
-                                 State is required.</div>
+                           <div class="red" *ngIf="!globalState.loading && form.get('state')?.value==''">
+                              State is required.</div>
                         </div>
 
                         <div class="col-md-3">
@@ -158,11 +159,12 @@
                </div>
                <div class="red mb-1" *ngIf="reqdFields">
                   Please fill all the fields</div>
-                  <div class="red mb-1" *ngIf="fs.err">
-                     {{fs.err}}</div>
+               <div class="red mb-1" *ngIf="fs.err">
+                  {{fs.err}}</div>
                <div class="row">
                   <div class="col">
-                     <button (click)="save('this.form1',1)" [disabled]="compareValues('this.form1')" class="btn btn-primary text-white">Save
+                     <button (click)="save('this.form1',1)" [disabled]="compareValues('this.form1')"
+                        class="btn btn-primary text-white">Save
                         Changes</button>
                   </div>
                </div>

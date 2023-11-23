@@ -32,19 +32,6 @@ export class VoteService {
   }
 
   async setVoteByPollIdAndUser(id:string,uid:string,option:string){
-    // let vote={
-    //   ...this.votes[id],
-    // }
-    // let res={
-    //   ...this.results[id]
-    // }
-    // res[option]+=1
-    // vote[uid]=option
-    // this.votes[id]=vote
-    // console.log(vote,this.votes)
-    // return new Promise<boolean>((res,rej)=>{
-    //   res(true)
-    // })
     let r=await this.fs.setVotesById(id,option,uid)
     if(!r){
       this.err='Some Unknown Error Occured: SE502'
