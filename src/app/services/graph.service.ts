@@ -235,4 +235,18 @@ export class GraphService {
               "backgroundColor": bg }]
       }
   })}
+
+  createBarChart(barData:any){
+    const options={
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }}
+    new Chart(document.getElementById(barData.id) as ChartItem, {
+      type: 'bar',
+      data: barData.data,
+      options
+    });
+  }
 }
