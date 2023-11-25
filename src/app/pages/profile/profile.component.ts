@@ -17,6 +17,8 @@ export class ProfileComponent {
     lName: ''
   }
 
+  votedPolls:any[]=[]
+
   tabMap: { [key: string]: string } = {
     'sidebar-1-1': 'kk0',
     'sidebar-1-4': 'kk3',
@@ -71,6 +73,10 @@ export class ProfileComponent {
       this.orignalValue = v
       this.form.patchValue(v)
       this.form1.patchValue(v)
+      if(v.fName){
+      this.fs.getVotedPolls(v.votes)
+      .then((r)=>{this.votedPolls=r;console.log(r)})
+      }
       if (v.times > 1) {
         this.form.disable()
       }
@@ -120,6 +126,8 @@ export class ProfileComponent {
   logout() {
     document.getElementById('lgbtn')?.click()
   }
+
+
 
 
 }

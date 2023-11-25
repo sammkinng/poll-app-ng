@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Firestore, doc, setDoc, getDocs, collection, getDoc,query, orderBy } from '@angular/fire/firestore';
+import { Firestore, doc, setDoc, getDocs, collection, getDoc,query, orderBy, where ,documentId} from '@angular/fire/firestore';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,14 @@ import { Firestore, doc, setDoc, getDocs, collection, getDoc,query, orderBy } fr
 export class FirestoreService {
 
   err = ''
+  userD:{[key:string]:any}={}
 
   constructor(
     private fs: Firestore,
-  ) { }
+    private auth:AuthService
+  ) { 
+    auth.userDetails$.subscribe(d=>{this.userD=d})
+  }
 
   updataData(uid: string, data: any, og: { [key: string]: any },type:number) {
     let d = { ...og }
@@ -86,6 +91,8 @@ export class FirestoreService {
   async setVotesById(id: string, option: string, uid: string) {
     let v = await this.getVotesById(id)
     let r = await this.getResultById(id)
+    let votes=[...this.userD['votes']]
+    votes.push(id)
     v[uid] = option
     if (r) {
       r[option]++
@@ -97,6 +104,10 @@ export class FirestoreService {
     try {
       await setDoc(doc(this.fs, 'votes/', id), v)
       await setDoc(doc(this.fs, 'results/', id), r)
+      await setDoc(doc(this.fs,'users/',uid),{
+        ...this.userD,
+        votes
+      })
       return true
     } catch (error) {
       console.log(error)
@@ -106,7 +117,7 @@ export class FirestoreService {
 
   async getBlogs() {
     let docs: any[] = []
-    let qs = await getDocs(collection(this.fs, 'blogs'))
+    let qs = await getDocs(query(collection(this.fs, 'blogs'),orderBy('date')))
     qs.forEach(d => {
       let x = d.data()
       x['date'] = new Date(x['date'])
@@ -152,6 +163,18 @@ export class FirestoreService {
       docs.push(d.data())
     })
     return docs
+  }
+
+  async getVotedPolls(votes:string[]){
+    let arr:any[]=[]
+    let x=await getDocs(query(collection(this.fs,'polls'),where(documentId(),'in',votes)))
+    x.forEach(p=>{
+      let j=p.data()
+      j['date'] = new Date(j['date'])
+      j['timeLeft'] = new Date(j['timeLeft'])
+      arr.push(j)
+    })
+    return arr
   }
 
 }
