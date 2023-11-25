@@ -1,0 +1,90 @@
+<body class="bg-gradient-primary">
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center align-items-center d-flex vh-100">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-md-5 my-sm-3">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form class="user" [formGroup]="form" (ngSubmit)="login">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Enter Email Address..." formControlName="email">
+                                            <div class="red"
+                                                *ngIf="form.get('email')?.hasError('required') && form.get('email')?.value!==null">
+                                                Email is required.</div>
+                                            <div class="red" *ngIf="form.get('email')?.hasError('email')">Invalid email
+                                                format.</div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password"
+                                                formControlName="password">
+                                            <div class="red"
+                                                *ngIf="form.get('password')?.hasError('required') && form.get('password')?.value!==null">
+                                                Password is required.</div>
+                                        </div>
+                                        <div class="red mb-3" *ngIf="auth.loginErr">{{auth.loginErr.split('/')[1]}}
+                                        </div>
+                                        <div class="red mt" *ngIf="reqdFields">
+                                            Please fill all the fields</div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <img [src]="captchaa" alt="cpacthca" style="margin-right: 15px;" />
+
+                                                <i class="fas fa-retweet fa-lg" style="color: black;"
+                                                    (click)="refreshCaptcha()"></i>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control form-control-user"
+                                                    placeholder="Enter capcha" formControlName="capcha" />
+                                            </div>
+                                        </div>
+                                        <div class="red" *ngIf="catErr">
+                                            Invalid Captcha</div>
+                                        <a class="btn btn-primary btn-user btn-block text-white" (click)="login()">
+                                            Login
+                                        </a>
+
+                                        <hr>
+                                        <a (click)="auth.signwithProvider(0,0)" class="btn btn-google btn-user btn-block text-white">
+                                            <i class="fab fa-google fa-fw"></i> Login with Google
+                                        </a>
+                                        <a (click)="auth.signwithProvider(1,0)" class="btn btn-microsoft btn-user btn-block text-white">
+                                            <i class="fab fa-microsoft fa-fw"></i> Login with Microsoft
+                                        </a>
+                                        <a (click)="auth.signwithProvider(2,0)" class="btn btn-facebook btn-user btn-block text-white">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        </a>
+                                        <a (click)="auth.signwithProvider(3,0)" class="btn btn-twitter btn-user btn-block text-white">
+                                            <i class="fab fa-twitter fa-fw"></i> Login with Twitter(X)
+                                        </a>
+                                        <a (click)="auth.signwithProvider(4,0)" class="btn btn-phone btn-user btn-block text-white" *ngIf="false">
+                                            <i class="fas fa-phone-alt fa-fw"></i> Login with Phone Number (India)
+                                        </a>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" [routerLink]="['/auth/forgot-password']">Forgot Password?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="" [routerLink]="['/auth/register']">Create an Account!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

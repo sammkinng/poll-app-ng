@@ -1,0 +1,128 @@
+<body class="bg-gradient-primary">
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center align-items-center d-flex vh-100">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-md-5 my-sm-3">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                    </div>
+                                    <form class="user" [formGroup]="form">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                formControlName="email" placeholder="Enter Email Address...">
+                                            <div class="red"
+                                                *ngIf="form.get('email')?.hasError('required') && form.get('email')?.value!==null">
+                                                Email is required.</div>
+                                            <div class="red" *ngIf="form.get('email')?.hasError('email')">Invalid email
+                                                format.</div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="password" class="form-control form-control-user"
+                                                    formControlName="password" id="exampleInputPassword"
+                                                    placeholder="Password">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="password" class="form-control form-control-user"
+                                                    formControlName="cnfPassword" id="exampleRepeatPassword"
+                                                    placeholder="Repeat Password">
+                                            </div>
+                                        </div>
+                                        <div class="red mt"
+                                            *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.value!==null">
+                                            Password too short.</div>
+
+                                        <div class="red mt"
+                                            *ngIf="form.get('password')?.hasError('pattern') && !form.get('password')?.hasError('minlength')">
+                                            Password must contain at least one uppercase letter, one special character,
+                                            and one digit</div>
+                                        <div class="red mt"
+                                            *ngIf="form.get('password')?.hasError('required') && form.get('password')?.value!==null">
+                                            Password is required.</div>
+
+                                        <div class="red mt"
+                                            *ngIf="form.get('cnfPassword')?.hasError('required') && form.get('cnfPassword')?.value!==null">
+                                            Confirm Password is required.</div>
+
+                                        <div class="red mt"
+                                            *ngIf="form?.hasError('passwordMismatch') && form.get('cnfPassword')?.value!==null">
+                                            Passwords do not match.</div>
+
+                                        <div class="red mt" *ngIf="auth.regError">
+                                            {{auth.regError.split('/')[1]}}</div>
+
+                                        <div class="red mt" *ngIf="reqdFields">
+                                            Please fill all the fields</div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck"
+                                                    formControlName="terms">
+                                                <label class="custom-control-label" for="customCheck">By signing up I
+                                                    agree to <a [routerLink]="['/terms']">Terms & Conditions</a></label>
+                                            </div>
+                                            <div class="red" *ngIf="terms">
+                                                Please accept Terms & Conditions.</div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <img [src]="captchaa" alt="cpacthca" style="margin-right: 15px;" />
+
+                                                <i class="fas fa-retweet fa-lg" style="color: black;"
+                                                    (click)="refreshCaptcha()"></i>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control form-control-user"
+                                                    placeholder="Enter capcha" formControlName="capcha" />
+                                            </div>
+                                        </div>
+                                        <div class="red" *ngIf="catErr">
+                                            Invalid Captcha</div>
+
+                                        <a class="btn btn-primary btn-user btn-block text-white" (click)="register()">
+                                            Register Account
+                                        </a>
+                                        <hr>
+                                        <a (click)="registerWithProvider(0)" class="btn btn-google btn-user btn-block text-white">
+                                            <i class="fab fa-google fa-fw"></i> Register with Google
+                                        </a>
+                                        <a (click)="registerWithProvider(1)"
+                                            class="btn btn-microsoft btn-user btn-block text-white">
+                                            <i class="fab fa-microsoft fa-fw"></i> Register with Microsoft
+                                        </a>
+                                        <a (click)="registerWithProvider(2)"
+                                            class="btn btn-facebook btn-user btn-block text-white">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                        </a>
+                                        <a (click)="registerWithProvider(3)" class="btn btn-twitter btn-user btn-block text-white">
+                                            <i class="fab fa-twitter fa-fw"></i> Register with Twitter(X)
+                                        </a>
+                                        <a (click)="registerWithProvider(4)" class="btn btn-phone btn-user btn-block text-white"
+                                            *ngIf="false">
+                                            <i class="fas fa-phone-alt fa-fw"></i> Register with Phone Number (India)
+                                        </a>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" [routerLink]="['/auth/forgot-password']">Forgot Password?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="" [routerLink]="['/auth/login']">Already have an Account? Login!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

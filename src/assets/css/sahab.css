@@ -1,0 +1,67 @@
+.cool-sel{
+    padding: 0rem 0.5rem;
+    height: calc(1.5em + 0.75rem + 2px);
+    border: 1px solid #d1d3e2;
+    width: 100%;
+    color: #6e707e;
+    background-color: #fff;
+  }
+
+  .linkkk{
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    /* Your mobile-specific styles go here */
+    .sp{
+      padding-bottom: 1rem;
+    }
+  }
+  
+  .cool-sel:focus{
+    /* border: 1px solid #d1d3e2; */
+    outline: none;
+  }
+  
+  .btn-microsoft {
+    color: #fff;
+    background-color: #444791;
+    border-color: #fff;
+  }
+  .btn-twitter {
+    color: #fff;
+    background-color: #000;
+    border-color: #fff;
+  }
+  
+  .btn-phone {
+    color: #fff;
+    background-color: #008045;
+    border-color: #fff;
+  }
+  
+  
+
+  
+  .btn-microsoft:hover {
+    color: #fff;
+    background-color: #444761;
+    border-color: #e6e6e6;
+  }
+  
+  .btn-microsoft:focus, .btn-twitter:focus, .btn-phone:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-twitter:hover {
+    color: #fff;
+    background-color: #222;
+    border-color: #e6e6e6;
+  }
+  
+  .btn-phone:hover{
+    color: #fff;
+    background-color: #444761;
+    border-color: #e6e6e6;
+  }
+  

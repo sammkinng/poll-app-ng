@@ -1,0 +1,118 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mt-4 mb-3">
+    <h1 class="h5 mb-0 text-gray-900"></h1>
+    <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-white" (click)="reset()">Reset Filters <i
+            class="fas fa-times fa-sm text-white-50"></i></a>
+</div>
+<!-- Content Row -->
+<div class="row">
+    <div class="col-xl-3 col-lg-4">
+        <div class="filters mobile-filters shadow rounded bg-white mb-4 d-none d-block d-md-none">
+            <div class="border-bottom">
+                <a class="h6 font-weight-bold text-dark d-block m-0 p-3" data-toggle="collapse" href="#mobile-filters"
+                    role="button" aria-expanded="false" aria-controls="mobile-filters">Filter
+                    By <i class="fas fa-angle-down float-right mt-1"></i></a>
+            </div>
+            <div id="mobile-filters" class="filters-body collapse multi-collapse">
+                <div id="accordion">
+                    <div class="filters-card border-bottom p-3">
+                        <div class="filters-card-header" id="headingOffer">
+                            <h6 class="mb-0">
+                                <a class="btn-link" data-toggle="collapse" data-target="#collapseOffer"
+                                    aria-expanded="true" aria-controls="collapseOffer">
+                                    Genre <i class="fas fa-angle-down float-right"></i>
+                                </a>
+                            </h6>
+                        </div>
+                        <div id="collapseOffer" class="collapse" aria-labelledby="headingOffer"
+                            data-parent="#accordion">
+                            <div class="filters-card-body card-shop-filters">
+                                <form >
+                                    <div *ngIf="seeAll; else elseBlock">
+                                        <div class="custom-control custom-checkbox"
+                                            *ngFor="let category of globalState.categories;let i=index">
+                                            <input type="checkbox" class="custom-control-input" [id]="'hof'+i"
+                                                (click)="toggle(category.name)" [checked]="filters.includes(category.name)">
+                                            <label class="custom-control-label" [for]="'hof'+i">{{category.name}}
+                                                <small class="text-black-50">{{category.value}}</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <ng-template #elseBlock>
+                                        <div class="custom-control custom-checkbox"
+                                            *ngFor="let category of globalState.categories.slice(0,4);let i=index">
+                                            <input type="checkbox" class="custom-control-input" [id]="'hof'+i"
+                                                (click)="toggle(category.name)" [checked]="filters.includes(category.name)">
+                                            <label class="custom-control-label" [for]="'hof'+i">{{category.name}}
+                                                <small class="text-black-50">{{category.value}}</small>
+                                            </label>
+                                        </div>
+                                    </ng-template>
+                                </form>
+                                <div class="mt-2"><a class="link linkkk" (click)="seeAll=!seeAll">{{seeAll?'See
+                                        less':'See all'}}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filters shadow rounded bg-white mb-3 d-none d-sm-none d-md-block">
+            <div class="filters-header border-bottom p-3">
+                <h6 class="m-0 text-dark">Filter By</h6>
+            </div>
+            <div class="filters-body">
+                <div id="accordion">
+                    <div class="filters-card border-bottom p-3">
+                        <div class="filters-card-header" id="headingOffer">
+                            <h6 class="mb-0">
+                                <a class="btn-link" data-toggle="collapse" data-target="#collapseOffer"
+                                    aria-expanded="true" aria-controls="collapseOffer">
+                                    Genre <i class="fas fa-angle-down float-right"></i>
+                                </a>
+                            </h6>
+                        </div>
+                        <div id="collapseOffer" class="collapse show" aria-labelledby="headingOffer"
+                            data-parent="#accordion">
+                            <div class="filters-card-body card-shop-filters">
+                                <form >
+                                    <div *ngIf="seeAll; else elseBlock1">
+                                        <div class="custom-control custom-checkbox"
+                                            *ngFor="let category of globalState.categories;let i =index">
+                                            <input type="checkbox" class="custom-control-input" [id]="'raoshab'+i"
+                                                (click)="toggle(category.name)" [checked]="filters.includes(category.name)">
+                                            <label class="custom-control-label" [for]="'raoshab'+i"> {{category.name}}
+                                                <small class="text-black-50">{{category.value}}</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <ng-template #elseBlock1>
+                                        <div class="custom-control custom-checkbox"
+                                            *ngFor="let category of globalState.categories.slice(0,4);let i =index">
+                                            <input type="checkbox" class="custom-control-input" [id]="'raoshab'+i"
+                                                (click)="toggle(category.name)" [checked]="filters.includes(category.name)">
+                                            <label class="custom-control-label" [for]="'raoshab'+i"> {{category.name}}
+                                                <small class="text-black-50">{{category.value}}</small>
+                                            </label>
+                                        </div>
+                                    </ng-template>
+                                </form>
+                                <div class="mt-2"><a class="link linkkk" (click)="seeAll=!seeAll">{{seeAll?'See
+                                        less':'See all'}}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-9 col-lg-8">
+        <div class="row">
+            <div class="col-xl-4 col-md-6 mb-4" *ngFor="let blog of matchSearch(this.filteredBlogs);">
+                <app-card [content]="blog" type="/blog">
+                </app-card>
+            </div>
+        </div>
+        <app-loader [loading]="globalState.loading"></app-loader>
+    </div>
+</div>
