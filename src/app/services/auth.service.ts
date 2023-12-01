@@ -142,7 +142,8 @@ export class AuthService {
     setDoc(doc(this.fs, 'users/' + uid), details)
       .then(r => {
         localStorage.removeItem('addUid')
-        this.router.navigate(['/'])
+        // this.router.navigate(['/'])
+        location.replace('/')
       })
       .catch(e => {
         this.addInfoErr = e.code
@@ -157,6 +158,11 @@ export class AuthService {
       .then(d => {
         if (d.exists()) {
           let o=d.data()
+          if(o['arr'][month]===0){
+            if(month){
+            o['arr'][month]=o['arr'][month-1]
+            }
+          }
           o['arr'][month]+=1
 
           setDoc(doc(this.fs, 'monthlyUsers', year + ''), o)
