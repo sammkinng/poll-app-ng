@@ -13,7 +13,7 @@ export class AuthService {
     fName: '',
     lName: ''
   })
-  userDetails$:Observable<any>=this.userDetails.asObservable()
+  userDetails$: Observable<any> = this.userDetails.asObservable()
   regError = ''
   addInfoErr = ''
 
@@ -21,7 +21,7 @@ export class AuthService {
     signInWithEmailAndPassword(this.auth, username, password)
       .then((userCredential) => {
         // Successfully logged in
-        localStorage.setItem('uid',userCredential.user.uid)
+        localStorage.setItem('uid', userCredential.user.uid)
         this.router.navigate(['/'])
       })
       .catch((error) => {
@@ -62,7 +62,7 @@ export class AuthService {
   signup(email: string, password: string) {
     createUserWithEmailAndPassword(this.auth, email, password)
       .then(res => {
-        localStorage.setItem('uid',res.user.uid)
+        localStorage.setItem('uid', res.user.uid)
         localStorage.setItem('addUid', res.user.uid)
         this.router.navigate(['/auth/add-info'])
       })
@@ -73,72 +73,72 @@ export class AuthService {
       })
   }
 
-  async userExists(uid:string){
+  async userExists(uid: string) {
     try {
-      let r=await getDoc(doc(this.fs, 'users/' + uid))
-      if(r.exists()){
+      let r = await getDoc(doc(this.fs, 'users/' + uid))
+      if (r.exists()) {
         return true
       }
-      else{
+      else {
         return false
       }
     } catch (error) {
       return false
     }
   }
-  
 
-  signwithProvider(id:number,type:number){
+
+  signwithProvider(id: number, type: number) {
     let provider
-    switch(id){
+    switch (id) {
       case 0:
-        provider=new GoogleAuthProvider()
+        provider = new GoogleAuthProvider()
         break
       case 1:
-        provider= new OAuthProvider('microsoft.com')
+        provider = new OAuthProvider('microsoft.com')
         break
       case 2:
-        provider=new FacebookAuthProvider()
+        provider = new FacebookAuthProvider()
         break
       case 3:
-        provider=new TwitterAuthProvider()
+        provider = new TwitterAuthProvider()
         break
       default:
         return
     }
     signInWithPopup(this.auth, provider)
       .then(r => {
-        localStorage.setItem('uid',r.user.uid)
+        localStorage.setItem('uid', r.user.uid)
         this.userExists(r.user.uid)
-        .then(rr=>{
-          if(rr){
-            this.router.navigate(['/'])
-          }
-          else{
-            localStorage.setItem('addUid', r.user.uid)
-            this.router.navigate(['/auth/add-info'])
-          }
-        })
+          .then(rr => {
+            if (rr) {
+              this.router.navigate(['/'])
+            }
+            else {
+              localStorage.setItem('addUid', r.user.uid)
+              this.router.navigate(['/auth/add-info'])
+            }
+          })
       })
-      .catch(e=>{
+      .catch(e => {
         console.log(e)
-        if(type){
-        this.regError=e.code
-        setTimeout(() => this.regError = '', 3000)
+        if (type) {
+          this.regError = e.code
+          setTimeout(() => this.regError = '', 3000)
         }
-        else{
-          this.loginErr=e.code
-          setTimeout(()=>this.loginErr='',1500)
+        else {
+          this.loginErr = e.code
+          setTimeout(() => this.loginErr = '', 1500)
         }
       })
 
   }
 
-  
+
   addDetails(uid: string, details: any) {
-    details['times']=0
-    details['times1']=0
-    details['votes']=[]
+    details['times'] = 0
+    details['times1'] = 0
+    details['votes'] = []
     setDoc(doc(this.fs, 'users/' + uid), details)
       .then(r => {
         localStorage.removeItem('addUid')
@@ -148,6 +148,27 @@ export class AuthService {
         this.addInfoErr = e.code
         console.log(e, "error adding details")
       })
+
+    let month = new Date().getMonth()
+    let year = new Date().getFullYear()
+
+
+    getDoc(doc(this.fs, 'monthlyUsers', year + ''))
+      .then(d => {
+        if (d.exists()) {
+          let o=d.data()
+          o['arr'][month]+=1
+
+          setDoc(doc(this.fs, 'monthlyUsers', year + ''), o)
+          .catch(e=>{
+            console.log(e)
+          })
+        }
+      })
+      .catch((e)=>{
+        console.log(e)
+      })
+
   }
 
   constructor(
