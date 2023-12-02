@@ -13,6 +13,7 @@ export class ResultComponent {
   declared = false
   title=''
   genre=''
+  content=''
 
   pieData: PieData = {
     id: 'cv1',
@@ -81,6 +82,13 @@ export class ResultComponent {
                 }
                 })
 
+            }else{
+              this.vs.getResultById(params.get('id') || '')
+                .then(r => {
+                  if(r){
+                    this.content=r['content-live-poll']
+                  }
+                })
             }
           }
         })

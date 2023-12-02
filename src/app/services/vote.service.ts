@@ -32,6 +32,9 @@ export class VoteService {
   }
 
   async setVoteByPollIdAndUser(id:string,uid:string,option:string){
+    if(!uid){
+      location.replace('/auth/login')
+    }
     let r=await this.fs.setVotesById(id,option,uid)
     if(!r){
       this.err='Some Unknown Error Occured: SE502'

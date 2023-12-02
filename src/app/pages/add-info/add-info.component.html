@@ -92,7 +92,7 @@
                                  <div class="col-sm-6">
                                     <div class="form-control d-flex justify-content-between">
                                        DOB:
-                                       <input type="date" placeholder="DOB" formControlName="dob" id="ddd">
+                                       <input type="date" placeholder="DOB" formControlName="dob" id="ddd" max="2023-12-03">
                                     </div>
                                     <div class="red"
                                        *ngIf="form.get('dob')?.hasError('required') && form.get('dob')?.value!==null">

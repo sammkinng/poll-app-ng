@@ -13,33 +13,33 @@ export class OptionComponent {
   @Input() pollId: string = ''
 
   voteErr = false
-  VoteErr=''
-  voteSuccess=false
+  VoteErr = ''
+  voteSuccess = false
 
   selected: any = null
 
   voted = false
 
-  vote(option:string) {
+  vote(option: string) {
     if (this.selected == null) {
       this.voteErr = true
       setTimeout(() => this.voteErr = false, 1500)
     }
     else {
-      this.votes.setVoteByPollIdAndUser(this.pollId,this.auth.getUID(),option)
-      .then(r=>{
-        if(r){
-          this.voteSuccess=true
-        }
-      })
+      this.votes.setVoteByPollIdAndUser(this.pollId, this.auth.getUID(), option)
+        .then(r => {
+          if (r) {
+            this.voteSuccess = true
+          }
+        })
     }
   }
 
-  btnName(){
-    if(this.voted){
-return 'You have already Voted'
+  btnName() {
+    if (this.voted) {
+      return 'You have already Voted'
     }
-    if(this.voteSuccess){
+    if (this.voteSuccess) {
       return 'Vote Submitted!'
     }
     return 'Vote'
