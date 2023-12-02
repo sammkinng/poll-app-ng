@@ -10,11 +10,30 @@ export class FirestoreService {
   err = ''
   userD:{[key:string]:any}={}
 
+  logo=''
+  icon=''
+
   constructor(
     private fs: Firestore,
     private auth:AuthService
   ) { 
     auth.userDetails$.subscribe(d=>{this.userD=d})
+    this.getIcons()
+  }
+
+  getIcons(){
+    getDoc(doc(this.fs,'logo','logo'))
+    .then(d=>{
+      if(d.exists()){
+        this.logo=d.data()['url']
+      }
+    })
+    getDoc(doc(this.fs,'favIcon','icon'))
+    .then(d=>{
+      if(d.exists()){
+        this.icon=d.data()['url']
+      }
+    })
   }
 
   updataData(uid: string, data: any, og: { [key: string]: any },type:number) {

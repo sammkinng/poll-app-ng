@@ -8,9 +8,9 @@
          <a class="sidebar-brand d-flex align-items-center justify-content-center" [routerLink]="['/']"
             (click)="selected=null">
             <div class="sidebar-brand-icon">
-               <img src="/assets/img/logo-icon.png" alt="">
+               <img [src]="fs.icon " alt="" width="20">
             </div>
-            <div class="sidebar-brand-text mx-3"><img src="/assets/img/logo.png" alt=""></div>
+            <div class="sidebar-brand-text mx-3"><img [src]="fs.logo " alt=""></div>
          </a>
          <!-- Nav Item - Dashboard -->
          <li [class]="selected==='/' ? 'nav-item active':'nav-item'">

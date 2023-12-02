@@ -5,6 +5,7 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { StateService } from 'src/app/services/state.service';
 import { months } from '../card/card.component';
 import {  Router } from '@angular/router';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-frame',
@@ -58,7 +59,8 @@ export class FrameComponent {
     public globalState: StateService,
     public auth: AuthService,
     private notif: NotificationService,
-    private router:Router
+    private router:Router,
+    public fs:FirestoreService
   ) {
     notif.getNofifications()
       .then(r => {
