@@ -12,6 +12,7 @@ export class FirestoreService {
 
   logo=''
   icon=''
+  ad=''
 
   constructor(
     private fs: Firestore,
@@ -19,6 +20,7 @@ export class FirestoreService {
   ) { 
     auth.userDetails$.subscribe(d=>{this.userD=d})
     this.getIcons()
+    this.getGoogleAd()
   }
 
   getIcons(){
@@ -194,6 +196,13 @@ export class FirestoreService {
       arr.push(j)
     })
     return arr
+  }
+
+  async getGoogleAd(){
+    let x=await getDoc(doc(this.fs,'ads','ad1'))
+    if(x.exists()){
+      this.ad= x.data()['code']
+    }
   }
 
 }

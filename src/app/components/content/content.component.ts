@@ -3,6 +3,7 @@ import { Blog, Poll } from 'src/app/pages/main/main.component';
 import { days } from 'src/app/pages/poll/poll.component';
 import { months } from '../card/card.component';
 import { DocumentData } from 'firebase/firestore';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-content',
@@ -12,6 +13,7 @@ import { DocumentData } from 'firebase/firestore';
 export class ContentComponent {
   days:string[]=days
   months:string[]=months
+  ad=''
 
   @Input()content:Poll|Blog|null|DocumentData=null
 
@@ -28,6 +30,10 @@ export class ContentComponent {
     +months[date?.getMonth()]?.slice(0,3)+" at "
     +h+":"+mm+" "+sfx
 
+  }
+
+  constructor(public fs:FirestoreService){
+    
   }
 
 }
