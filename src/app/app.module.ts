@@ -30,7 +30,6 @@ import { BlogSectionComponent } from './components/blog-section/blog-section.com
 import { BlogHomeComponent } from './pages/blog-home/blog-home.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { ResultComponent } from './pages/result/result.component';
-import { SubmittedComponent } from './pages/submitted/submitted.component';
 import { LoaderModalComponent } from './components/loader-modal/loader-modal.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { SiteMapComponent } from './pages/site-map/site-map.component';
@@ -62,7 +61,6 @@ import { Extra2Component } from './pages/extra2/extra2.component';
     BlogHomeComponent,
     AuthLayoutComponent,
     ResultComponent,
-    SubmittedComponent,
     LoaderModalComponent,
     PrivacyComponent,
     SiteMapComponent,
