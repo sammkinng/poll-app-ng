@@ -24,47 +24,63 @@
 <body>
   <style>
     .loader-cool {
-  /* position: absolute;
-  top: calc(50% - 4em);
-  left: calc(50% - 4em); */
-  width: 6em;
-  height: 6em;
-  border: 1.1em solid rgba(0, 0, 0, 0.2);
-  border-left: 1.1em solid #000000;
-  border-radius: 50%;
-  animation: load8 1.1s infinite linear;
-  transition: opacity 0.3s;
-}
+      width: 6em;
+      height: 6em;
+      border: 1.1em solid rgba(0, 0, 0, 0.2);
+      border-left: 1.1em solid #000000;
+      border-radius: 50%;
+      animation: load8 1.1s infinite linear;
+      transition: opacity 0.3s;
+    }
 
-.looder{
-  position: absolute;
-  top:0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: 3;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    #maintenance{
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: 4;
+      background-color: white;
+    }
 
-.loader-hide {
-  display: none;
-}
+    .looder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: 3;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-@keyframes load8 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+    .loader-hide {
+      display: none;
+    }
+
+    .show{
+      display: block!important;
+    }
+
+    @keyframes load8 {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
   </style>
   <div class="looder">
-  <div class="loader-cool">
+    <div class="loader-cool">
     </div>
+  </div>
+  <div id="maintenance">
+    This site is under maintenance. Please come back Later.
   </div>
   <app-root></app-root>
 </body>

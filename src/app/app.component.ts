@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirestoreService } from './services/firestore.service';
 
 const loader = document.querySelector('.looder') as HTMLElement;
 
@@ -18,5 +19,17 @@ export class AppComponent {
   title = 'poll-app-ng';
   ngOnInit(){
     hideLoader()
+  }
+  constructor(fs:FirestoreService){
+    console.log("hejfdg")
+    fs.siteUnderMaintenance()
+    .then(v=>{
+      console.log('fkjhbgf')
+      if(v){
+        console.log(v)
+        const x=document.querySelector('#maintenance') as HTMLElement;
+        x.classList.add('show')
+      }
+    })
   }
 }
