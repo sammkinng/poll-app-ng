@@ -81,8 +81,8 @@ export class FirestoreService {
       let x = d.data()
       x['date'] = new Date(x['date'])
       x['timeLeft'] = new Date(x['timeLeft'])
+      x['closed']=new Date().getTime()>x['timeLeft'].getTime()
       docs.push(x)
-
     })
     return docs
   }

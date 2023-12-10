@@ -17,6 +17,7 @@ export class FrameComponent {
     fName: '',
     lName: ''
   }
+  sidebar=false
   months = months
   notificationsBadge = 0
   selected: any = '/'
@@ -88,6 +89,20 @@ export class FrameComponent {
 
   onSearch(){
     this.globalState.updateSearchbar(this.search)
+  }
+
+  toggleSideBar(){
+    let sidebar=document.getElementById('accordionSidebar')
+    let body=document.getElementById('page-top')
+    if(this.sidebar){
+      sidebar?.classList.add('toggled')
+      body?.classList.add('sidebar-toggled')
+    }
+    else{
+      sidebar?.classList.remove('toggled')
+      body?.classList.remove('sidebar-toggled')
+    }
+    this.sidebar=!this.sidebar
   }
 
 }
